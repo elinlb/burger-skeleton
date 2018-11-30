@@ -21,7 +21,9 @@ export default {
   props: {
     item: Object,
     lang: String,
-    boxClass: Object
+    boxClass: String,
+    boxArray: Array,
+    boxCounter: Number
   },
     data: function () {
     return {

@@ -3,18 +3,20 @@
     <img class="example-panel" src="@/assets/exampleImage.jpg">
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
+
+
     <h1>{{ uiLabels.ingredients }}</h1>
 
-
     <Ingredient
+
       ref="ingredient"
       v-for="item in ingredients"
       v-if="item.category === 4"
       v-on:increment="addToOrder(item)"
       :item="item"
       :lang="lang"
-      :boxClass =  ”{a: true}",
-      :boxClass = "{array[counter]: true}"
+      :boxClass = "boxArray[boxCounter]"
+      :boxCounter = "boxCounter + 1"
       :key="item.ingredient_id">
     </Ingredient>
 
@@ -62,6 +64,8 @@ export default {
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
+      boxArray: ['a', 'b', 'c', 'd'],
+      boxCounter: 0
     }
   },
   created: function () {
@@ -128,7 +132,7 @@ export default {
      padding: 10px;
      font-size: 100%;
      margin-left: 50px;
-     background-color: blue;
+     background-color: orange;
  }
 
  .a {
@@ -144,7 +148,7 @@ export default {
       width: 120%;
      grid-column: 2 ;
      margin-left: 70px;
-     color: blue;
+     background-color: blue;
 
  }
 
@@ -152,9 +156,18 @@ export default {
       width: 120%;
      grid-column: 3 ;
      margin-left: 70px;
-     color: green;
+     background-color: green;
 
  }
+
+ .d {
+      width: 120%;
+     grid-column: 4 ;
+     margin-left: 70px;
+     background-color: pink;
+
+ }
+
 
 
 </style>
