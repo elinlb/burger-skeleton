@@ -5,12 +5,16 @@
 
     <h1>{{ uiLabels.ingredients }}</h1>
 
+
     <Ingredient
       ref="ingredient"
       v-for="item in ingredients"
-      v-on:increment="addToOrder(item)"  
-      :item="item" 
+      v-if="item.category === 4"
+      v-on:increment="addToOrder(item)"
+      :item="item"
       :lang="lang"
+      :boxClass =  ”{a: true}",
+      :boxClass = "{array[counter]: true}"
       :key="item.ingredient_id">
     </Ingredient>
 
@@ -20,11 +24,11 @@
 
     <h1>{{ uiLabels.ordersInQueue }}</h1>
     <div>
-      <OrderItem 
+      <OrderItem
         v-for="(order, key) in orders"
         v-if="order.status !== 'done'"
         :order-id="key"
-        :order="order" 
+        :order="order"
         :ui-labels="uiLabels"
         :lang="lang"
         :key="key">
@@ -43,7 +47,7 @@ import OrderItem from '@/components/OrderItem.vue'
 //import methods and data that are shared between ordering and kitchen views
 import sharedVueStuff from '@/components/sharedVueStuff.js'
 
-/* instead of defining a Vue instance, export default allows the only 
+/* instead of defining a Vue instance, export default allows the only
 necessary Vue instance (found in main.js) to import your data and methods */
 export default {
   name: 'Ordering',
@@ -51,7 +55,7 @@ export default {
     Ingredient,
     OrderItem
   },
-  mixins: [sharedVueStuff], // include stuff that is used in both 
+  mixins: [sharedVueStuff], // include stuff that is used in both
                             // the ordering system and the kitchen
   data: function() { //Not that data is a function!
     return {
@@ -101,6 +105,7 @@ export default {
   left:0;
   top:0;
   z-index: -2;
+  opacity: 0.2;
 }
 .ingredient {
   border: 1px solid #ccd;
@@ -108,4 +113,48 @@ export default {
   background-image: url('~@/assets/exampleImage.jpg');
   color: white;
 }
+
+.wrapper {
+     display: grid;
+     grid-gap: 10px;
+     grid-template-columns: 350px 350px 350px;
+     background-color: white;
+      color: #444;
+ }
+
+ .box {
+      color: #fff;
+     border-radius: 5px;
+     padding: 10px;
+     font-size: 100%;
+     margin-left: 50px;
+     background-color: blue;
+ }
+
+ .a {
+      width: 120%;
+     grid-column: 1 ;
+     margin-left: 70px;
+     color: white;
+     background-color: red;
+
+ }
+
+ .b {
+      width: 120%;
+     grid-column: 2 ;
+     margin-left: 70px;
+     color: blue;
+
+ }
+
+ .c {
+      width: 120%;
+     grid-column: 3 ;
+     margin-left: 70px;
+     color: green;
+
+ }
+
+
 </style>
