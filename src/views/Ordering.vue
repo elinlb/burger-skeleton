@@ -3,22 +3,32 @@
     <img class="example-panel" src="@/assets/exampleImage.jpg">
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
+<h1>Create your burger</h1>
+
+<div class="flex-container">
+
+  <div class="flex-item">Bread</div>
+  <div class="flex-item">Protein</div>
+  <div class="flex-item">Vegetables</div>
+  <div class="flex-item">Sauce</div>
+  <div class="flex-item">Add-ons</div>
+
+</div>
 
 
     <h1>{{ uiLabels.ingredients }}</h1>
 
+<div class="boxWrapper">
     <Ingredient
-
       ref="ingredient"
       v-for="item in ingredients"
       v-if="item.category === 4"
       v-on:increment="addToOrder(item)"
       :item="item"
       :lang="lang"
-      :boxClass = "boxArray[boxCounter]"
-      :boxCounter = "boxCounter + 1"
       :key="item.ingredient_id">
     </Ingredient>
+  </div>
 
     <h1>{{ uiLabels.order }}</h1>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
@@ -64,8 +74,8 @@ export default {
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
-      boxArray: ['a', 'b', 'c', 'd'],
-      boxCounter: 0
+      // boxArray: ['a', 'b', 'c', 'd'],
+      // boxCounter: 0
     }
   },
   created: function () {
@@ -111,19 +121,21 @@ export default {
   z-index: -2;
   opacity: 0.2;
 }
+
 .ingredient {
   border: 1px solid #ccd;
   padding: 1em;
-  background-image: url('~@/assets/exampleImage.jpg');
   color: white;
 }
 
-.wrapper {
-     display: grid;
-     grid-gap: 10px;
-     grid-template-columns: 350px 350px 350px;
-     background-color: white;
-      color: #444;
+
+ .boxWrapper {
+   grid-template-columns: 350px 350px 350px;
+   grid-gap: 10px;
+   display: flex;
+   justify-content:space-evenly;
+   flex-wrap: wrap;
+
  }
 
  .box {
@@ -135,39 +147,37 @@ export default {
      background-color: orange;
  }
 
- .a {
-      width: 120%;
-     grid-column: 1 ;
-     margin-left: 70px;
-     color: white;
-     background-color: red;
+.flex-container {
+  background-color: white;
+  padding: 10px;
+  margin: 0;
+  list-style: none;
 
- }
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
 
- .b {
-      width: 120%;
-     grid-column: 2 ;
-     margin-left: 70px;
-     background-color: blue;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
 
- }
+.flex-item {
+  background: tomato;
+  padding: 5px;
+  width: 100px;
+  height: auto;
+  margin-top: 10px;
 
- .c {
-      width: 120%;
-     grid-column: 3 ;
-     margin-left: 70px;
-     background-color: green;
+  line-height: 50px;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
 
- }
-
- .d {
-      width: 120%;
-     grid-column: 4 ;
-     margin-left: 70px;
-     background-color: pink;
-
- }
-
-
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
 
 </style>

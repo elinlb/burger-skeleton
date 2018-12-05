@@ -1,18 +1,15 @@
-<template>
-  <div class="box" v-bind:class="boxClass">
-<div class ="wrapper" style="display: flex; justify-content:space-evenly; flex-wrap: wrap;">
-<div class="ingredient">
-        <!-- <div v-if="item.category == 4"> -->
 
+<template>
+<div class="ingredient box">
     <label>
       <button v-on:click="incrementCounter">{{ counter }}</button>
       {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-, {{item.stock}} pcs
     </label>
   </div>
-</div>
+<!-- </div> -->
 <!-- </div> -->
 
-    </div>
+
 
 </template>
 <script>
@@ -21,9 +18,6 @@ export default {
   props: {
     item: Object,
     lang: String,
-    boxClass: String,
-    boxArray: Array,
-    boxCounter: Number
   },
     data: function () {
     return {
@@ -44,6 +38,7 @@ export default {
 
   }
 }
+
 </script>
 <style scoped>
 
