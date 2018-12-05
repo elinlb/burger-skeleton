@@ -1,4 +1,4 @@
-ingredient_id,ingredient_sv,ingredient_en,category,milk_free,gluten_free,vegan,selling_price
+ingredient_id,ingredient_sv,ingredient_en,category,milk_free,gluten_free,vegan,selling_price,image
 1,bönburgare,bean patty,1,1,1,1,40
 2,nötfärsburgare 100g,beef patty 100g,1,1,1,0,40
 3,nötfärsburgare 200g,beef patty 200g,1,1,1,0,60
@@ -49,7 +49,7 @@ ingredient_id,ingredient_sv,ingredient_en,category,milk_free,gluten_free,vegan,s
 48,tryffelmajonnäs,truffle mayonnaise,3,1,1,0,5
 49,tzatziki,tzatziki,3,0,1,0,5
 50,brioche,brioche,4,0,0,0,10
-51,glutenfritt bröd,gluten free bread,4,1,1,1,10
+51,glutenfritt bröd,gluten free bread,4,1,1,1,10,@/assets/gluten_free.png
 52,veganskt bröd,vegan bun,4,0,0,1,10
 53,fullkornsbrioche,whole wheat brioche,4,0,0,0,10
 54,nachochips,nachos,5,1,0,1,20
