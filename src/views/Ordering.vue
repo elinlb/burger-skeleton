@@ -2,27 +2,28 @@
   <div id="ordering">
     <img class="example-panel" src="@/assets/exampleImage.jpg">
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
+    <button class = "Cancel" v-on:click ="cancel()"> {{uiLabels.cancel}} </button>
+
 
 <h1>Create your burger</h1>
 
 <div class="flex-container">
 
-  <div class="flex-item">Bread</div>
-  <div class="flex-item">Protein</div>
-  <div class="flex-item">Vegetables</div>
-  <div class="flex-item">Sauce</div>
-  <div class="flex-item">Add-ons</div>
+  <div class="flex-item">{{ uiLabels.bread }} </div>
+  <div class="flex-item"> {{ uiLabels.protein }} </div>
+  <div class="flex-item"> {{ uiLabels.vegetables }} </div>
+  <div class="flex-item"> {{ uiLabels.sauce }} </div>
+  <div class="flex-item"> {{ uiLabels.addons }} </div>
 
 </div>
-
 
     <h1>{{ uiLabels.ingredients }}</h1>
 
 <div class="boxWrapper">
     <Ingredient
+    v-if = "item.category == slideNumber"
       ref="ingredient"
       v-for="item in ingredients"
-      v-if="item.category === 4"
       v-on:increment="addToOrder(item)"
       :item="item"
       :lang="lang"
@@ -33,6 +34,8 @@
     <h1>{{ uiLabels.order }}</h1>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+  <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
+  <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
 
     <h1>{{ uiLabels.ordersInQueue }}</h1>
     <div>
@@ -74,6 +77,7 @@ export default {
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
+      slideNumber: 1,
       // boxArray: ['a', 'b', 'c', 'd'],
       // boxCounter: 0
     }
@@ -95,6 +99,7 @@ export default {
           ingredients: this.chosenIngredients,
           price: this.price
         };
+
       // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
       this.$store.state.socket.emit('order', {order: order});
       //set all counters to 0. Notice the use of $refs
@@ -103,8 +108,25 @@ export default {
       }
       this.price = 0;
       this.chosenIngredients = [];
+    },
+    nextSlide: function() {
+      if (this.slideNumber <5 ){
+        this.slideNumber += 1
+      }
+    },
+      previousSlide: function() {
+        if(this.slideNumber >1){
+          this.slideNumber -=1
+        }
+      },
+      cancel: function(){
+        if(this.slideNumber >1){
+          this.slideNumber =1
+        }
+      }
+
     }
-  }
+
 }
 </script>
 <style scoped>
@@ -112,6 +134,29 @@ export default {
 #ordering {
   margin:auto;
   width: 40em;
+}
+
+.Next {
+background-color: #008CBA;
+width: 4em;
+height: 2em;
+position:absolute;
+right: 450px;
+}
+
+.Back {
+background-color: #008CBA;
+width: 4em;
+height: 2em;
+}
+
+.Cancel {
+  width: 4em;
+  height: 2em;
+  background-color: red;
+  position: absolute;
+  right: 450px;
+
 }
 
 .example-panel {
