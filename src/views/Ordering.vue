@@ -3,14 +3,20 @@
     <img class="example-panel" src="@/assets/exampleImage.jpg">
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
+
+
     <h1>{{ uiLabels.ingredients }}</h1>
 
     <Ingredient
+
       ref="ingredient"
       v-for="item in ingredients"
+      v-if="item.category === 4"
       v-on:increment="addToOrder(item)"
       :item="item"
       :lang="lang"
+      :boxClass = "boxArray[boxCounter]"
+      :boxCounter = "boxCounter + 1"
       :key="item.ingredient_id">
     </Ingredient>
 
@@ -58,6 +64,8 @@ export default {
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
+      boxArray: ['a', 'b', 'c', 'd'],
+      boxCounter: 0
     }
   },
   created: function () {
@@ -101,6 +109,7 @@ export default {
   left:0;
   top:0;
   z-index: -2;
+  opacity: 0.2;
 }
 .ingredient {
   border: 1px solid #ccd;
@@ -108,4 +117,57 @@ export default {
   background-image: url('~@/assets/exampleImage.jpg');
   color: white;
 }
+
+.wrapper {
+     display: grid;
+     grid-gap: 10px;
+     grid-template-columns: 350px 350px 350px;
+     background-color: white;
+      color: #444;
+ }
+
+ .box {
+      color: #fff;
+     border-radius: 5px;
+     padding: 10px;
+     font-size: 100%;
+     margin-left: 50px;
+     background-color: orange;
+ }
+
+ .a {
+      width: 120%;
+     grid-column: 1 ;
+     margin-left: 70px;
+     color: white;
+     background-color: red;
+
+ }
+
+ .b {
+      width: 120%;
+     grid-column: 2 ;
+     margin-left: 70px;
+     background-color: blue;
+
+ }
+
+ .c {
+      width: 120%;
+     grid-column: 3 ;
+     margin-left: 70px;
+     background-color: green;
+
+ }
+
+ .d {
+      width: 120%;
+     grid-column: 4 ;
+     margin-left: 70px;
+     background-color: pink;
+
+ }
+
+
+
 </style>
