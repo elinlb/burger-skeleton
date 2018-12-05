@@ -1,9 +1,9 @@
 <template>
   <div id="ordering">
-    <img class="example-panel" src="@/assets/exampleImage.jpg">
+    <img class="example-panel" src="@/assets/white.jpeg">
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
-<h1>Create your burger</h1>
+<h1 class="headline">Create your burger</h1>
 
 <div class="flex-container">
 
@@ -18,6 +18,8 @@
 
     <h1>{{ uiLabels.ingredients }}</h1>
 
+
+
 <div class="boxWrapper">
     <Ingredient
       ref="ingredient"
@@ -26,7 +28,9 @@
       v-on:increment="addToOrder(item)"
       :item="item"
       :lang="lang"
-      :key="item.ingredient_id">
+      :key="item.ingredient_id"
+      >
+      <!-- <img src="https://cdn.shopify.com/s/files/1/1205/7170/products/tinywhite_7bbbee20-b41f-477e-97d5-9103704c9975_530x.png?v=1489000542" alt="Span" title="Crispy Burga" width="300"> -->
     </Ingredient>
   </div>
 
@@ -34,7 +38,7 @@
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
 
-    <h1>{{ uiLabels.ordersInQueue }}</h1>
+    <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
     <div>
       <OrderItem
         v-for="(order, key) in orders"
@@ -74,8 +78,6 @@ export default {
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
-      // boxArray: ['a', 'b', 'c', 'd'],
-      // boxCounter: 0
     }
   },
   created: function () {
@@ -109,6 +111,9 @@ export default {
 </script>
 <style scoped>
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
+
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
 #ordering {
   margin:auto;
   width: 40em;
@@ -120,6 +125,10 @@ export default {
   top:0;
   z-index: -2;
   opacity: 0.2;
+}
+
+.headline {
+  font-family:Comfortaa;
 }
 
 .ingredient {
@@ -145,10 +154,13 @@ export default {
      font-size: 100%;
      margin-left: 50px;
      background-color: orange;
+     font-family: Comfortaa;
  }
 
 .flex-container {
-  background-color: white;
+  background-color: #F2F3F4;
+  border-style: double;
+  border-color: black;
   padding: 10px;
   margin: 0;
   list-style: none;
@@ -164,14 +176,15 @@ export default {
 }
 
 .flex-item {
-  background: tomato;
+  /* background: tomato; */
   padding: 5px;
-  width: 100px;
+  width: 100%;
   height: auto;
   margin-top: 10px;
 
   line-height: 50px;
-  color: white;
+  color: black;
+  font-family: Comfortaa;
   font-weight: bold;
   font-size: 1em;
   text-align: center;
