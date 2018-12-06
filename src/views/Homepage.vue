@@ -1,5 +1,6 @@
 <template>
 <div id="styling">
+  <img class="backgroundpic" src="@/assets/brick.jpg" >
 Hej
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
@@ -9,7 +10,16 @@ Hej
       <h1>Build your burger</h1>
       <img src="@/assets/burger.png" width="100em">
     </div>
+        </div>
+    <div class = "burgerContainer">
+    <div class ="sideBox">
+        <h1>Pick sides</h1>
+
+        <img src="@/assets/soda.png" width="100em">
+        <img src="@/assets/fries.png" width="100em">
+
      </div>
+   </div>
     </router-link>
 
 </div>
@@ -84,6 +94,33 @@ export default {
 
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
+  }
+
+  .sideBox {
+    /* background: tomato; */
+    color: black;
+    font-family: Comfortaa;
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+  }
+
+  .backgroundpic {
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: -2;
+    opacity: 0.2;
+    width: 80em;
   }
 
 </style>
