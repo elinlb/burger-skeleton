@@ -2,7 +2,7 @@
 <template>
 <div class="ingredient box">
     <label>
-      <img class="picture" :src="findImage(item.image)"> </br>
+      <img class="picture" :src="findImage(item.image)"> 
       <button v-on:click="incrementCounter">{{ counter }}</button>
       {{item["ingredient_"+ lang]}},{{item.selling_price}}:-
     </label>
@@ -52,6 +52,7 @@ export default {
 <style scoped>
 
 .picture {
+  display: block;
   width: 7em;
   padding-left: 2em;
   align-items: center;
