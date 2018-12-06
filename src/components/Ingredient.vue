@@ -2,7 +2,7 @@
   <div class="ingredient">
     <label>
       <button v-on:click="incrementCounter">{{ counter }}</button>
-      {{item["ingredient_" + lang]}}, {{item.selling_price}}:-, {{item.stock}} pcs
+      {{item["ingredient_" + lang]}}, {{item.selling_price}}:-, {{item.stock}} {{uiLabels.pieces}}
     </label>
   </div>
 </template>
@@ -11,7 +11,8 @@ export default {
   name: 'Ingredient',
   props: {
     item: Object,
-    lang: String
+    lang: String,
+    uiLabels: Object,
   },
     data: function () {
     return {

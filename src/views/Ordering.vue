@@ -1,4 +1,4 @@
-<template> 
+<template>
   <div id="ordering">
     <img class="example-panel" src="@/assets/exampleImage.jpg">
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
@@ -11,7 +11,9 @@
       v-on:increment="addToOrder(item)"
       :item="item"
       :lang="lang"
+      :ui-labels="uiLabels"
       :key="item.ingredient_id">
+
     </Ingredient>
 
     <h1>{{ uiLabels.order }}</h1>

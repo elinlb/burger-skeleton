@@ -17,6 +17,7 @@
   </div>
 </div>
 <div class="column right">
+  <button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
   <div class="rowa">
   <h1>{{ uiLabels.ordersFinished }}</h1>
   <div>
@@ -32,7 +33,17 @@
   </div>
 </div>
 <div class="rowb">
-  <h1>HEJ</h1>
+  <h1>{{ uiLabels.ordersToFry }}</h1>
+  {{uiLabels.beenPatty}}: {{countBeanPatty}} {{uiLabels.pieces}}<br>
+  {{uiLabels.beef100g}}: {{countBeef100}} {{uiLabels.pieces}}<br>
+  {{uiLabels.beef200g}}: {{countBeef200}} {{uiLabels.pieces}}<br>
+  {{uiLabels.chickenPatty}}: {{countChickenPatty}} {{uiLabels.pieces}}<br>
+  {{uiLabels.deepFriedHalloumi}}: {{countDeepFriedHalloumi}} {{uiLabels.pieces}}<br>
+  {{uiLabels.fishFilet}}: {{countFishFilet}} {{uiLabels.pieces}}<br>
+  {{uiLabels.grilledEggplant}}: {{countGrilledEggplant}} {{uiLabels.pieces}}<br>
+  {{uiLabels.lobster}}: {{countLobster}} {{uiLabels.pieces}}<br>
+  {{uiLabels.pulledJackfruit}}: {{countPulledJackfruit}} {{uiLabels.pieces}}<br>
+  {{uiLabels.pulledPork}}: {{countPulledPork}} {{uiLabels.pieces}}<br>
 </div>
 </div>
 </div>
@@ -59,9 +70,52 @@ export default {
       price: 0
     }
   },
+  computed: {
+    countBeanPatty: function() {
+      return this.countNumberOfIngredients(1)
+    },
+    countBeef100: function() {
+      return this.countNumberOfIngredients(2)
+    },
+    countBeef200: function() {
+      return this.countNumberOfIngredients(3)
+    },
+    countChickenPatty: function() {
+      return this.countNumberOfIngredients(4)
+    },
+    countDeepFriedHalloumi: function() {
+      return this.countNumberOfIngredients(5)
+    },
+    countFishFilet: function() {
+      return this.countNumberOfIngredients(6)
+    },
+    countGrilledEggplant: function() {
+      return this.countNumberOfIngredients(7)
+    },
+    countLobster: function() {
+      return this.countNumberOfIngredients(8)
+    },
+    countPulledJackfruit: function() {
+      return this.countNumberOfIngredients(9)
+    },
+    countPulledPork: function() {
+      return this.countNumberOfIngredients(10)
+    }
+  },
   methods: {
     markDone: function (orderid) {
       this.$store.state.socket.emit("orderDone", orderid);
+    },
+    countNumberOfIngredients: function(id) {
+      let counter = 0;
+      for (let order in this.orders) {
+        for (let i = 0; i < this.orders[order].ingredients.length; i+= 1) {
+          if (this.orders[order].ingredients[i].ingredient_id === id) {
+            counter += 1;
+          }
+        }
+      }
+      return counter;
     }
   }
 }
@@ -99,7 +153,7 @@ export default {
 
   .right {
   width: 35%;
-  height: 100%;
+  height: 100vh;
   }
 
   .rowa {
@@ -116,6 +170,16 @@ export default {
     content: "";
     display: table;
     clear: both;
+  }
+
+  #languageButton {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+  button:hover {
+    background-color: blue;
   }
 
 
