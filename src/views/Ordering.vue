@@ -1,10 +1,10 @@
 <template>
   <div id="ordering">
-    <img class="example-panel" src="@/assets/white.jpeg">
+    <img class="example-panel" src="@/assets/exampleImage.jpg">
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
-    <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
- <h1 class="headline">Create your burger</h1>
+    <button class = "Cancel" v-on:click ="cancel()"> {{uiLabels.cancel}} </button>
 
+<h1>Create your burger</h1>
 
 <div class="flex-container">
 
@@ -16,31 +16,27 @@
 
 </div>
 
-    <h1 class="headline">{{ uiLabels.ingredients }}</h1>
+    <h1>{{ uiLabels.ingredients }}</h1>
 
+<div class="boxWrapper">
+    <Ingredient
+    v-if = "item.category == slideNumber"
+      ref="ingredient"
+      v-for="item in ingredients"
+      v-on:increment="addToOrder(item)"
+      :item="item"
+      :lang="lang"
+      :key="item.ingredient_id">
+    </Ingredient>
+  </div>
 
-
-    <div class="boxWrapper">
-        <Ingredient
-        v-if = "item.category == slideNumber"
-          ref="ingredient"
-          v-for="item in ingredients"
-          v-on:increment="addToOrder(item)"
-          :item="item"
-          :lang="lang"
-          :key="item.ingredient_id">
-        </Ingredient>
-      </div>
-
-
-  <h1 class="headline">{{ uiLabels.order }}</h1>
+    <h1>{{ uiLabels.order }}</h1>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-    <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
-  <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
+  <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
+  <button class = "Back" v-on:click="prevoiusSlide()">{{ uiLabels.back }} </button>
 
-
-    <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
+    <h1>{{ uiLabels.ordersInQueue }}</h1>
     <div>
       <OrderItem
         v-for="(order, key) in orders"
@@ -81,6 +77,8 @@ export default {
       price: 0,
       orderNumber: "",
       slideNumber: 1,
+      // boxArray: ['a', 'b', 'c', 'd'],
+      // boxCounter: 0
     }
   },
   created: function () {
@@ -110,41 +108,31 @@ export default {
       this.price = 0;
       this.chosenIngredients = [];
     },
-nextSlide: function() {
-  if (this.slideNumber <5 ){
-    this.slideNumber += 1
-  }
-},
-  previousSlide: function() {
-    if(this.slideNumber >1){
-      this.slideNumber -=1
+    nextSlide: function() {
+      if (this.slideNumber <5 ){
+        this.slideNumber += 1
+      }
+    },
+      previousSlide: function() {
+        if(this.slideNumber >1){
+          this.slideNumber -=1
+        }
+      },
+      cancel: function(){
+        if(this.slideNumber >1){
+          this.slideNumber =1
+        }
+      }
     }
-  },
-  cancel: function(){
-    if(this.slideNumber >1){
-      this.slideNumber =1
-    }
-  }
-
-}
-
 }
 
 </script>
 <style scoped>
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
-@import url('https://fonts.googleapis.com/css?family=Comfortaa');
-
-
 #ordering {
   margin:auto;
   width: 40em;
 }
-
-.headline {
-  font-family:Comfortaa;
-}
-
 
 .Next {
 background-color: #008CBA;
@@ -168,7 +156,6 @@ height: 2em;
   right: 450px;
 
 }
-
 
 .example-panel {
   position: fixed;
@@ -197,7 +184,6 @@ height: 2em;
  .box {
       color: #fff;
      border-radius: 5px;
-     font-family: Comfortaa;
      padding: 10px;
      font-size: 100%;
      margin-left: 50px;
@@ -205,9 +191,7 @@ height: 2em;
  }
 
 .flex-container {
-  background-color: #F2F3F4;
-  border-style: double;
-  border-color: black;
+  background-color: white;
   padding: 10px;
   margin: 0;
   list-style: none;
@@ -223,15 +207,14 @@ height: 2em;
 }
 
 .flex-item {
-  /* background: tomato; */
-  color: black;
-  font-family: Comfortaa;
+  background: tomato;
   padding: 5px;
-  width: 100%;
+  width: 100px;
   height: auto;
   margin-top: 10px;
 
   line-height: 50px;
+  color: white;
   font-weight: bold;
   font-size: 1em;
   text-align: center;
