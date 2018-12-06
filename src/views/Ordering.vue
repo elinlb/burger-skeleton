@@ -16,7 +16,7 @@
 </div>
 
 
-    <h1>{{ uiLabels.ingredients }}</h1>
+    <h1 class="headline">{{ uiLabels.ingredients }}</h1>
 
 
 
@@ -34,7 +34,7 @@
     </Ingredient>
   </div>
 
-    <h1>{{ uiLabels.order }}</h1>
+    <h1 class="headline">{{ uiLabels.order }}</h1>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
 
