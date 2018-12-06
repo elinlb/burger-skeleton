@@ -2,8 +2,9 @@
 <template>
 <div class="ingredient box">
     <label>
+      <img class="picture" :src="findImage(item.image)"> </br>
       <button v-on:click="incrementCounter">{{ counter }}</button>
-      {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-, {{item.stock}} pcs
+      {{item["ingredient_"+ lang]}},{{item.selling_price}}:-
     </label>
   </div>
 <!-- </div> -->
@@ -34,6 +35,14 @@ export default {
     },
     resetCounter: function () {
       this.counter = 0;
+    },
+    findImage: function(image){
+      if(image !== "") {
+        let img=require('../assets/'+ image);
+        return img;
+      }
+      else return require('../assets/white.jpeg')
+
     }
 
   }
@@ -41,5 +50,11 @@ export default {
 
 </script>
 <style scoped>
+
+.picture {
+  width: 7em;
+  padding-left: 2em;
+  align-items: center;
+}
 
 </style>
