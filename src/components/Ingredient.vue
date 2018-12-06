@@ -19,6 +19,7 @@ export default {
   props: {
     item: Object,
     lang: String,
+    uiLabels: Object,
   },
     data: function () {
     return {
