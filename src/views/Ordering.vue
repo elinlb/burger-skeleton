@@ -35,7 +35,7 @@
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
   <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
-  <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
+  <button class = "Back" v-on:click="prevoiusSlide()">{{ uiLabels.back }} </button>
 
     <h1>{{ uiLabels.ordersInQueue }}</h1>
     <div>
