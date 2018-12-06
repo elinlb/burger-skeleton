@@ -18,7 +18,7 @@ export default {
   },
 	data: function () {
 	return {
-		nameMapping: {1: uiLabels.ingredients, 2: "Protein", 3: "Vegetables", 4: "Sauce", 5: "Add-ons", 6: "Drinks"}
+		nameMapping: {1: "Bread", 2: "Protein", 3: "Vegetables", 4: "Sauce", 5: "Add-ons", 6: "Drinks"}
 	}
 },
 	computed: {
