@@ -1,10 +1,11 @@
 <template>
   <div id="ordering">
-    <img class="example-panel" src="@/assets/white.jpeg">
+    <img class="example-panel" src="@/assets/exampleImage.jpg">
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
 
-<h1 class="headline">Create your burger</h1>
+
+<h1>Create your burger</h1>
 
 <div class="flex-container">
 
@@ -35,14 +36,14 @@
       </div>
 
 
-    <h1 class="headline">{{ uiLabels.order }}</h1>
+    <h1>{{ uiLabels.order }}</h1>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
     <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
   <button class = "Back" v-on:click="prevoiusSlide()">{{ uiLabels.back }} </button>
 
 
-    <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
+    <h1>{{ uiLabels.ordersInQueue }}</h1>
     <div>
       <OrderItem
         v-for="(order, key) in orders"
@@ -102,6 +103,7 @@ export default {
           ingredients: this.chosenIngredients,
           price: this.price
         };
+
       // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
       this.$store.state.socket.emit('order', {order: order});
       //set all counters to 0. Notice the use of $refs
@@ -134,9 +136,6 @@ nextSlide: function() {
 </script>
 <style scoped>
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
-
-@import url('https://fonts.googleapis.com/css?family=Comfortaa');
-
 #ordering {
   margin:auto;
   width: 40em;
@@ -174,10 +173,6 @@ height: 2em;
   opacity: 0.2;
 }
 
-.headline {
-  font-family:Comfortaa;
-}
-
 .ingredient {
   border: 1px solid #ccd;
   padding: 1em;
@@ -201,13 +196,10 @@ height: 2em;
      font-size: 100%;
      margin-left: 50px;
      background-color: orange;
-     font-family: Comfortaa;
  }
 
 .flex-container {
-  background-color: #F2F3F4;
-  border-style: double;
-  border-color: black;
+  background-color: white;
   padding: 10px;
   margin: 0;
   list-style: none;
@@ -223,15 +215,14 @@ height: 2em;
 }
 
 .flex-item {
-  /* background: tomato; */
+  background: tomato;
   padding: 5px;
-  width: 100%;
+  width: 100px;
   height: auto;
   margin-top: 10px;
 
   line-height: 50px;
-  color: black;
-  font-family: Comfortaa;
+  color: white;
   font-weight: bold;
   font-size: 1em;
   text-align: center;
