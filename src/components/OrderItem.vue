@@ -1,9 +1,11 @@
 <template>
 	<div>
 		{{order.type}} {{uiLabels.ingredients}}:<br>
-		<!--{{showCategory()}}-->
+		<div v-for = "item in showCategory">
+		{{ item }}
+		</div>
 		{{order.ingredients.map(item=>item["category"])}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
-	</div>
+</div>
 </template>
 <script>
 export default {
@@ -14,19 +16,26 @@ export default {
     orderId: String,
     lang: String,
   },
-	/*methods: {
+	data: function () {
+	return {
+		nameMapping: {1: uiLabels.ingredients, 2: "Protein", 3: "Vegetables", 4: "Sauce", 5: "Add-ons", 6: "Drinks"}
+	}
+},
+	computed: {
 		showCategory: function() {
-			console.log("Hej!")
-			categoryList: this.order.ingredients.map(item=>item["category"]);
-			for (category in categoryList) {
-				if (category === 1) {
-					return "Hej";
+			let list = [];
+			let ingredientList = this.order.ingredients;
+			for (let i = 0; i < ingredientList.length; i += 1) {
+				let categoryNumber = ingredientList[i].category;
+				let categoryName = this.nameMapping[categoryNumber]
+				if (!list.includes(categoryName)) {
+						list.push(categoryName)
+					}
+					}
+					return list;
 				}
 			}
 		}
-	}*/
-
-}
 </script>
 <style scoped>
 
