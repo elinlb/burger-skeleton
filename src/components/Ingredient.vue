@@ -1,10 +1,17 @@
+
 <template>
-  <div class="ingredient">
+<div class="ingredient box">
     <label>
+      <img class="picture" :src="findImage(item.image)">
       <button v-on:click="incrementCounter">{{ counter }}</button>
-      {{item["ingredient_" + lang]}}, {{item.selling_price}}:-, {{item.stock}} {{uiLabels.pieces}}
+      {{item["ingredient_"+ lang]}},{{item.selling_price}}:-
     </label>
   </div>
+<!-- </div> -->
+<!-- </div> -->
+
+
+
 </template>
 <script>
 export default {
@@ -24,14 +31,32 @@ export default {
       this.counter += 1;
       // sending 'increment' message to parent component or view so that it
       // can catch it with v-on:increment in the component declaration
+      // (see ingredient html-tag in Ordering.vue)
       this.$emit('increment');
     },
     resetCounter: function () {
       this.counter = 0;
+    },
+    findImage: function(image){
+      if(image !== "") {
+        let img=require('../assets/'+ image);
+        return img;
+      }
+      else return require('../assets/white.jpeg')
+
     }
+
   }
 }
+
 </script>
 <style scoped>
+
+.picture {
+  display: block;
+  width: 7em;
+  padding-left: 2em;
+  align-items: center;
+}
 
 </style>

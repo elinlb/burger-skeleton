@@ -28,5 +28,13 @@
   "grilledEggplant" : "Grilled eggplant",
   "lobster" : "Lobster",
   "pulledJackfruit" : "Pulled jackfruit",
-  "pulledPork" : "Pulled pork"
+  "pulledPork" : "Pulled pork",
+  "bread": "Bread",
+  "protein": "Protein",
+  "vegetables": "Vegetables",
+  "sauce": "Sauce",
+  "addons": "Add-ons",
+  "back": "Back",
+  "next": "Next",
+  "cancel": "Cancel"
 }

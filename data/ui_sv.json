@@ -28,5 +28,13 @@
   "grilledEggplant" : "Grillad aubergine",
   "lobster" : "Hummer",
   "pulledJackfruit" : "Pulled jackfruit",
-  "pulledPork" : "Pulled pork"
+  "pulledPork" : "Pulled pork",
+  "bread": "Bröd",
+  "protein": "Protein",
+  "vegetables": "Grönsaker",
+  "sauce": "Sås",
+  "addons": "Extra-tillbehör",
+  "next": "Nästa",
+  "back": "Bakåt",
+  "cancel": "Avbryt"
 }
