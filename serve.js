@@ -37,10 +37,11 @@ data.initializeData();
 
 io.on('connection', function (socket) {
   // Send list of orders and text labels when a client connects
-  socket.emit('initialize', { orders: data.getAllOrders(),
-                          uiLabels: data.getUILabels(),
-                          ingredients: data.getIngredients() });
-
+  socket.on('pageReady', function() {
+    socket.emit('initialize', { orders: data.getAllOrders(),
+                            uiLabels: data.getUILabels(),
+                            ingredients: data.getIngredients() });
+  });
   // When someone orders something
   socket.on('order', function (order) {
     var orderIdAndName = data.addOrder(order);

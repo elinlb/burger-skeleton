@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Ordering from './views/Ordering.vue'
+import Homepage from './views/Homepage.vue'
 
 Vue.use(Router)
 
@@ -8,6 +9,14 @@ let router = new Router({
   routes: [
     {
       path: '/',
+      meta: {
+        title: 'Kraft Burgers',
+      },
+      name: 'homepage',
+      component: Homepage
+    },
+    {
+      path: '/ordering',
       meta: {
         title: 'Kraft Burgers',
       },

@@ -1,5 +1,8 @@
 <template>
   <!-- Note in this component that it is using another component -->
+<div class="flexcontainer">
+<ol>
+  <h4>Order {{orderId}}</h4>
 <div>
   <OrderItem
     :ui-labels="uiLabels"
@@ -10,6 +13,9 @@
   <button v-on:click="orderDone">
     {{uiLabels.ready}}
   </button>
+</div>
+</ol>
+
 </div>
 </template>
 <script>
@@ -37,5 +43,5 @@ export default {
 }
 </script>
 <style scoped>
-	
+
 </style>
