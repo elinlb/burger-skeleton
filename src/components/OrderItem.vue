@@ -1,6 +1,7 @@
 <template>
 	<div>
-		{{orderId}} {{order.type}} {{uiLabels.ingredients}}: {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
+		{{orderId}} {{order.type}} {{uiLabels.ingredients}}: 
+		{{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
 	</div>
 </template>
 <script>
@@ -15,5 +16,5 @@ export default {
 }
 </script>
 <style scoped>
-	
+
 </style>

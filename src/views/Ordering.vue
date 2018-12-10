@@ -2,41 +2,43 @@
   <div id="ordering">
     <img class="example-panel" src="@/assets/white.jpeg">
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
+    <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
+ <h1 class="headline">Create your burger</h1>
 
-<h1 class="headline">Create your burger</h1>
 
 <div class="flex-container">
 
-  <div class="flex-item">Bread</div>
-  <div class="flex-item">Protein</div>
-  <div class="flex-item">Vegetables</div>
-  <div class="flex-item">Sauce</div>
-  <div class="flex-item">Add-ons</div>
+  <div class="flex-item">{{ uiLabels.bread }} </div>
+  <div class="flex-item"> {{ uiLabels.protein }} </div>
+  <div class="flex-item"> {{ uiLabels.vegetables }} </div>
+  <div class="flex-item"> {{ uiLabels.sauce }} </div>
+  <div class="flex-item"> {{ uiLabels.addons }} </div>
 
 </div>
 
-
-    <h1>{{ uiLabels.ingredients }}</h1>
-
+    <h1 class="headline">{{ uiLabels.ingredients }}</h1>
 
 
-<div class="boxWrapper">
-    <Ingredient
-      ref="ingredient"
-      v-for="item in ingredients"
-      v-if="item.category === 4"
-      v-on:increment="addToOrder(item)"
-      :item="item"
-      :lang="lang"
-      :key="item.ingredient_id"
-      >
-      <!-- <img src="https://cdn.shopify.com/s/files/1/1205/7170/products/tinywhite_7bbbee20-b41f-477e-97d5-9103704c9975_530x.png?v=1489000542" alt="Span" title="Crispy Burga" width="300"> -->
-    </Ingredient>
-  </div>
 
-    <h1>{{ uiLabels.order }}</h1>
+    <div class="boxWrapper">
+        <Ingredient
+        v-if = "item.category == slideNumber"
+          ref="ingredient"
+          v-for="item in ingredients"
+          v-on:increment="addToOrder(item)"
+          :item="item"
+          :lang="lang"
+          :key="item.ingredient_id">
+        </Ingredient>
+      </div>
+
+
+  <h1 class="headline">{{ uiLabels.order }}</h1>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+    <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
+  <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
+
 
     <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
     <div>
@@ -78,6 +80,7 @@ export default {
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
+      slideNumber: 1,
     }
   },
   created: function () {
@@ -97,6 +100,7 @@ export default {
           ingredients: this.chosenIngredients,
           price: this.price
         };
+
       // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
       this.$store.state.socket.emit('order', {order: order});
       //set all counters to 0. Notice the use of $refs
@@ -105,19 +109,66 @@ export default {
       }
       this.price = 0;
       this.chosenIngredients = [];
+    },
+nextSlide: function() {
+  if (this.slideNumber <5 ){
+    this.slideNumber += 1
+  }
+},
+  previousSlide: function() {
+    if(this.slideNumber >1){
+      this.slideNumber -=1
+    }
+  },
+  cancel: function(){
+    if(this.slideNumber >1){
+      this.slideNumber =1
     }
   }
+
 }
+
+}
+
 </script>
 <style scoped>
 /* scoped in the style tag means that these rules will only apply to elements, classes and ids in this template and no other templates. */
-
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
 
 #ordering {
   margin:auto;
   width: 40em;
 }
+
+.headline {
+  font-family:Comfortaa;
+}
+
+
+.Next {
+background-color: #008CBA;
+width: 4em;
+height: 2em;
+position:absolute;
+right: 450px;
+}
+
+.Back {
+background-color: #008CBA;
+width: 4em;
+height: 2em;
+}
+
+.Cancel {
+  width: 4em;
+  height: 2em;
+  background-color: red;
+  position: absolute;
+  right: 450px;
+
+}
+
 
 .example-panel {
   position: fixed;
@@ -125,10 +176,6 @@ export default {
   top:0;
   z-index: -2;
   opacity: 0.2;
-}
-
-.headline {
-  font-family:Comfortaa;
 }
 
 .ingredient {
@@ -150,11 +197,11 @@ export default {
  .box {
       color: #fff;
      border-radius: 5px;
+     font-family: Comfortaa;
      padding: 10px;
      font-size: 100%;
      margin-left: 50px;
      background-color: orange;
-     font-family: Comfortaa;
  }
 
 .flex-container {
@@ -177,14 +224,14 @@ export default {
 
 .flex-item {
   /* background: tomato; */
+  color: black;
+  font-family: Comfortaa;
   padding: 5px;
   width: 100%;
   height: auto;
   margin-top: 10px;
 
   line-height: 50px;
-  color: black;
-  font-family: Comfortaa;
   font-weight: bold;
   font-size: 1em;
   text-align: center;
