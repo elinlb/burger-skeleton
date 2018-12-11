@@ -19,8 +19,21 @@
 <div class="column right">
   <button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
   <div class="rowa">
-  <h1>{{ uiLabels.ordersFinished }}</h1>
+    <h1>{{ uiLabels.ordersToFry }}</h1>
+    {{uiLabels.beenPatty}}: {{countBeanPatty}} {{uiLabels.pieces}}<br>
+    {{uiLabels.beef100g}}: {{countBeef100}} {{uiLabels.pieces}}<br>
+    {{uiLabels.beef200g}}: {{countBeef200}} {{uiLabels.pieces}}<br>
+    {{uiLabels.chickenPatty}}: {{countChickenPatty}} {{uiLabels.pieces}}<br>
+    {{uiLabels.deepFriedHalloumi}}: {{countDeepFriedHalloumi}} {{uiLabels.pieces}}<br>
+    {{uiLabels.fishFilet}}: {{countFishFilet}} {{uiLabels.pieces}}<br>
+    {{uiLabels.grilledEggplant}}: {{countGrilledEggplant}} {{uiLabels.pieces}}<br>
+    {{uiLabels.lobster}}: {{countLobster}} {{uiLabels.pieces}}<br>
+    {{uiLabels.pulledJackfruit}}: {{countPulledJackfruit}} {{uiLabels.pieces}}<br>
+    {{uiLabels.pulledPork}}: {{countPulledPork}} {{uiLabels.pieces}}<br>
+</div>
+<div class="rowb">
   <div>
+    <h1>{{ uiLabels.ordersFinished }}</h1>
     <OrderItem
       v-for="(order, key) in orders"
       v-if="order.status === 'done'"
@@ -31,19 +44,6 @@
       :key="key">
     </OrderItem>
   </div>
-</div>
-<div class="rowb">
-  <h1>{{ uiLabels.ordersToFry }}</h1>
-  {{uiLabels.beenPatty}}: {{countBeanPatty}} {{uiLabels.pieces}}<br>
-  {{uiLabels.beef100g}}: {{countBeef100}} {{uiLabels.pieces}}<br>
-  {{uiLabels.beef200g}}: {{countBeef200}} {{uiLabels.pieces}}<br>
-  {{uiLabels.chickenPatty}}: {{countChickenPatty}} {{uiLabels.pieces}}<br>
-  {{uiLabels.deepFriedHalloumi}}: {{countDeepFriedHalloumi}} {{uiLabels.pieces}}<br>
-  {{uiLabels.fishFilet}}: {{countFishFilet}} {{uiLabels.pieces}}<br>
-  {{uiLabels.grilledEggplant}}: {{countGrilledEggplant}} {{uiLabels.pieces}}<br>
-  {{uiLabels.lobster}}: {{countLobster}} {{uiLabels.pieces}}<br>
-  {{uiLabels.pulledJackfruit}}: {{countPulledJackfruit}} {{uiLabels.pieces}}<br>
-  {{uiLabels.pulledPork}}: {{countPulledPork}} {{uiLabels.pieces}}<br>
 </div>
 </div>
 </div>
