@@ -55,7 +55,7 @@ export default {
 .picture {
   display: block;
   height: auto;
-  max-height: 100px;
+  max-height: 50%;
   /* width: 60%; */
   width: 60%;
   max-width: 100px;
