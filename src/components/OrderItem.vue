@@ -2,9 +2,15 @@
 	<div>
 		{{order.type}} {{uiLabels.ingredients}}:<br>
 		<div v-for = "item in showCategory">
-		{{ item }}
+			{{ item }}:
+		<!--	{{order.ingredients.map(item=>item["ingredient_"+lang])[showCategory.indexOf(item)]}}<br>-->
+			{{order.ingredients.map(item=>item["ingredient_"+lang])[0]}}<br>
 		</div>
-		{{order.ingredients.map(item=>item["category"])}} {{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}
+
+
+		<!--{{order.ingredients.map(item=>item["ingredient_"+lang])[0]}}-->
+	<!--	{{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}-->
+
 </div>
 </template>
 <script>
