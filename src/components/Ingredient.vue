@@ -4,7 +4,7 @@
     <label>
       <img class="picture" :src="findImage(item.image)">
       <button v-on:click="incrementCounter">{{ counter }}</button>
-      {{item["ingredient_"+ lang]}},{{item.selling_price}}:-
+      {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
     </label>
   </div>
 <!-- </div> -->
@@ -42,7 +42,7 @@ export default {
         let img=require('../assets/'+ image);
         return img;
       }
-      else return require('../assets/white.jpeg')
+      else return require('../assets/burger.png')
 
     }
 
@@ -54,7 +54,11 @@ export default {
 
 .picture {
   display: block;
-  width: 7em;
+  height: auto;
+  max-height: 100px;
+  /* width: 60%; */
+  width: 60%;
+  max-width: 100px;
   padding-left: 2em;
   align-items: center;
 }
