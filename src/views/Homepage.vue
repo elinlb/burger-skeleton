@@ -1,7 +1,6 @@
 <template>
 <div id="styling">
   <img class="backgroundpic" src="@/assets/brick.jpg" >
-Hej
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
     <router-link to="ordering">
