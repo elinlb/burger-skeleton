@@ -13,7 +13,7 @@
   "ordersInQueue" : "Beställningar att förbereda",
   "ordersToFry" : "Att steka",
   "ordersTrending" : "Populära beställningar",
-  "placeOrder" : "Beställ",
+  "placeOrder" : "Lägg i kundvagn",
   "sideorders" : "Tillbehör",
   "ingredients" : "Ingredienser",
   "ready" : "Klart",
@@ -36,5 +36,7 @@
   "addons": "Extra-tillbehör",
   "next": "Nästa",
   "back": "Bakåt",
-  "cancel": "Avbryt"
+  "cancel": "Avbryt",
+  "sides": "Tillbehör",
+  "drinks": "Dryck"
 }

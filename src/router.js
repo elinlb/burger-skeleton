@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Ordering from './views/Ordering.vue'
 import Homepage from './views/Homepage.vue'
+import Sides from './views/Sides.vue'
+import Basket from './views/Basket.vue'
 
 Vue.use(Router)
 
@@ -23,6 +25,23 @@ let router = new Router({
       name: 'ordering',
       component: Ordering
     },
+    {
+      path: '/sides',
+      meta: {
+        title: 'Kraft Burgers',
+      },
+      name: 'sides',
+      component: Sides
+    },
+    {
+      path: '/basket',
+      meta: {
+        title: 'Kraft Burgers',
+      },
+      name: 'basket',
+      component: Basket
+    },
+
     {
       path: '/kitchen',
       meta: {

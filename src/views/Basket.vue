@@ -2,7 +2,7 @@
 <div id="styling">
   <img class="backgroundpic" src="@/assets/brick.jpg" >
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
-
+Basket
     <router-link to="ordering">
     <div class = "burgerContainer">
       <div class ="burgerBox">
@@ -31,7 +31,7 @@
 import sharedVueStuff from '@/components/sharedVueStuff.js'
 
 export default {
-  name: 'Homepage',
+  name: 'Basket',
   components: {
 
   },
