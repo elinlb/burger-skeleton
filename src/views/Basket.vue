@@ -2,32 +2,39 @@
 <div id="styling">
   <img class="backgroundpic" src="@/assets/brick.jpg" >
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
-Basket
-    <router-link to="ordering">
+
+<div class ="burgerContainer">
+<h1 class="headline">Your basket</h1>
+<img src="@/assets/basket.png" width="100em" height="70em">
+  <div class="burgerBox">
+    <h1>{{uiLabels.yourOrder}}</h1>
+  </div>
+  Price:
+</div>
+
     <div class = "burgerContainer">
       <div class ="burgerBox">
+        <router-link to="ordering">
       <h1>Build your burger</h1>
       <img src="@/assets/burger.png" width="100em">
+      </router-link>
     </div>
-        </div>
-          </router-link>
-          <router-link to="sides">
-    <div class = "burgerContainer">
-    <div class ="sideBox">
+    <div class ="burgerBox">
+      <router-link to="sides">
         <h1>Pick sides</h1>
 
-        <img src="@/assets/soda.png" width="100em">
-        <img src="@/assets/fries.png" width="100em">
-
+        <img src="@/assets/soda.png" width="40em">
+        <img src="@/assets/fries.png" width="10em">
+</router-link>
      </div>
    </div>
-    </router-link>
 
 </div>
 </template>
 <script>
 
 //import methods and data that are shared between ordering and kitchen views
+
 import sharedVueStuff from '@/components/sharedVueStuff.js'
 
 export default {
@@ -58,16 +65,16 @@ export default {
     font-size: 1.4em;
   }
 
+  .headline {
+    font-family:Comfortaa;
+  }
 
   .burgerContainer {
-    background-color: #F2F3F4;
-    border-style: double;
-    border-color: black;
     padding: 10px;
-    margin: 0;
+    margin: 0 0 0 40%;
     list-style: none;
     font-family: Comfortaa;
-    width: 20em;
+    width: 10em;
 
     display: -webkit-box;
     display: -moz-box;
@@ -77,28 +84,36 @@ export default {
 
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
+   grid-gap: 2%;
   }
 
   .burgerBox {
     /* background: tomato; */
+    background-color: #F2F3F4;
+
     color: black;
     font-family: Comfortaa;
-    padding: 5px;
+    padding: 0 10em 0 10em;
     width: 100%;
     height: auto;
     margin-top: 10px;
+    margin-left: 20%;
 
-    line-height: 50px;
+    line-height: 2em;
     font-weight: bold;
     font-size: 1em;
     text-align: center;
 
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
+    border-style: double;
+    border-color: black;
   }
 
   .sideBox {
     /* background: tomato; */
+    background-color: #F2F3F4;
+
     color: black;
     font-family: Comfortaa;
     padding: 5px;
@@ -113,6 +128,11 @@ export default {
 
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
+    border-style: double;
+    border-color: black;
+    padding: 2%;
+    font-size: 100%;
+    margin-left: 8%;
   }
 
   .backgroundpic {

@@ -34,7 +34,7 @@
 <div class="rowb">
   <div>
     <h1>{{ uiLabels.ordersFinished }}</h1>
-    <OrderItem
+    <!--<OrderItem
       v-for="(order, key) in orders"
       v-if="order.status === 'done'"
       :order-id="key"
@@ -42,7 +42,11 @@
       :lang="lang"
       :ui-labels="uiLabels"
       :key="key">
-    </OrderItem>
+    </OrderItem>-->
+
+    <div v-for="order in orders" v-if="order.status ==='done' ">
+    Order {{order.orderId}}
+  </div>
   </div>
 </div>
 </div>
