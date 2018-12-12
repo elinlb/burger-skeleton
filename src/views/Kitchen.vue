@@ -105,6 +105,8 @@ export default {
   methods: {
     markDone: function (orderid) {
       this.$store.state.socket.emit("orderDone", orderid);
+      this.countNumberOfIngredients(orderid)
+      console.log()
     },
     countNumberOfIngredients: function(id) {
       let counter = 0;
@@ -115,8 +117,12 @@ export default {
           }
         }
       }
+      if (id === "delete") {
+        console.log("HEJ")
+        counter =0;
+      }
       return counter;
-    }
+    },
   }
 }
 </script>
