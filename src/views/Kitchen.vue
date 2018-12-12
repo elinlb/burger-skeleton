@@ -1,6 +1,8 @@
 <template>
-<!--<div class="row">-->
 <div id="orders">
+  <img class="background-kitchen" src="@/assets/brick.jpg">
+<button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+
   <div class ="column left">
   <h1>{{ uiLabels.ordersInQueue }}</h1>
   <div class="order-wrapper">
@@ -18,7 +20,7 @@
   <button id="stockButton"><img src="@/assets/stock.png" width="50vw">{{uiLabels.stock}}</button>
 </div>
 <div class="column right">
-  <button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+
   <div class="rowa">
     <h1>{{ uiLabels.ordersToFry }}</h1>
     {{uiLabels.beenPatty}}: {{countBeanPatty}} {{uiLabels.pieces}}<br>
@@ -52,7 +54,6 @@
 </div>
 </div>
 </div>
-<!--</div>-->
 </template>
 <script>
 import OrderItem from '@/components/OrderItem.vue'
@@ -130,22 +131,42 @@ export default {
 }
 </script>
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
 	#orders {
-    font-size:16pt;
+    font-size:13pt;
     max-width: 100%;
     height: auto;
+    font-family:Comfortaa;
+    margin: 1.2%;
+  }
+
+  .background-kitchen {
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: -2;
+    opacity: 0.7;
+    width: 100%;
   }
 
   h1 {
     text-transform: uppercase;
-    font-size: 1.4em;
+    font-size: 1.6em;
+    background-color: #F2F3F4;
+    border-style: double;
+    border-color: black;
+    text-align: center;
+    padding: 2vh;
   }
+
+
   .flexcontainer {
-    color: red;
-    background-color: blue;
+    color: black;
+    background-color: #F2F3F4;
     display:inline-table;
     flex-direction:row;
-    border: 5px solid black; /*Pixlar???*/
+    border: 4px double black;/*Pixlar???*/
     margin: 0.9%;
     height: auto;
     width: 28%;
@@ -160,6 +181,8 @@ export default {
   }
   .left {
   width: 65%;
+  height: 100vh;
+
   }
 
   .right {
@@ -168,13 +191,16 @@ export default {
   }
 
   .rowa {
-      height: 50%;
-      background-color: green;
+      /*height: 50%;*/
+      /*background-color: green;*/
+      min-height: 50%;
+      padding: 3%;
   }
 
   .rowb {
-    height: 50%;
-    background-color: pink;
+    min-height: 50%;
+    /*background-color: pink;*/
+    padding: 3%
   }
 
   .row:after {
@@ -187,18 +213,24 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
+    font-family:Comfortaa;
+    margin-top: 1.2%;
+    margin-right: 1.2%;
+
   }
 
   #stockButton {
     position: static;
     left: 0;
     bottom: 0;
-    margin: 1.2%;
     font-size: 3vh;
+    font-family:Comfortaa;
   }
 
+
+
   button:hover {
-    background-color: blue;
+    background-color: green;
   }
 
 
