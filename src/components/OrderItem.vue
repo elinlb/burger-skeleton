@@ -1,7 +1,7 @@
 <template>
 	<div>
 		{{order.type}} {{uiLabels.ingredients}}<br><br>
-		<div v-for = "item in showCategory">
+		<div v-for = "item in showCategory" :key="item">
 			<div v-if ="showCategory.indexOf(item)==0">
 					{{ item }}:
 					{{ displayBread }}<br>
@@ -47,10 +47,13 @@ export default {
   },
 	data: function () {
 	return {
-		nameMapping: {1: this.uiLabels.bread, 2: this.uiLabels.protein, 3: this.uiLabels.vegetables, 4: this.uiLabels.sauce, 5: this.uiLabels.addons, 6: this.uiLabels.sides, 7: this.uiLabels.drinks}
+
 	}
 },
 	computed: {
+		nameMapping: function() {
+			return {1: this.uiLabels.bread, 2: this.uiLabels.protein, 3: this.uiLabels.vegetables, 4: this.uiLabels.sauce, 5: this.uiLabels.addons, 6: this.uiLabels.sides, 7: this.uiLabels.drinks};
+		},
 		showCategory: function() {
 			let list = [];
 			let ingredientList = this.order.ingredients;

@@ -3,7 +3,7 @@
 <div id="orders">
   <div class ="column left">
   <h1>{{ uiLabels.ordersInQueue }}</h1>
-  <div>
+  <div class="order-wrapper">
     <OrderItemToPrepare
       v-for="(order, key) in orders"
       v-if="order.status !== 'done'"
@@ -15,6 +15,7 @@
       :key="key">
     </OrderItemToPrepare>
   </div>
+  <button id="stockButton"><img src="@/assets/stock.png" width="50vw">{{uiLabels.stock}}</button>
 </div>
 <div class="column right">
   <button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
@@ -44,7 +45,7 @@
       :key="key">
     </OrderItem>-->
 
-    <div v-for="order in orders" v-if="order.status ==='done' ">
+    <div v-for="order in orders" v-if="order.status ==='done' " :key="order.orderId">
     Order {{order.orderId}}
   </div>
   </div>
@@ -110,7 +111,6 @@ export default {
     markDone: function (orderid) {
       this.$store.state.socket.emit("orderDone", orderid);
       this.countNumberOfIngredients(orderid)
-      console.log()
     },
     countNumberOfIngredients: function(id) {
       let counter = 0;
@@ -119,11 +119,10 @@ export default {
           if (this.orders[order].ingredients[i].ingredient_id === id) {
             counter += 1;
           }
+          if(this.orders[order].ingredients[i].ingredient_id === id && this.orders[order].status === 'done') {
+              counter -= 1;
+          }
         }
-      }
-      if (id === "delete") {
-        console.log("HEJ")
-        counter =0;
       }
       return counter;
     },
@@ -150,7 +149,9 @@ export default {
     margin: 0.9%;
     height: auto;
     width: 28%;
-
+  }
+  .order-wrapper {
+    min-height: calc(100vh - 140px);
   }
 
   .column {
@@ -183,9 +184,17 @@ export default {
   }
 
   #languageButton {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
+  }
+
+  #stockButton {
+    position: static;
+    left: 0;
+    bottom: 0;
+    margin: 1.2%;
+    font-size: 3vh;
   }
 
   button:hover {
