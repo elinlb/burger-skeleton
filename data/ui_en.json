@@ -13,7 +13,7 @@
   "ordersInQueue" : "Order queue",
   "ordersToFry" : "Frying queue",
   "ordersTrending" : "Trending orders",
-  "placeOrder" : "Place order",
+  "placeOrder" : "Add to basket",
   "sideorders" : "Side orders",
   "ingredients" : "Ingredients",
   "ready" : "Done",
@@ -36,5 +36,7 @@
   "addons": "Add-ons",
   "back": "Back",
   "next": "Next",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "sides": "Sides",
+  "drinks": "Drinks"
 }

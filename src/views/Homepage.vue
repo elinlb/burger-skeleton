@@ -1,7 +1,6 @@
 <template>
 <div id="styling">
   <img class="backgroundpic" src="@/assets/brick.jpg" >
-Hej
     <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
     <router-link to="ordering">
@@ -11,6 +10,8 @@ Hej
       <img src="@/assets/burger.png" width="100em">
     </div>
         </div>
+          </router-link>
+          <router-link to="sides">
     <div class = "burgerContainer">
     <div class ="sideBox">
         <h1>Pick sides</h1>

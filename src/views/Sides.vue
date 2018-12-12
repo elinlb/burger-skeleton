@@ -1,19 +1,16 @@
 <template>
   <div class="main-size">
-  <div id="ordering">
+  <div id="sides">
     <img class="example-panel" src="@/assets/white.jpeg">
     <button class="headline" v-on:click="switchLang()">{{ uiLabels.language }}</button>
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
- <h1 class="headline">Create your burger</h1>
+ <h1 class="headline">Pick sides</h1>
 
 
 <div class="flex-container">
 
-  <div class="flex-item" v-on:click="thisCategory(1)">{{ uiLabels.bread }} </div>
-  <div class="flex-item" v-on:click="thisCategory(2)"> {{ uiLabels.protein }} </div>
-  <div class="flex-item" v-on:click="thisCategory(3)"> {{ uiLabels.vegetables }} </div>
-  <div class="flex-item" v-on:click="thisCategory(4)"> {{ uiLabels.sauce }} </div>
-  <div class="flex-item" v-on:click="thisCategory(5)"> {{ uiLabels.addons }} </div>
+  <div class="flex-item" v-on:click="thisCategory(6)">{{uiLabels.sides}}</div>
+  <div class="flex-item" v-on:click="thisCategory(7)">{{uiLabels.drinks}}</div>
 
 </div>
 
@@ -37,7 +34,6 @@
   <h3 class="headline">{{ uiLabels.order }}</h3>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-    <div> <router-link to="basket">To basket </router-link></div>
   </div>
     <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
   <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
@@ -73,7 +69,7 @@ import sharedVueStuff from '@/components/sharedVueStuff.js'
 /* instead of defining a Vue instance, export default allows the only
 necessary Vue instance (found in main.js) to import your data and methods */
 export default {
-  name: 'Ordering',
+  name: 'Sides',
   components: {
     Ingredient,
     OrderItem
@@ -85,7 +81,7 @@ export default {
       chosenIngredients: [],
       price: 0,
       orderNumber: "",
-      slideNumber: 1,
+      slideNumber: 6,
     }
   },
   created: function () {
@@ -144,7 +140,7 @@ nextSlide: function() {
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
 
-#ordering {
+#sides {
   margin:auto;
   width: 40em;
 }
