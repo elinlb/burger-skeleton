@@ -39,5 +39,7 @@
   "cancel": "Cancel",
   "sides": "Sides",
   "drinks": "Drinks",
-  "stock": "Stock"
+  "stock": "Stock",
+  "categories": "Categories",
+  "lowInStock": "Low in stock"
 }

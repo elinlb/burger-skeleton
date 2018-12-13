@@ -44,7 +44,7 @@
 
 
     <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
-    <div>
+  <div>
       <OrderItem
         v-for="(order, key) in orders"
         v-if="order.status !== 'done'"

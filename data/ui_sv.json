@@ -39,5 +39,7 @@
   "cancel": "Avbryt",
   "sides": "Tillbehör",
   "drinks": "Dryck",
-  "stock": "Lagersaldo"
+  "stock": "Lagersaldo",
+  "categories": "Kategorier",
+  "lowInStock": "Lågt lagersaldo"
 }

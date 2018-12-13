@@ -4,6 +4,7 @@ import Ordering from './views/Ordering.vue'
 import Homepage from './views/Homepage.vue'
 import Sides from './views/Sides.vue'
 import Basket from './views/Basket.vue'
+import Stock from './views/Stock.vue'
 
 Vue.use(Router)
 
@@ -52,6 +53,15 @@ let router = new Router({
       // this generates a separate chunk (read.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "read" */ './views/Kitchen.vue')
+    },
+
+    {
+      path: '/stock',
+      meta: {
+        title: 'Stock Kitchen',
+      },
+      name: 'stock',
+      component: Stock
     }
   ]
 })
