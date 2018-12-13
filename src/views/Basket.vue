@@ -27,19 +27,15 @@
     <div class = "burgerContainer">
       <div class ="burgerBox">
         <router-link to="ordering">
-<<<<<<< HEAD
       <h1>{{uiLabels.build}}</h1>
       <img src="@/assets/burger.png" width="100em">
-=======
       <h1>Build your burger</h1>
       <img src="@/assets/burger.png" width="60em">
->>>>>>> 79e97c60497031515fac8d692ada044ebc64f83c
       </router-link>
     </div>
     <div class ="burgerBox">
       <router-link to="sides">
         <h1>{{uiLabels.pickSides}}</h1>
-
         <img src="@/assets/soda.png" width="30em">
         <img src="@/assets/fries.png" width="30em">
 </router-link>

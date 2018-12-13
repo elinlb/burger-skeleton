@@ -1,27 +1,24 @@
 <template>
 <div id="styling">
   <img class="backgroundpic" src="@/assets/brick.jpg" >
-
-   <h1 class="head">{{ uiLabels.crafty }}</h1>
-
-    <button class ="language" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+    <button v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
     <router-link to="ordering">
-    <div class = "burgerContainer" >
+    <div class = "burgerContainer">
       <div class ="burgerBox">
-        <h1>{{uiLabels.build}}</h1>
-      <img src="@/assets/burger.png" width="120em">
-
+      <h1>Build your burger</h1>
+      <img src="@/assets/burger.png" width="60em">
     </div>
         </div>
           </router-link>
-
-          <router-link to="sides" >
-      <div class = "sideContainer">
+          <router-link to="sides">
+    <div class = "burgerContainer">
     <div class ="sideBox">
-      <h1>{{uiLabels.pickSides}}</h1>
-        <img src="@/assets/soda.png" width="80em">
-        <img src="@/assets/fries.png" width="80em">
+        <h1>Pick sides</h1>
+
+        <img src="@/assets/soda.png" width="30em">
+        <img src="@/assets/fries.png" width="30em">
+
      </div>
    </div>
     </router-link>
@@ -61,59 +58,16 @@ export default {
     font-size: 1.4em;
   }
 
-  .language {
-    position: absolute;
-    top: 1%;
-    left: 25%;
-    font-family: Comfortaa;
-  }
-
-  .head {
-    font-family: Comfortaa;
-    position:absolute;
-    left: 25%;
-    font-size: 4em;
-  }
-
-
-  .sideContainer {
-    background-color: #F2F3F4;
-    border-style: double;
-    border-color: black;
-    padding: 10px;
-    margin: 0;
-    list-style: none;
-    font-family: Comfortaa;
-    width: 20em;
-    height: 18em;
-    position: absolute;
-    top: 20%;
-    right: 25%;
-
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;
-  }
 
   .burgerContainer {
     background-color: #F2F3F4;
     border-style: double;
     border-color: black;
-    left: 5px;
     padding: 10px;
     margin: 0;
     list-style: none;
     font-family: Comfortaa;
     width: 20em;
-    height: 18em;
-    position: absolute;
-    top: 20%;
-    left: 25%;
 
     display: -webkit-box;
     display: -moz-box;
@@ -125,8 +79,8 @@ export default {
     justify-content: space-around;
   }
 
-
-.burgerBox {
+  .burgerBox {
+    /* background: tomato; */
     color: black;
     font-family: Comfortaa;
     padding: 5px;
@@ -138,13 +92,13 @@ export default {
     font-weight: bold;
     font-size: 1em;
     text-align: center;
-
 
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
   }
 
   .sideBox {
+    /* background: tomato; */
     color: black;
     font-family: Comfortaa;
     padding: 5px;
@@ -156,8 +110,6 @@ export default {
     font-weight: bold;
     font-size: 1em;
     text-align: center;
-
-
 
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
