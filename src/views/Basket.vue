@@ -8,23 +8,35 @@
 <img src="@/assets/basket.png" width="100em" height="70em">
   <div class="burgerBox">
     <h1>{{uiLabels.yourOrder}}</h1>
+    <div>
+      <OrderItem
+        v-for="(order, key) in orders"
+        v-if="order.status !== 'done'"
+        :order-id="key"
+        :order="order"
+        :ui-labels="uiLabels"
+        :lang="lang"
+        :key="key">
+      </OrderItem>
+    </div>
   </div>
   Price:
 </div>
+<button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
 
     <div class = "burgerContainer">
       <div class ="burgerBox">
         <router-link to="ordering">
       <h1>Build your burger</h1>
-      <img src="@/assets/burger.png" width="100em">
+      <img src="@/assets/burger.png" width="60em">
       </router-link>
     </div>
     <div class ="burgerBox">
       <router-link to="sides">
         <h1>Pick sides</h1>
 
-        <img src="@/assets/soda.png" width="40em">
-        <img src="@/assets/fries.png" width="10em">
+        <img src="@/assets/soda.png" width="30em">
+        <img src="@/assets/fries.png" width="30em">
 </router-link>
      </div>
    </div>
@@ -34,19 +46,24 @@
 <script>
 
 //import methods and data that are shared between ordering and kitchen views
-
+import Ingredient from '@/components/Ingredient.vue'
+import OrderItem from '@/components/OrderItem.vue'
 import sharedVueStuff from '@/components/sharedVueStuff.js'
 
 export default {
   name: 'Basket',
   components: {
-
+    Ingredient,
+    OrderItem
   },
   mixins: [sharedVueStuff], // include stuff that is used in both
                             //the ordering system and the kitchen
   data: function(){
     return {
-
+      chosenIngredients: [],
+      price: 0,
+      orderNumber: "",
+      slideNumber: 1,
     }
   },
   methods: {
