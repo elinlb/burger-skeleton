@@ -148,6 +148,7 @@ export default {
     z-index: -2;
     opacity: 0.7;
     width: 100%;
+    height: 100%;
   }
 
   h1 {
@@ -182,6 +183,7 @@ export default {
   .left {
   width: 65%;
   height: 100vh;
+  margin-top: 1%;
 
   }
 
@@ -226,9 +228,6 @@ export default {
     font-size: 3vh;
     font-family:Comfortaa;
   }
-
-
-
   button:hover {
     background-color: green;
   }

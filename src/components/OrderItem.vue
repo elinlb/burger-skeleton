@@ -8,7 +8,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==1">
 				{{ item }}:
-				{{ displayProtein }}<br>
+				{{displayProtein}}
 		</div>
 		<div v-if ="showCategory.indexOf(item)==2">
 			{{ item }}:
@@ -28,11 +28,9 @@
 </div>
 <div v-if ="showCategory.indexOf(item)==6">
 	{{ item }}:
-	{{ displayDrinks }}<br>
+	{{ displayDrinks }}
 </div>
 
-		<!-- {{order.ingredients.map(item=>item["category"])}} -->
-		<!--{{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}-->
 		</div>
 	</div>
 </template>
@@ -99,7 +97,7 @@ export default {
 				}
 			}
 			return list.join(", ");
-	}
+	},
 		}
 
 	}
