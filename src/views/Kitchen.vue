@@ -17,7 +17,9 @@
       :key="key">
     </OrderItemToPrepare>
   </div>
+  <router-link :to="{ name: 'stock' }">
   <button id="stockButton"><img src="@/assets/stock.png" width="50vw">{{uiLabels.stock}}</button>
+  </router-link>
 </div>
 <div class="column right">
 
@@ -47,8 +49,8 @@
       :key="key">
     </OrderItem>-->
 
-    <div v-for="order in orders" v-if="order.status ==='done' " :key="order.orderId">
-    Order {{order.orderId}}
+  <div v-for="order in orders" v-if="order.status ==='done' " :key="order.orderId">
+      Order {{order.orderId}}
   </div>
   </div>
 </div>
@@ -161,7 +163,6 @@ export default {
     padding: 2vh;
   }
 
-
   .flexcontainer {
     color: black;
     background-color: #F2F3F4;
@@ -228,6 +229,7 @@ export default {
     font-size: 3vh;
     font-family:Comfortaa;
   }
+
   button:hover {
     background-color: green;
   }
