@@ -39,5 +39,8 @@
   "cancel": "Avbryt",
   "sides": "Tillbehör",
   "drinks": "Dryck",
+  "build": "Bygg din burgare",
+  "pickSides": "Välj tillbehör",
+  "crafty": "Kraft burgare",
   "stock": "Lagersaldo"
 }
