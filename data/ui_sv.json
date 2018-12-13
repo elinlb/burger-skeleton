@@ -41,5 +41,6 @@
   "drinks": "Dryck",
   "build": "Bygg din burgare",
   "pickSides": "Välj tillbehör",
-  "crafty": "Kraft burgare"
+  "crafty": "Kraft burgare",
+  "stock": "Lagersaldo"
 }
