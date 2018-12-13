@@ -15,13 +15,13 @@
     <div class = "burgerContainer">
       <div class ="burgerBox">
         <router-link to="ordering">
-      <h1>Build your burger</h1>
+      <h1>{{uiLabels.build}}</h1>
       <img src="@/assets/burger.png" width="100em">
       </router-link>
     </div>
     <div class ="burgerBox">
       <router-link to="sides">
-        <h1>Pick sides</h1>
+        <h1>{{uiLabels.pickSides}}</h1>
 
         <img src="@/assets/soda.png" width="40em">
         <img src="@/assets/fries.png" width="10em">

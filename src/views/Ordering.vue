@@ -19,8 +19,6 @@
 
     <h1 class="headline">{{ uiLabels.ingredients }}</h1>
 
-
-
     <div class="boxWrapper">
         <Ingredient
         v-if = "item.category == slideNumber"
