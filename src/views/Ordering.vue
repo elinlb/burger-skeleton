@@ -3,7 +3,9 @@
   <div id="ordering">
     <img class="example-panel" src="@/assets/white.jpeg">
     <button class="headline" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+    <router-link to="/">
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
+    </router-link>
  <h1 class="headline">Create your burger</h1>
 
 
@@ -19,8 +21,6 @@
 
     <h1 class="headline">{{ uiLabels.ingredients }}</h1>
 
-
-
     <div class="boxWrapper">
         <Ingredient
         v-if = "item.category == slideNumber"
@@ -32,6 +32,8 @@
           :key="item.ingredient_id">
         </Ingredient>
       </div>
+      <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
+    <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
 
 <div class="orderWrapper">
   <h3 class="headline">{{ uiLabels.order }}</h3>
@@ -39,12 +41,11 @@
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
     <div> <router-link to="basket">To basket </router-link></div>
   </div>
-    <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
-  <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
 
 
-    <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
-  <div>
+
+    <!-- <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
+    <div>
       <OrderItem
         v-for="(order, key) in orders"
         v-if="order.status !== 'done'"
@@ -54,7 +55,7 @@
         :lang="lang"
         :key="key">
       </OrderItem>
-    </div>
+    </div> -->
   </div>
 </div>
 

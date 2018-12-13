@@ -7,17 +7,17 @@
     <div class = "burgerContainer">
       <div class ="burgerBox">
       <h1>Build your burger</h1>
-      <img src="@/assets/burger.png" width="120em">
+      <img src="@/assets/burger.png" width="60em">
     </div>
         </div>
           </router-link>
-
           <router-link to="sides">
-      <div class = "sideContainer">
+    <div class = "burgerContainer">
     <div class ="sideBox">
-        <h1>Pick sides </h1>
-        <img src="@/assets/soda.png" width="80em">
-        <img src="@/assets/fries.png" width="80em">
+        <h1>Pick sides</h1>
+
+        <img src="@/assets/soda.png" width="30em">
+        <img src="@/assets/fries.png" width="30em">
 
      </div>
    </div>
@@ -59,44 +59,15 @@ export default {
   }
 
 
-  .sideContainer {
-    background-color: #F2F3F4;
-    border-style: double;
-    border-color: black;
-    padding: 10px;
-    margin: 0;
-    list-style: none;
-    font-family: Comfortaa;
-    width: 20em;
-    height: 18em;
-    position: absolute;
-    top: 10%;
-    right: 25%;
-
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;
-  }
-
   .burgerContainer {
     background-color: #F2F3F4;
     border-style: double;
     border-color: black;
-    left: 5px;
     padding: 10px;
     margin: 0;
     list-style: none;
     font-family: Comfortaa;
     width: 20em;
-    height: 18em;
-    position: absolute;
-    top: 10%;
-    left: 25%;
 
     display: -webkit-box;
     display: -moz-box;
@@ -108,8 +79,8 @@ export default {
     justify-content: space-around;
   }
 
-
-.burgerBox {
+  .burgerBox {
+    /* background: tomato; */
     color: black;
     font-family: Comfortaa;
     padding: 5px;
@@ -121,13 +92,13 @@ export default {
     font-weight: bold;
     font-size: 1em;
     text-align: center;
-
 
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
   }
 
   .sideBox {
+    /* background: tomato; */
     color: black;
     font-family: Comfortaa;
     padding: 5px;
@@ -139,8 +110,6 @@ export default {
     font-weight: bold;
     font-size: 1em;
     text-align: center;
-
-
 
     -webkit-flex-flow: row wrap;
     justify-content: space-around;

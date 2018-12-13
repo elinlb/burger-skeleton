@@ -41,5 +41,8 @@
   "drinks": "Dryck",
   "stock": "Lagersaldo",
   "categories": "Kategorier",
-  "lowInStock": "Lågt lagersaldo"
+  "lowInStock": "Lågt lagersaldo",
+  "build": "Bygg din burgare",
+  "pickSides": "Välj tillbehör",
+  "crafty": "Kraft burgare",
 }

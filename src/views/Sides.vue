@@ -3,7 +3,9 @@
   <div id="sides">
     <img class="example-panel" src="@/assets/white.jpeg">
     <button class="headline" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+    <router-link to="/">
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
+    </router-link>
  <h1 class="headline">Pick sides</h1>
 
 

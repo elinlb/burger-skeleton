@@ -41,5 +41,8 @@
   "drinks": "Drinks",
   "stock": "Stock",
   "categories": "Categories",
-  "lowInStock": "Low in stock"
+  "lowInStock": "Low in stock",
+  "build": "Build your burger",
+  "pickSides": "Pick sides",
+  "crafty": "Crafty burgers",
 }
