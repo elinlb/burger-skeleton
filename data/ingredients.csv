@@ -32,31 +32,31 @@ ingredient_id,ingredient_sv,ingredient_en,category,milk_free,gluten_free,vegan,s
 31,salami,salami,5,1,1,0,10,salami.png,0
 32,surkål,sauerkraut,3,1,1,1,5,,0
 33,tomat,tomato,3,1,1,1,5,tomato.png,0
-34,vegansk ost,vegan cheese,5,1,1,1,10,,1
-35,aioli,aioli,4,1,1,0,5,,0
-36,ajvar,ajvar,4,1,1,1,5,,0
-37,barbecuesås,barbecue sauce,4,1,1,1,0,,0
-38,klassisk hamburgarsås,classic hamburger dressing,4,1,1,0,5,,0
-39,dijonsås,dijon sauce,4,1,1,0,5,,0
-40,guacamole,guacamole,4,1,1,1,10,,0
-41,hot salsa,hot salsa,4,1,1,1,5,,0
-42,hummus,hummus,4,1,1,1,10,,0
+34,vegansk ost,vegan cheese,5,1,1,1,10,vegancheese.png,1
+35,aioli,aioli,4,1,1,0,5,mayo.png,0
+36,ajvar,ajvar,4,1,1,1,5,ajvar.png,0
+37,barbecuesås,barbecue sauce,4,1,1,1,0,barbeque.png,0
+38,klassisk hamburgarsås,classic hamburger dressing,4,1,1,0,5,hamburgersauce.png,0
+39,dijonsås,dijon sauce,4,1,1,0,5,mustard.png,0
+40,guacamole,guacamole,4,1,1,1,10,avocado.png,0
+41,hot salsa,hot salsa,4,1,1,1,5,tomate_sauce.png,0
+42,hummus,hummus,4,1,1,1,10,bean.png,0
 43,ketchup,ketchup,4,1,1,1,0,ketchup.png,0
-44,majonnäs,mayonnaise,4,1,1,0,5,,0
-45,senap,mustard,4,1,1,1,0,,0
-46,sriracha,sriracha,4,1,1,1,0,,0
-47,teriyakisås,teriyaki sauce,4,1,1,1,5,,0
+44,majonnäs,mayonnaise,4,1,1,0,5,mayo.png,0
+45,senap,mustard,4,1,1,1,0,mustard.png,0
+46,sriracha,sriracha,4,1,1,1,0,sriracha.png,0
+47,teriyakisås,teriyaki sauce,4,1,1,1,5,teriyaki.png,0
 48,tryffelmajonnäs,truffle mayonnaise,4,1,1,0,5,mushroom.png,0
-49,tzatziki,tzatziki,4,0,1,0,5,,0
+49,tzatziki,tzatziki,4,0,1,0,5,cucumber.png,0
 50,brioche,brioche,1,0,0,0,10,brioche.png,0
 51,glutenfritt bröd,gluten free bread,1,1,1,1,10,gluten_free.png,1
-52,veganskt bröd,vegan bun,1,0,0,1,10,,1
-53,fullkornsbrioche,whole wheat brioche,1,0,0,0,10,,0
+52,veganskt bröd,vegan bun,1,0,0,1,10,veganbun.png,1
+53,fullkornsbrioche,whole wheat brioche,1,0,0,0,10,wholewheat.png,0
 54,nachochips,nachos,6,1,0,1,20,nachos.png,0
 55,potatisstrips,potato fries,6,1,1,1,20,fries.png,0
 56,sötpotatisstrips,sweet potato fries,6,1,1,1,30,fries.png,0
-57,chokladmilkshake,chocolate milk shake,7,0,1,0,40,,0
-58,pucko,pucko,7,0,1,0,25,,0
+57,chokladmilkshake,chocolate milk shake,7,0,1,0,40,chocmilkshake.png,0
+58,pucko,pucko,7,0,1,0,25,pucko.png,0
 59,läsk,soda,7,1,1,1,20,soda.png,0
-60,jordgubbsmilkshake,strawberry milk shake,7,0,1,0,40,,0
-61,vegansk mango lassi,vegan mango lassi,7,1,1,1,40,,1
+60,jordgubbsmilkshake,strawberry milk shake,7,0,1,0,40,strawberrymilkshake.png,0
+61,vegansk mango lassi,vegan mango lassi,7,1,1,1,40,mangolassi.png,1
