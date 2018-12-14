@@ -101,7 +101,9 @@ export default {
 				}
 			}
 			return list.join(", ");
-	}
+	},
+
+
 		}
 
 	}
