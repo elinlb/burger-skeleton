@@ -1,5 +1,6 @@
 <template>
 	<div>
+
 		{{order.type}} {{uiLabels.ingredients}}<br><br>
 		<div v-for = "item in showCategory" :key="item">
 			<div v-if ="showCategory.indexOf(item)==0">
@@ -80,7 +81,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+		</div>
 </template>
 <script>
 export default {

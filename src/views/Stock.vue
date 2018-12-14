@@ -6,14 +6,12 @@
     <div class="column left">
 
 
-      <div v-for="(item, key) in ingredients" class="flex-wrapper" :key="key">
-          <div>
-          <ol>
-          {{item["ingredient_"+ lang]}}:<br>
-          <img class="picture" :src="findImage(item.image)"><br>
-          {{item.stock}}<br>
-        </ol>
-      </div>
+      <div v-for="(item, key) in ingredients" v-if="item.category == categoryNumber" class="flex-wrapper" :key="key">
+          <div align="center">
+              {{item["ingredient_"+ lang]}}:<br>
+              <img class="picture" :src="findImage(item.image)"><br>
+             {{item.stock}} {{uiLabels.pieces}}<br>
+           </div>
     </div>
 
 
@@ -22,13 +20,13 @@
     <div class="column right">
       <div class="rowa">
           <h2>{{uiLabels.categories}}:</h2>
-          <h3 class="categorybox">{{uiLabels.bread}}</h3>
-          <h3 class="categorybox">{{uiLabels.protein}}</h3>
-          <h3 class="categorybox">{{uiLabels.vegetables}}</h3>
-          <h3 class="categorybox">{{uiLabels.sauce}}</h3>
-          <h3 class="categorybox">{{uiLabels.addons}}</h3>
-          <h3 class="categorybox">{{uiLabels.sides}}</h3>
-          <h3 class="categorybox">{{uiLabels.drinks}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(1)">{{uiLabels.bread}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(2)">{{uiLabels.protein}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(3)">{{uiLabels.vegetables}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(4)">{{uiLabels.sauce}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(5)">{{uiLabels.addons}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(6)">{{uiLabels.sides}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(7)">{{uiLabels.drinks}}</h3>
       </div>
 
       <div class="rowb">
@@ -57,7 +55,8 @@ export default {
   data: function(){
     return {
       chosenIngredients: [],
-      price: 0
+      price: 0,
+      categoryNumber: 1,
     }
   },
   methods:{
@@ -67,8 +66,11 @@ export default {
       return img;
     }
     else return require('../assets/burger.png')
-
+  },
+  thisCategory: function(Number) {
+    this.categoryNumber = Number
   }
+
   }
 
 }
@@ -78,7 +80,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
 #stockID {
-  font-size:13pt;
+  font-size:12pt;
   max-width: 100%;
   height: auto;
   font-family:Comfortaa;
@@ -119,6 +121,10 @@ h2 {
   border-color: black;
   padding: 2%;
   width: 90%;
+}
+
+.categorybox:hover{
+  background-color: green;
 }
 
 .column{
@@ -164,10 +170,8 @@ button:hover {
 }
 
 .picture {
-  height: 40%;
-  width: 40%;
-  max-height: 90px;
-  align-items: center;
+  height: 15vh;
+  width: 10vh;
 }
 
 .flex-wrapper {
@@ -176,9 +180,12 @@ button:hover {
   display:inline-table;
   flex-direction:row;
   border: 4px double black;/*Pixlar???*/
-  width: 20%;
-  min-height: 35%;
-  align-items: baseline;
+  width: 20vh;
+  min-height: 30vh;
+  max-height: 30vh;
+  margin: 1%;
+  padding: 1%
+
 }
 
 
