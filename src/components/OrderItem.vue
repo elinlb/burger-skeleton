@@ -15,7 +15,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==1">
 				{{ item }}:
-				<div v-for = "list in displayProtein">
+				<div v-for = "list in displayProtein" :key="list">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -26,7 +26,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==2">
 				{{ item }}:
-				<div v-for = "list in displayVegetables">
+				<div v-for = "list in displayVegetables" :key="list">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -37,7 +37,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==3">
 				{{ item }}:
-				<div v-for = "list in displaySauce">
+				<div v-for = "list in displaySauce" :key="list">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -48,7 +48,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==4">
 				{{ item }}:
-				<div v-for = "list in displayAddOns">
+				<div v-for = "list in displayAddOns" :key="list">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -59,7 +59,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==5">
 				{{ item }}:
-				<div v-for = "list in displayAddons">
+				<div v-for = "list in displayAddons" :key="list">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -70,7 +70,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==6">
 				{{ item }}:
-				<div v-for = "list in displayAddons">
+				<div v-for = "list in displayAddons" :key="list">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
