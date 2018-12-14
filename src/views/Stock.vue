@@ -6,12 +6,12 @@
     <div class="column left">
 
 
-      <div v-for="item in ingredients" class="flex-wrapper">
+      <div v-for="(item, key) in ingredients" class="flex-wrapper" :key="key">
           <div>
           <ol>
-          {{item["ingredient_"+ lang]}}:
-          {{item.stock}}
-          <img class="picture" :src="findImage(item.image)">
+          {{item["ingredient_"+ lang]}}:<br>
+          <img class="picture" :src="findImage(item.image)"><br>
+          {{item.stock}}<br>
         </ol>
       </div>
     </div>
@@ -70,7 +70,6 @@ export default {
 
   }
   }
-
 
 }
 
@@ -165,9 +164,9 @@ button:hover {
 }
 
 .picture {
-  height: 50%;
-  width: 50%;
-  max-height: 50%;
+  height: 40%;
+  width: 40%;
+  max-height: 90px;
   align-items: center;
 }
 
@@ -177,9 +176,9 @@ button:hover {
   display:inline-table;
   flex-direction:row;
   border: 4px double black;/*Pixlar???*/
-  margin: 0.9%;
-  min-height: 30%;
-  width: 30%;
+  width: 20%;
+  min-height: 35%;
+  align-items: baseline;
 }
 
 

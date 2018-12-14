@@ -184,11 +184,6 @@ export default {
     width: 28%;
   }
 
-
-
-
-
-
   .order-wrapper {
     min-height: calc(100vh - 140px);
   }
