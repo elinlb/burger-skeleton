@@ -44,5 +44,9 @@
   "lowInStock": "Lågt lagersaldo",
   "build": "Bygg din burgare",
   "pickSides": "Välj tillbehör",
+<<<<<<< HEAD
+  "crafty": "Crafty burgers"
+=======
   "crafty": "Kraft burgare"
+>>>>>>> 97fc724e35df7455b9eab9d7edd9d20456868eae
 }

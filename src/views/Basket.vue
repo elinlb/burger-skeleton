@@ -28,9 +28,7 @@
       <div class ="burgerBox">
         <router-link to="ordering">
       <h1>{{uiLabels.build}}</h1>
-      <!-- <img src="@/assets/burger.png" width="100em"> -->
-      <!-- <h1>Build your burger</h1> -->
-      <img src="@/assets/burger.png" width="60em">
+      <img src="@/assets/burger.png" width="100em">
       </router-link>
     </div>
     <div class ="burgerBox">
