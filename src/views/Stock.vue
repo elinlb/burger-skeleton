@@ -5,9 +5,17 @@
     <button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
     <div class="column left">
 
-      <div v-for="order in orders">
-        {{order.ingredients[0].stock}}
+
+      <div v-for="item in ingredients" class="flex-wrapper">
+          <div>
+          <ol>
+          {{item["ingredient_"+ lang]}}:
+          {{item.stock}}
+          <img class="picture" :src="findImage(item.image)">
+        </ol>
       </div>
+    </div>
+
 
     </div>
 
@@ -32,6 +40,7 @@
 </div>
 </template>
 <script>
+import Ingredient from '@/components/Ingredient.vue'
 import OrderItem from '@/components/OrderItem.vue'
 import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
 import sharedVueStuff from '@/components/sharedVueStuff.js'
@@ -39,6 +48,7 @@ import sharedVueStuff from '@/components/sharedVueStuff.js'
 export default {
   name: 'Ordering',
   components: {
+    Ingredient,
     OrderItem,
     OrderItemToPrepare
   },
@@ -50,6 +60,18 @@ export default {
       price: 0
     }
   },
+  methods:{
+    findImage: function(image){
+    if(image !== "") {
+      let img=require('../assets/'+ image);
+      return img;
+    }
+    else return require('../assets/burger.png')
+
+  }
+  }
+
+
 }
 
 </script>
@@ -142,6 +164,23 @@ button:hover {
   background-color: green;
 }
 
+.picture {
+  height: 50%;
+  width: 50%;
+  max-height: 50%;
+  align-items: center;
+}
+
+.flex-wrapper {
+  color: black;
+  background-color: #F2F3F4;
+  display:inline-table;
+  flex-direction:row;
+  border: 4px double black;/*Pixlar???*/
+  margin: 0.9%;
+  min-height: 30%;
+  width: 30%;
+}
 
 
 </style>
