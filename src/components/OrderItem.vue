@@ -4,8 +4,10 @@
 		<div v-for = "item in showCategory" :key="item">
 			<div v-if ="showCategory.indexOf(item)==0">
 					{{ item }}:
-					{{ displayBread }}<br>
+					{{ displayBread }}
 			</div>
+		</div>
+
 			<div v-if ="showCategory.indexOf(item)==1">
 				{{ item }}:
 				{{ displayProtein }}<br>
