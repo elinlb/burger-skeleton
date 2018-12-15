@@ -132,12 +132,13 @@ h2 {
 }
 
 .left{
-  width: 80%;
+  width: 75%;
   height: 100vh;
+  padding-top: 3%;
 }
 
 .right {
-width: 20%;
+width: 25%;
 height: 100vh;
 }
 
