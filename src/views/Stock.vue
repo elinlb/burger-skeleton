@@ -17,6 +17,9 @@
 
       <div class="rowb">
         <h2>{{uiLabels.lowInStock}}:</h2>
+        <div v-for= "(item, key) in ingredients" :key="key" v-if = "item.stock < 28">
+          {{item["ingredient_"+ lang]}}<br>
+        </div>
       </div>
 
     </div>
@@ -42,6 +45,7 @@
 <script>
 import Ingredient from '@/components/Ingredient.vue'
 import OrderItem from '@/components/OrderItem.vue'
+import nameMapping from '@/components/OrderItem.vue'
 import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
 import sharedVueStuff from '@/components/sharedVueStuff.js'
 
@@ -75,12 +79,11 @@ export default {
     }
     else return require('../assets/burger.png')
   },
-  thisCategory: function(Number) {
-    this.categoryNumber = Number
+    thisCategory: function(Number) {
+      this.categoryNumber = Number
   }
 
-  }
-
+}
 }
 
 </script>
@@ -167,7 +170,9 @@ height: 100vh;
 
 .rowb {
   min-height: 50%;
-  background-color: pink;
+  background-color: #F2F3F4;
+  border: 4px double black;
+  padding: 1%;
 }
 
 .row:after {
@@ -199,7 +204,6 @@ button:hover {
 
 .flex-wrapper {
   color: black;
-  background-color: #F2F3F4;
   display:inline-table;
   flex-direction:row;
   border: 4px double black;/*Pixlar???*/
@@ -209,6 +213,11 @@ button:hover {
   margin-bottom:2%;
   margin-right: 2%;
   padding: 1%;
+  background-color: #F2F3F4;
+}
+
+.lowInStock {
+  background-color: red;
 }
 
 

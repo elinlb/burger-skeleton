@@ -8,7 +8,6 @@
     </router-link>
  <h1 class="headline">Create your burger</h1>
 
-
 <div class="flex-container">
 
   <div class="flex-item" v-on:click="thisCategory(1)">{{ uiLabels.bread }} </div>
@@ -27,6 +26,7 @@
           ref="ingredient"
           v-for="item in ingredients"
           v-on:increment="addToOrder(item)"
+          v-on:decrement="deleteFromOrder(item)"
           :item="item"
           :lang="lang"
           :key="item.ingredient_id">
@@ -39,7 +39,7 @@
   <h3 class="headline">{{ uiLabels.order }}</h3>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-    <div> <router-link to="basket">To basket </router-link></div>
+    <div> <router-link to="basket"> {{uiLabels.basket}} </router-link></div>
   </div>
 
 
@@ -99,6 +99,19 @@ export default {
       this.chosenIngredients.push(item);
       this.price += +item.selling_price;
     },
+    deleteFromOrder: function (item) {
+      let indexToDelete = -1;
+      for (let i = 0; i < this.chosenIngredients.length; i += 1 ) {
+        if (this.chosenIngredients[i] === item) {
+          indexToDelete = i;
+          break;
+        }
+      }
+      if (indexToDelete >= 0) {
+        this.chosenIngredients.splice(indexToDelete, 1);
+        this.price -= +item.selling_price;
+      }
+    },
     placeOrder: function () {
       var i,
       //Wrap the order in an object
@@ -134,9 +147,7 @@ nextSlide: function() {
   thisCategory: function(Number) {
     this.slideNumber = Number
   }
-
 }
-
 }
 
 </script>
@@ -147,7 +158,7 @@ nextSlide: function() {
 
 #ordering {
   margin:auto;
-  width: 40em;
+  max-width: 40em;
 }
 
 .main-size {
@@ -190,7 +201,6 @@ max-width: 100%;
 .orderButton:hover {
   background-color: #8BC34A;
   cursor: pointer;
-
 }
 
 .Next {
@@ -198,7 +208,7 @@ background-color: #008CBA;
 width: 4em;
 height: 2em;
 position:absolute;
-right: 450px;
+right: 25%;
 font-family: Comfortaa;
 }
 
@@ -220,11 +230,11 @@ font-family: Comfortaa;
 }
 
 .Cancel {
-  width: 5%;
+  width: 5em;
   height: 2em;
   background-color: red;
   position: absolute;
-  right: 30%;
+  right: 25%;
   font-family: Comfortaa;
 
 }
@@ -242,8 +252,8 @@ font-family: Comfortaa;
   /* border: 1em solid #ccd; */
   padding: 1%;
   color: black;
+  max-width: 5em;
 }
-
 
  .boxWrapper {
    /* grid-template-columns: 350px 350px 350px; */
@@ -252,8 +262,8 @@ font-family: Comfortaa;
    display: flex;
    justify-content: space-evenly;
    flex-wrap: wrap;
-   height: auto;
-   width: 100%;
+   max-height: 100%;
+   max-width: 100%;
 
  }
 
