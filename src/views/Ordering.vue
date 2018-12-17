@@ -207,7 +207,7 @@ max-width: 100%;
 background-color: #008CBA;
 width: 4em;
 height: 2em;
-position:absolute;
+position: absolute;
 right: 25%;
 font-family: Comfortaa;
 }
@@ -281,8 +281,6 @@ font-family: Comfortaa;
      /* border-style:  outset;
      border-radius: 1em;
      border-width: thick; */
-
-
  }
 
  .box:hover {
@@ -291,7 +289,7 @@ font-family: Comfortaa;
    border-width: thick;
  }
 
- .box:active{
+ .box:active {
    border-style: double;
  }
 
@@ -317,14 +315,14 @@ font-family: Comfortaa;
   /* background: tomato; */
   color: black;
   font-family: Comfortaa;
-  padding: 5px;
+  padding: 0,75em;
   width: 100%;
   height: auto;
   margin-top: 10px;
 
   line-height: 50px;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 0.75em;
   text-align: center;
 
   -webkit-flex-flow: row wrap;

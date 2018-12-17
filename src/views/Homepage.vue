@@ -15,9 +15,6 @@
       </router-link>
     </div>
 
-
-
-
       <!-- <div class = "sideContainer"> -->
     <div class ="sideBox">
         <router-link to="sides" >
@@ -89,7 +86,7 @@ export default {
     max-height: 100%;
     position: absolute;
     top: 30%;
-    left: 20%;
+    left: 20%; 
     right: 30%;
     display: -webkit-box;
     display: -moz-box;

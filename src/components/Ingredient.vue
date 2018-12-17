@@ -7,6 +7,7 @@
       {{ counter }}
       <button v-on:click="incrementCounter">+</button>
       {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
+
     </label>
   </div>
 <!-- </div> -->
