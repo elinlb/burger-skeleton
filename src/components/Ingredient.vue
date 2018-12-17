@@ -66,10 +66,10 @@ export default {
 .picture {
   display: block;
   height: auto;
-  max-height: 50%;
+  max-height: 40%;
   /* width: 60%; */
-  width: 60%;
-  max-width: 100px;
+  max-width: 40%;
+  /* max-width: 100px; */
   padding-left: 2em;
   align-items: center;
 }

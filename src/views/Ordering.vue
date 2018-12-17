@@ -147,9 +147,7 @@ nextSlide: function() {
   thisCategory: function(Number) {
     this.slideNumber = Number
   }
-
 }
-
 }
 
 </script>
@@ -211,7 +209,11 @@ background-color: #008CBA;
 width: 4em;
 height: 2em;
 position:absolute;
+<<<<<<< HEAD
 right: 23em;
+=======
+right: 30%;
+>>>>>>> c98f40ca318450dede59fc2307fc94df7d77fcaa
 font-family: Comfortaa;
 }
 
@@ -233,7 +235,7 @@ font-family: Comfortaa;
 }
 
 .Cancel {
-  width: 5%;
+  width: 5em;
   height: 2em;
   background-color: red;
   position: absolute;
@@ -255,8 +257,8 @@ font-family: Comfortaa;
   /* border: 1em solid #ccd; */
   padding: 1%;
   color: black;
+  max-width: 5em;
 }
-
 
  .boxWrapper {
    /* grid-template-columns: 350px 350px 350px; */
@@ -265,8 +267,8 @@ font-family: Comfortaa;
    display: flex;
    justify-content: space-evenly;
    flex-wrap: wrap;
-   height: auto;
-   width: 100%;
+   max-height: 100%;
+   max-width: 100%;
 
  }
 
