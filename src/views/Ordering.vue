@@ -27,6 +27,7 @@
           ref="ingredient"
           v-for="item in ingredients"
           v-on:increment="addToOrder(item)"
+          v-on:decrement="deleteFromOrder(item)"
           :item="item"
           :lang="lang"
           :key="item.ingredient_id">
@@ -98,6 +99,19 @@ export default {
     addToOrder: function (item) {
       this.chosenIngredients.push(item);
       this.price += +item.selling_price;
+    },
+    deleteFromOrder: function (item) {
+      let indexToDelete = -1;
+      for (let i = 0; i < this.chosenIngredients.length; i += 1 ) {
+        if (this.chosenIngredients[i] === item) {
+          indexToDelete = i;
+          break;
+        }
+      }
+      if (indexToDelete >= 0) {
+        this.chosenIngredients.splice(indexToDelete, 1);
+        this.price -= +item.selling_price;
+      }
     },
     placeOrder: function () {
       var i,
