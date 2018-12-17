@@ -108,7 +108,7 @@ export default {
     },
     countPulledPork: function() {
       return this.countNumberOfIngredients(10)
-    }
+    },
   },
   methods: {
     markDone: function (orderid) {
@@ -129,6 +129,16 @@ export default {
       }
       return counter;
     },
+      /*ingredientCategory: function() {
+          let list = [];
+          for (let order in this.orders){
+            for (let i = 0; i < this.orders[order].ingredients.length; i += 1) {
+              list.push(this.orders[order].ingredients[i].category)
+            }
+          }
+          return list;
+        },*/
+
   }
 }
 </script>
@@ -148,7 +158,7 @@ export default {
     left:0;
     top:0;
     z-index: -2;
-    opacity: 0.7;
+    opacity: 0.2;
     width: 100%;
     height: 100%;
   }
@@ -173,6 +183,7 @@ export default {
     height: auto;
     width: 28%;
   }
+
   .order-wrapper {
     min-height: calc(100vh - 140px);
   }

@@ -5,22 +5,28 @@
     <button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
     <div class="column left">
 
-      <div v-for="order in orders">
-        {{order.ingredients[0].stock}}
-      </div>
+
+      <div v-for="(item, key) in ingredients" v-if="item.category == categoryNumber" class="flex-wrapper" :key="key">
+          <div align="center">
+              {{item["ingredient_"+ lang]}}:<br>
+              <img class="picture" :src="findImage(item.image)"><br>
+             {{item.stock}} {{uiLabels.pieces}}<br>
+           </div>
+    </div>
+
 
     </div>
 
     <div class="column right">
       <div class="rowa">
           <h2>{{uiLabels.categories}}:</h2>
-          <h3 class="categorybox">{{uiLabels.bread}}</h3>
-          <h3 class="categorybox">{{uiLabels.protein}}</h3>
-          <h3 class="categorybox">{{uiLabels.vegetables}}</h3>
-          <h3 class="categorybox">{{uiLabels.sauce}}</h3>
-          <h3 class="categorybox">{{uiLabels.addons}}</h3>
-          <h3 class="categorybox">{{uiLabels.sides}}</h3>
-          <h3 class="categorybox">{{uiLabels.drinks}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(1)">{{uiLabels.bread}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(2)">{{uiLabels.protein}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(3)">{{uiLabels.vegetables}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(4)">{{uiLabels.sauce}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(5)">{{uiLabels.addons}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(6)">{{uiLabels.sides}}</h3>
+          <h3 class="categorybox" v-on:click="thisCategory(7)">{{uiLabels.drinks}}</h3>
       </div>
 
       <div class="rowb">
@@ -32,6 +38,7 @@
 </div>
 </template>
 <script>
+import Ingredient from '@/components/Ingredient.vue'
 import OrderItem from '@/components/OrderItem.vue'
 import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
 import sharedVueStuff from '@/components/sharedVueStuff.js'
@@ -39,6 +46,7 @@ import sharedVueStuff from '@/components/sharedVueStuff.js'
 export default {
   name: 'Ordering',
   components: {
+    Ingredient,
     OrderItem,
     OrderItemToPrepare
   },
@@ -47,9 +55,24 @@ export default {
   data: function(){
     return {
       chosenIngredients: [],
-      price: 0
+      price: 0,
+      categoryNumber: 1,
     }
   },
+  methods:{
+    findImage: function(image){
+    if(image !== "") {
+      let img=require('../assets/'+ image);
+      return img;
+    }
+    else return require('../assets/burger.png')
+  },
+  thisCategory: function(Number) {
+    this.categoryNumber = Number
+  }
+
+  }
+
 }
 
 </script>
@@ -57,7 +80,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
 #stockID {
-  font-size:13pt;
+  font-size:12pt;
   max-width: 100%;
   height: auto;
   font-family:Comfortaa;
@@ -100,17 +123,23 @@ h2 {
   width: 90%;
 }
 
+.categorybox:hover{
+  background-color: green;
+  cursor: pointer;
+}
+
 .column{
   float: left;
 }
 
 .left{
-  width: 80%;
+  width: 75%;
   height: 100vh;
+  padding-top: 3%;
 }
 
 .right {
-width: 20%;
+width: 25%;
 height: 100vh;
 }
 
@@ -142,6 +171,28 @@ button:hover {
   background-color: green;
 }
 
+.picture {
+  height: 15vh;
+  width: 10vh;
+}
+
+.flex-wrapper {
+  color: black;
+  background-color: #F2F3F4;
+  display:inline-table;
+  flex-direction:row;
+  border: 4px double black;/*Pixlar???*/
+  width: 30vh;
+  min-height: 30vh;
+  max-height: 30vh;
+  margin: 1%;
+  padding: 1%
+
+}
+
+.uiLabels.pieces{
+
+}
 
 
 </style>

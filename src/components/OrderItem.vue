@@ -1,42 +1,102 @@
 <template>
 	<div>
+
 		{{order.type}} {{uiLabels.ingredients}}<br><br>
 		<div v-for = "item in showCategory" :key="item">
-			<div v-if ="showCategory.indexOf(item)==0">
+
+			<div v-if ="item === uiLabels.bread">
+					<div class="categoryHeadline">
+						{{ item }}:
+					</div>
+					<div v-for = "(list, key) in displayBread" :key="key">
+							<div v-if = "list.length > 1">
+								<div class = "allergy_treatment">{{list[0]}}</div>
+							</div>
+							<div v-else>
+								{{list[0]}}
+							</div>
+					</div>
+			</div>
+			<div v-if="item === uiLabels.protein">
+				<div class="categoryHeadline">
 					{{ item }}:
-					{{ displayBread }}
+				</div>
+				<div v-for = "(list, key) in displayProtein" :key="key">
+						<div v-if = "list.length > 1">
+							<div class = "allergy_treatment">{{list[0]}}</div>
+						</div>
+						<div v-else>
+							{{list[0]}}
+						</div>
+				</div>
+			</div>
+			<div v-if="item === uiLabels.vegetables">
+				<div class="categoryHeadline">
+					{{ item }}:
+				</div>
+				<div v-for = "(list, key) in displayVegetables" :key="key">
+						<div v-if = "list.length > 1">
+							<div class = "allergy_treatment">{{list[0]}}</div>
+						</div>
+						<div v-else>
+							{{list[0]}}
+						</div>
+				</div>
+			</div>
+			<div v-if="item === uiLabels.sauce">
+				<div class="categoryHeadline">
+					{{ item }}:
+				</div>
+				<div v-for = "(list, key) in displaySauce" :key="key">
+						<div v-if = "list.length > 1">
+							<div class = "allergy_treatment">{{list[0]}}</div>
+						</div>
+						<div v-else>
+							{{list[0]}}
+						</div>
+				</div>
+			</div>
+			<div v-if="item === uiLabels.addons">
+				<div class="categoryHeadline">
+					{{ item }}:
+				</div>
+				<div v-for = "(list, key) in displayAddOns" :key="key">
+						<div v-if = "list.length > 1">
+							<div class = "allergy_treatment">{{list[0]}}</div>
+						</div>
+						<div v-else>
+							{{list[0]}}
+						</div>
+				</div>
+			</div>
+			<div v-if="item === uiLabels.sides">
+				<div class="categoryHeadline">
+					{{ item }}:
+				</div>
+				<div v-for = "(list, key) in displaySides" :key="key">
+						<div v-if = "list.length > 1">
+							<div class = "allergy_treatment">{{list[0]}}</div>
+						</div>
+						<div v-else>
+							{{list[0]}}
+						</div>
+				</div>
+			</div>
+			<div v-if="item === uiLabels.drinks">
+				<div class="categoryHeadline">
+					{{ item }}:
+				</div>
+				<div v-for = "(list, key) in displayDrinks" :key="key">
+						<div v-if = "list.length > 1">
+							<div class = "allergy_treatment">{{list[0]}}</div>
+						</div>
+						<div v-else>
+							{{list[0]}}
+						</div>
+				</div>
 			</div>
 		</div>
-
-			<div v-if ="showCategory.indexOf(item)==1">
-				{{ item }}:
-				{{ displayProtein }}<br>
 		</div>
-		<div v-if ="showCategory.indexOf(item)==2">
-			{{ item }}:
-			{{ displayVegetables }}<br>
-	</div>
-	<div v-if ="showCategory.indexOf(item)==3">
-		{{ item }}:
-		{{ displaySauce }}<br>
-</div>
-<div v-if ="showCategory.indexOf(item)==4">
-	{{ item }}:
-	{{ displayAddOns }}<br>
-</div>
-<div v-if ="showCategory.indexOf(item)==5">
-	{{ item }}:
-	{{ displaySides }}<br>
-</div>
-<div v-if ="showCategory.indexOf(item)==6">
-	{{ item }}:
-	{{ displayDrinks }}<br>
-</div>
-
-		<!-- {{order.ingredients.map(item=>item["category"])}} -->
-		<!--{{ order.ingredients.map(item=>item["ingredient_"+ lang]).join(", ") }}-->
-		</div>
-	</div>
 </template>
 <script>
 export default {
@@ -69,43 +129,54 @@ export default {
 					return list;
 				},
 			displayBread: function() {
-				return this.displayIngredient(1)
+				return this.sendInfo(1)
 			},
 			displayProtein: function() {
-				return this.displayIngredient(2)
+				return this.sendInfo(2)
 			},
 			displayVegetables: function() {
-				return this.displayIngredient(3)
+				return this.sendInfo(3)
 			},
 			displaySauce: function() {
-				return this.displayIngredient(4)
+				return this.sendInfo(4)
 			},
 			displayAddOns: function() {
-				return this.displayIngredient(5)
+				return this.sendInfo(5)
 			},
 			displaySides: function() {
-				return this.displayIngredient(6)
+				return this.sendInfo(6)
 			},
 			displayDrinks: function() {
-				return this.displayIngredient(7)
+				return this.sendInfo(7)
 			}
 		},
 	methods: {
-		displayIngredient: function(id) {
-			let list = [];
-			let ingredientList = this.order.ingredients;
-			for (let i = 0; i < ingredientList.length; i += 1) {
-				if (ingredientList[i].category === id) {
-						let array = ingredientList.map(item=>item["ingredient_"+ this.lang]);
-						list.push(array[i])
-				}
-			}
-			return list.join(", ");
-	}
+		sendInfo: function(id) {
+				let listIncludingLists = [];
+				let ingredientList = this.order.ingredients;
+				for (let i = 0; i < ingredientList.length; i += 1) {
+					let list = [];
+					if (ingredientList[i].category === id) {
+							let array = ingredientList.map(item=>item["ingredient_"+ this.lang]);
+							list.push(array[i])
+					}
+					if (ingredientList[i].category === id && ingredientList[i].allergy_treatment === 1) {
+							let array1 = ingredientList.map(item=>item["allergy_treatment"])
+							list.push(array1[i])
+					}
+					listIncludingLists.push(list)
 		}
-
-	}
+		return listIncludingLists;
+		}
+}
+}
 </script>
 <style scoped>
+	.allergy_treatment {
+		color: red;
+	}
 
+	.categoryHeadline{
+		font-weight: bold;
+	}
 </style>
