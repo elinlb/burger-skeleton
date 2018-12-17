@@ -158,7 +158,7 @@ export default {
     left:0;
     top:0;
     z-index: -2;
-    opacity: 0.7;
+    opacity: 0.2;
     width: 100%;
     height: 100%;
   }
@@ -183,11 +183,6 @@ export default {
     height: auto;
     width: 28%;
   }
-
-
-
-
-
 
   .order-wrapper {
     min-height: calc(100vh - 140px);
