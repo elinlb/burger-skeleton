@@ -201,7 +201,6 @@ max-width: 100%;
 .orderButton:hover {
   background-color: #8BC34A;
   cursor: pointer;
-
 }
 
 .Next {
@@ -209,11 +208,7 @@ background-color: #008CBA;
 width: 4em;
 height: 2em;
 position:absolute;
-<<<<<<< HEAD
-right: 23em;
-=======
-right: 30%;
->>>>>>> c98f40ca318450dede59fc2307fc94df7d77fcaa
+right: 25%;
 font-family: Comfortaa;
 }
 
@@ -239,7 +234,7 @@ font-family: Comfortaa;
   height: 2em;
   background-color: red;
   position: absolute;
-  right: 30%;
+  right: 25%;
   font-family: Comfortaa;
 
 }
