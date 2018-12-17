@@ -27,7 +27,7 @@
     <div class="column right">
     <div class="stylecolumnright">
     <!--  <h1>{{uiLabels.stock}}</h1>-->
-    <div v-for="(name,key) in nameMapping" v-if="key == categoryNumber">
+    <div v-for="(name,key) in nameMapping" v-if="key == categoryNumber" :key="key">
         <h2>{{name}} {{uiLabels.instock}}</h2>
       </div>
       <div v-for="(item, key) in ingredients" v-if="item.category == categoryNumber" class="flex-wrapper" :key="key">
@@ -45,7 +45,6 @@
 <script>
 import Ingredient from '@/components/Ingredient.vue'
 import OrderItem from '@/components/OrderItem.vue'
-import nameMapping from '@/components/OrderItem.vue'
 import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
 import sharedVueStuff from '@/components/sharedVueStuff.js'
 
