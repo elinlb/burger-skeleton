@@ -106,6 +106,7 @@ export default {
     order: Object,
     orderId: String,
     lang: String,
+		nameMapping: Object,
   },
 	data: function () {
 	return {

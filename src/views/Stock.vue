@@ -4,13 +4,24 @@
     <h1>{{uiLabels.stock}}</h1>
     <button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
     <div class="column left">
-
-
+      <div v-for = "number in nameMapping">
+      <div v-if = "number === item.category">
+        <h2>HEJ</h2>
+      </div>
+    </div>
       <div v-for="(item, key) in ingredients" v-if="item.category == categoryNumber" class="flex-wrapper" :key="key">
           <div align="center">
-              {{item["ingredient_"+ lang]}}:<br>
+            <div class= "whiteBackground"  v-if="item.stock >27">
+            {{item["ingredient_"+ lang]}}:<br>
               <img class="picture" :src="findImage(item.image)"><br>
              {{item.stock}} {{uiLabels.pieces}}<br>
+           </div>
+          <div class= "redBackground" v-else>
+            {{item["ingredient_"+ lang]}}:<br>
+              <img class="picture" :src="findImage(item.image)"><br>
+             {{item.stock}} {{uiLabels.pieces}}<br>
+            (low)
+           </div>
            </div>
     </div>
 
@@ -31,6 +42,9 @@
 
       <div class="rowb">
         <h2>{{uiLabels.lowInStock}}:</h2>
+        <div v-for= "(item, key) in ingredients" :key="key" v-if = "item.stock < 28">
+          {{item["ingredient_"+ lang]}}<br>
+        </div>
       </div>
 
     </div>
@@ -40,6 +54,7 @@
 <script>
 import Ingredient from '@/components/Ingredient.vue'
 import OrderItem from '@/components/OrderItem.vue'
+import nameMapping from '@/components/OrderItem.vue'
 import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
 import sharedVueStuff from '@/components/sharedVueStuff.js'
 
@@ -67,12 +82,11 @@ export default {
     }
     else return require('../assets/burger.png')
   },
-  thisCategory: function(Number) {
-    this.categoryNumber = Number
+    thisCategory: function(Number) {
+      this.categoryNumber = Number
   }
 
-  }
-
+}
 }
 
 </script>
@@ -149,7 +163,9 @@ height: 100vh;
 
 .rowb {
   min-height: 50%;
-  background-color: pink;
+  background-color: #F2F3F4;
+  border: 4px double black;
+  padding: 1%;
 }
 
 .row:after {
@@ -169,6 +185,7 @@ height: 100vh;
 
 button:hover {
   background-color: green;
+  cursor: pointer;
 }
 
 .picture {
@@ -178,7 +195,6 @@ button:hover {
 
 .flex-wrapper {
   color: black;
-  background-color: #F2F3F4;
   display:inline-table;
   flex-direction:row;
   border: 4px double black;/*Pixlar???*/
@@ -186,12 +202,25 @@ button:hover {
   min-height: 30vh;
   max-height: 30vh;
   margin: 1%;
-  padding: 1%
+  padding: 1%;
+  background-color: #F2F3F4;
 
+}
+
+.whiteBackground {
+
+}
+
+.redBackground {
+  background-color: pink;
 }
 
 .uiLabels.pieces{
 
+}
+
+.lowInStock {
+  background-color: red;
 }
 
 
