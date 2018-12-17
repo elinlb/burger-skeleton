@@ -190,7 +190,7 @@ export default {
 
   .column {
     float:left;
-    /*width: 50%;*/
+
   }
   .left {
   width: 65%;
@@ -242,7 +242,7 @@ export default {
   }
 
   button:hover {
-    background-color: green;
+    background-color: #AED581;
   }
 
 
