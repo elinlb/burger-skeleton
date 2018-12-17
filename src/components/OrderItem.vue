@@ -8,7 +8,7 @@
 					<div class="categoryHeadline">
 						{{ item }}:
 					</div>
-					<div v-for = "list in displayBread">
+					<div v-for = "(list, key) in displayBread" :key="key">
 							<div v-if = "list.length > 1">
 								<div class = "allergy_treatment">{{list[0]}}</div>
 							</div>
@@ -21,7 +21,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "list in displayProtein" :key="list">
+				<div v-for = "(list, key) in displayProtein" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -34,7 +34,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "list in displayVegetables" :key="list">
+				<div v-for = "(list, key) in displayVegetables" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -47,7 +47,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "list in displaySauce" :key="list">
+				<div v-for = "(list, key) in displaySauce" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -60,7 +60,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "list in displayAddOns" :key="list">
+				<div v-for = "(list, key) in displayAddOns" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -73,7 +73,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "list in displaySides" :key="list">
+				<div v-for = "(list, key) in displaySides" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -86,7 +86,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "list in displayDrinks" :key="list">
+				<div v-for = "(list, key) in displayDrinks" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
