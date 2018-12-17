@@ -125,6 +125,7 @@ h2 {
 
 .categorybox:hover{
   background-color: green;
+  cursor: pointer;
 }
 
 .column{
@@ -181,11 +182,15 @@ button:hover {
   display:inline-table;
   flex-direction:row;
   border: 4px double black;/*Pixlar???*/
-  width: 20vh;
+  width: 30vh;
   min-height: 30vh;
   max-height: 30vh;
   margin: 1%;
   padding: 1%
+
+}
+
+.uiLabels.pieces{
 
 }
 
