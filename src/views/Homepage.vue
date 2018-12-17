@@ -49,6 +49,11 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+#styling {
+  margin:auto;
+  max-width: 40em;
+}
   h1 {
     text-transform: uppercase;
     font-size: 1.4em;
@@ -69,12 +74,12 @@ export default {
     background-color: #F2F3F4;
     border-style: double;
     border-color: black;
-    padding: 10px;
+    padding: 2em;
     margin: 0;
     list-style: none;
     font-family: Comfortaa;
-    width: 20em;
-    height: 18em;
+    max-width: 20em;
+    max-height: 18em;
     position: absolute;
     top: 20%;
     right: 25%;
@@ -90,13 +95,13 @@ export default {
     background-color: #F2F3F4;
     border-style: double;
     border-color: black;
-    left: 5px;
-    padding: 10px;
+    left: 2em;
+    padding: 2em;
     margin: 0;
     list-style: none;
     font-family: Comfortaa;
-    width: 20em;
-    height: 18em;
+    max-width: 20em;
+    max-height: 18em;
     position: absolute;
     top: 20%;
     left: 25%;
@@ -107,12 +112,13 @@ export default {
     display: flex;
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
+    
   }
 .burgerBox {
     color: black;
     font-family: Comfortaa;
-    padding: 5px;
-    width: 100%;
+    padding: 2em;
+    max-width: 100%;
     height: auto;
     margin-top: 10px;
     line-height: 50px;
@@ -121,12 +127,13 @@ export default {
     text-align: center;
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
+
   }
   .sideBox {
     color: black;
     font-family: Comfortaa;
-    padding: 5px;
-    width: 100%;
+    padding: 2em;
+    max-width: 100%;
     height: auto;
     margin-top: 10px;
     line-height: 50px;
@@ -135,6 +142,9 @@ export default {
     text-align: center;
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
+
+
+
   }
   .backgroundpic {
     position: fixed;

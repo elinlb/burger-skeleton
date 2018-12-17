@@ -147,7 +147,7 @@ nextSlide: function() {
 
 #ordering {
   margin:auto;
-  width: 40em;
+  max-width: 40em;
 }
 
 .main-size {
