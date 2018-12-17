@@ -3,9 +3,9 @@
 <div class="ingredient box">
     <label>
       <img class="picture" :src="findImage(item.image)">
-      <button v-on:click="incrementCounter">+</button>
-      {{ counter }}
       <button v-on:click="decrementCounter">-</button>
+      {{ counter }}
+      <button v-on:click="incrementCounter">+</button>
       {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
     </label>
   </div>
