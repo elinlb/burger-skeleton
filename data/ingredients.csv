@@ -54,7 +54,7 @@ ingredient_id,ingredient_sv,ingredient_en,category,milk_free,gluten_free,vegan,s
 53,fullkornsbrioche,whole wheat brioche,1,0,0,0,10,wholewheat.png,0
 54,nachochips,nachos,6,1,0,1,20,nachos.png,0
 55,potatisstrips,potato fries,6,1,1,1,20,fries.png,0
-56,sötpotatisstrips,sweet potato fries,6,1,1,1,30,fries.png,0
+56,sötpotatisstrips,sweet potato fries,6,1,1,1,30, sweetpotatofries.png,0
 57,chokladmilkshake,chocolate milk shake,7,0,1,0,40,chocmilkshake.png,0
 58,pucko,pucko,7,0,1,0,25,pucko.png,0
 59,läsk,soda,7,1,1,1,20,soda.png,0
