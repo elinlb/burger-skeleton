@@ -4,7 +4,7 @@
 		<div v-for = "item in showCategory" :key="item">
 			<div v-if ="showCategory.indexOf(item)==0">
 					{{ item }}:
-					<div v-for = "list in displayBread">
+					<div v-for = "(list, key) in displayBread" :key="key">
 							<div v-if = "list.length > 1">
 								<div class = "allergy_treatment">{{list[0]}}</div>
 							</div>
@@ -15,7 +15,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==1">
 				{{ item }}:
-				<div v-for = "list in displayProtein" :key="list">
+				<div v-for = "(list, key) in displayProtein" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -26,7 +26,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==2">
 				{{ item }}:
-				<div v-for = "list in displayVegetables" :key="list">
+				<div v-for = "(list, key) in displayVegetables" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -37,7 +37,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==3">
 				{{ item }}:
-				<div v-for = "list in displaySauce" :key="list">
+				<div v-for = "(list, key) in displaySauce" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -48,7 +48,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==4">
 				{{ item }}:
-				<div v-for = "list in displayAddOns" :key="list">
+				<div v-for = "(list, key) in displayAddOns" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -59,7 +59,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==5">
 				{{ item }}:
-				<div v-for = "list in displayAddons" :key="list">
+				<div v-for = "(list, key) in displaySides" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -70,7 +70,7 @@
 			</div>
 			<div v-if ="showCategory.indexOf(item)==6">
 				{{ item }}:
-				<div v-for = "list in displayAddons" :key="list">
+				<div v-for = "(list, key) in displayDrinks" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
