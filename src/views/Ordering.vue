@@ -8,7 +8,6 @@
     </router-link>
  <h1 class="headline">Create your burger</h1>
 
-
 <div class="flex-container">
 
   <div class="flex-item" v-on:click="thisCategory(1)">{{ uiLabels.bread }} </div>
@@ -40,7 +39,7 @@
   <h3 class="headline">{{ uiLabels.order }}</h3>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-    <div> <router-link to="basket">To basket </router-link></div>
+    <div> <router-link to="basket"> {{uiLabels.basket}} </router-link></div>
   </div>
 
 
@@ -212,7 +211,7 @@ background-color: #008CBA;
 width: 4em;
 height: 2em;
 position:absolute;
-right: 450px;
+right: 23em;
 font-family: Comfortaa;
 }
 
