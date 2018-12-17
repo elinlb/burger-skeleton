@@ -24,6 +24,8 @@
 </div>
 <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
 
+<h5>  {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr </h5>
+
     <div class = "burgerContainer">
       <div class ="burgerBox">
         <router-link to="ordering">

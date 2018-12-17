@@ -14,7 +14,7 @@ ingredient_id,ingredient_sv,ingredient_en,category,milk_free,gluten_free,vegan,s
 13,banan,banana,3,1,1,1,5,banana.png
 14,löjrom,bleak caviar,5,1,1,0,50,fish.png
 15,karamelliserad lök,candied onions,3,1,1,1,5,redonion.png
-16,cheddar,cheddar cheese,5,0,1,0,10,halloumi.ong
+16,cheddar,cheddar cheese,5,0,1,0,10,halloumi.png
 17,koriander,cilantro,3,1,1,1,5,cilantro.png
 18,coleslaw,coleslaw,5,1,1,0,5,cabbage.png
 19,friterade lökringar,deep-fried onion rings,5,1,0,1,15,onionring.png

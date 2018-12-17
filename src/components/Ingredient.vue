@@ -3,7 +3,9 @@
 <div class="ingredient box">
     <label>
       <img class="picture" :src="findImage(item.image)">
-      <button v-on:click="incrementCounter">{{ counter }}</button>
+      <button v-on:click="incrementCounter">+</button>
+      {{ counter }}
+      <button v-on:click="decrementCounter">-</button>
       {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
     </label>
   </div>
@@ -33,6 +35,15 @@ export default {
       // can catch it with v-on:increment in the component declaration
       // (see ingredient html-tag in Ordering.vue)
       this.$emit('increment');
+    },
+    decrementCounter: function () {
+      if (this.counter > 0) {
+        this.counter -= 1;
+        // sending 'increment' message to parent component or view so that it
+        // can catch it with v-on:increment in the component declaration
+        // (see ingredient html-tag in Ordering.vue)
+        this.$emit('decrement');
+      }
     },
     resetCounter: function () {
       this.counter = 0;
