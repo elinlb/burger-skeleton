@@ -8,8 +8,7 @@
       :key="countAllIngredients.indexOf(countIng)">
     {{countIng.name}}: {{countIng.count}}
   </div> -->
-
-
+{{orders}}
   <div class ="column left">
   <h1>{{ uiLabels.ordersInQueue }}</h1>
   <div class="order-wrapper">
@@ -18,7 +17,7 @@
       v-if="order.status !== 'done'"
       v-on:done="markDone(key)"
       :order-id="key"
-      :order="order"
+      :burgers="order.burgers"
       :ui-labels="uiLabels"
       :lang="lang"
       :key="key">
@@ -147,9 +146,9 @@ export default {
                 burgers[j].ingredients[i].ingredient_id === id) {
                   counter +=1;
                 }
-                if(this.orders[order].ingredients[i].ingredient_id === id && this.orders[order].status === 'done') {
-                  counter -= 1;
-                }
+                // if(this.orders[order].ingredients[i].ingredient_id === id && this.orders[order].status === 'done') {
+                //   counter -= 1;
+                // }
               }
             }
             return counter;

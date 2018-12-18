@@ -96,10 +96,15 @@ export default {
       price: 0,
       orderNumber: "",
       slideNumber: 1,
-      currentOrder: {
-      burgers: []
-      }
     }
+  },
+  computed: {
+      currentOrder: function () {
+
+        return this.$store.state.currentOrder;
+
+      }
+
   },
   created: function () {
     this.$store.state.socket.on('orderNumber', function (data) {
@@ -125,7 +130,7 @@ export default {
       }
     },
     addToOrder: function (){
-      this.currentOrder.burgers.push({
+      this.$store.commit("addToCurrentBurger", {
         ingredients: this.chosenIngredients.splice(0),
         price: this.price
     });
@@ -140,7 +145,7 @@ export default {
     placeOrder: function () {
       // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
       this.$store.state.socket.emit('order', this.currentOrder);
-      this.currentOrder = [];
+      this.$store.commit('clearOrder');
       this.category = 1;
 
     },

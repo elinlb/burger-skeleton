@@ -1,9 +1,10 @@
 <template>
 	<div>
 
-		{{order.type}} {{uiLabels.ingredients}}<br><br>
-		{{order.orderId}}
-		<div v-for="(burger, key) in order.burgers" :key="key">
+		{{"order.type"}} {{uiLabels.ingredients}}<br><br>
+		<!-- {{order.orderId}}
+		{{order.burgers}} -->
+		<div v-for="(burger, key) in burgers" :key="key">
 		<div v-for = "item in showCategory" :key="item">
 			<div v-if ="item === uiLabels.bread">
 					<div class="categoryHeadline">
@@ -105,10 +106,10 @@ export default {
   name: 'OrderItem',
   props: {
     uiLabels: Object,
-    order: Object,
-    // orderId: String,
+    burgers: Array,
+    orderId: String,
     lang: String,
-		nameMapping: Object,
+		//nameMapping: Object,
   },
 	data: function () {
 	return {
@@ -121,7 +122,10 @@ export default {
 		},
 		showCategory: function() {
 			let list = [];
-			let ingredientList = this.order.ingredients;
+			// for (let j = 0; j < this.orders.burgers.length; j += 1){
+			let ingredientList = this.burgers[0].ingredients;
+			// let ingredientList = this.orders.burgers.ingredients;
+
 			for (let i = 0; i < ingredientList.length; i += 1) {
 				let categoryNumber = ingredientList[i].category;
 				let categoryName = this.nameMapping[categoryNumber]
@@ -129,6 +133,7 @@ export default {
 						list.push(categoryName)
 					}
 					}
+				// }
 					return list;
 				},
 			displayBread: function() {
@@ -156,7 +161,7 @@ export default {
 	methods: {
 		sendInfo: function(id) {
 				let listIncludingLists = [];
-				let ingredientList = this.order.ingredients;
+				let ingredientList = this.burgers[0].ingredients;
 				for (let i = 0; i < ingredientList.length; i += 1) {
 					let list = [];
 					if (ingredientList[i].category === id) {

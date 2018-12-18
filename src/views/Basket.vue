@@ -10,13 +10,9 @@
     <h1>{{uiLabels.yourOrder}}</h1>
     <div>
       <OrderItem
-        v-for="(order, key) in orders"
-        v-if="order.status !== 'done'"
-        :order-id="key"
-        :order="order"
+        :burgers="currentOrder.burgers"
         :ui-labels="uiLabels"
-        :lang="lang"
-        :key="key">
+        :lang="lang">
       </OrderItem>
     </div>
   </div>
@@ -67,6 +63,11 @@ export default {
       orderNumber: "",
       slideNumber: 1,
     }
+  },
+  computed: {
+      currentOrder: function () {
+        return this.$store.state.currentOrder;
+      }
   },
   methods: {
 
