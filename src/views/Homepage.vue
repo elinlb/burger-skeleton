@@ -10,7 +10,7 @@
     <div class = "burgerContainer" >
       <div class ="burgerBox">
         <h1>{{uiLabels.build}}</h1>
-      <img src="@/assets/burger.png" width="120em">
+      <img src="@/assets/burger.png" width="70%">
 
     </div>
         </div>
@@ -20,8 +20,8 @@
       <div class = "sideContainer">
     <div class ="sideBox">
       <h1>{{uiLabels.pickSides}}</h1>
-        <img src="@/assets/soda.png" width="80em">
-        <img src="@/assets/fries.png" width="80em">
+        <img src="@/assets/soda.png" width="30%">
+        <img src="@/assets/fries.png" width="30%">
      </div>
    </div>
     </router-link>
@@ -74,14 +74,14 @@ export default {
     background-color: #F2F3F4;
     border-style: double;
     border-color: black;
-    padding: 2em;
+    padding: 0em;
     margin: 0;
     list-style: none;
     font-family: Comfortaa;
-    max-width: 20em;
-    max-height: 18em;
+    max-width: 20%;
+    max-height: 40%;
     position: absolute;
-    top: 20%;
+    top: 30%;
     right: 25%;
     display: -webkit-box;
     display: -moz-box;
@@ -96,14 +96,14 @@ export default {
     border-style: double;
     border-color: black;
     left: 2em;
-    padding: 2em;
+    padding: 0em;
     margin: 0;
     list-style: none;
     font-family: Comfortaa;
-    max-width: 20em;
-    max-height: 18em;
+    max-width: 20%;
+    max-height: 40%;
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 25%;
     display: -webkit-box;
     display: -moz-box;
@@ -112,7 +112,7 @@ export default {
     display: flex;
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
-    
+
   }
 .burgerBox {
     color: black;

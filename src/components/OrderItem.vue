@@ -2,8 +2,9 @@
 	<div>
 
 		{{order.type}} {{uiLabels.ingredients}}<br><br>
+		{{order.orderId}}
+		<div v-for="(burger, key) in order.burgers" :key="key">
 		<div v-for = "item in showCategory" :key="item">
-
 			<div v-if ="item === uiLabels.bread">
 					<div class="categoryHeadline">
 						{{ item }}:
@@ -97,6 +98,7 @@
 			</div>
 		</div>
 		</div>
+	</div>
 </template>
 <script>
 export default {
@@ -104,7 +106,7 @@ export default {
   props: {
     uiLabels: Object,
     order: Object,
-    orderId: String,
+    // orderId: String,
     lang: String,
   },
 	data: function () {
