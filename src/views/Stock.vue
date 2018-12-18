@@ -16,20 +16,30 @@
       </div>
 
       <div class="rowb">
-        <h2>{{uiLabels.lowInStock}}:</h2>
-        <div v-for= "(item, key) in ingredients" :key="key" v-if = "item.stock < 28">
-          {{item["ingredient_"+ lang]}}<br>
-        </div>
+
+        <!--<div v-for= "(item, key) in ingredients" :key="key" v-if = "item.stock < 20">
+          <h2><img src="@/assets/warning.png" width= "30vw">{{uiLabels.lowInStock}}:</h2>
+          {{item["ingredient_"+ lang]}}
+        </div>-->
       </div>
 
     </div>
 
     <div class="column right">
     <div class="stylecolumnright">
+
     <!--  <h1>{{uiLabels.stock}}</h1>-->
     <div v-for="(name,key) in nameMapping" v-if="key == categoryNumber" :key="key">
         <h2>{{name}} {{uiLabels.instock}}</h2>
       </div>
+
+      <img src="@/assets/warning.png" width= "30vw">{{uiLabels.lowInStock}}:
+      <span v-for= "(item, key) in ingredients" :key="key" v-if = "item.stock < 20">
+        {{item["ingredient_"+ lang]}}
+      </span><br>
+
+
+
       <div v-for="(item, key) in ingredients" v-if="item.category == categoryNumber" class="flex-wrapper" :key="key">
           <div align="center">
               {{item["ingredient_"+ lang]}}:<br>
@@ -120,15 +130,6 @@ h1 {
   padding: 2vh;
 }
 
-h2 {
-  /*text-transform: capitalize;*/
-  margin-left: 1%;
-}
-
-h3 {
-  margin: 3%;
-}
-
 .categorybox{
   text-transform: capitalize;
   font-size: 1em;
@@ -169,9 +170,10 @@ height: 100vh;
 
 .rowb {
   min-height: 50%;
-  background-color: #F2F3F4;
-  border: 4px double black;
+  /*background-color: #F2F3F4;*/
+  /*border: 4px double black;*/
   padding: 1%;
+  color: red;
 }
 
 .row:after {
