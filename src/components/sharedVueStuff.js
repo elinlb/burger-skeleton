@@ -5,7 +5,7 @@ var sharedVueStuff = {
   data: function () {
     return {
       orders: {},
-      ingredients: {},
+      ingredients: [],
     }
   },
   computed: {

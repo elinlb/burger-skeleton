@@ -69,7 +69,7 @@ export default {
 
 .picture {
   display: block;
-  height: auto;
+  /* height: auto; */
   max-height: 40%;
   /* width: 60%; */
   max-width: 40%;
@@ -77,5 +77,7 @@ export default {
   padding-left: 2em;
   align-items: center;
 }
+
+
 
 </style>

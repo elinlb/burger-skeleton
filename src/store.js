@@ -8,9 +8,10 @@ export default new Vuex.Store({
   state: {
     socket: io(),
     uiLabels: {},
-    lang: "en"
-    //currentOrder burgers
-
+    lang: "en",
+    currentOrder: {
+      burgers: []
+    }
   },
   getters: {
     getSocket: state => state.socket
@@ -21,11 +22,18 @@ export default new Vuex.Store({
     },
     switchLang: function (store, lang) {
       store.lang = lang;
-    }
-    //addToCurrentBurger: function (store, ingredient) {
+    },
+    addToCurrentBurger: function (store, burgers) {
+      store.currentOrder.burgers.push(burgers);
 
-  }
-  ,
+    //addToCurrentBurger: function (store, ingredient) {
+   },
+   clearOrder: function (store){
+     store.currentOrder = {
+       burgers: []
+     };
+   }
+  },
   actions: {
 
   }

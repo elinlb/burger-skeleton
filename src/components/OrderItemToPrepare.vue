@@ -7,8 +7,7 @@
   <OrderItem
     :ui-labels="uiLabels"
     :lang="lang"
-    :order-id="orderId"
-    :order="order">
+    :burgers="burgers">
   </OrderItem>
   <button v-on:click="orderDone">
     {{uiLabels.ready}}
@@ -26,7 +25,7 @@ export default {
   components: { OrderItem },
   props: {
     uiLabels: Object,
-    order: Object,
+    burgers: Array,
     orderId: String,
     lang: String
   },

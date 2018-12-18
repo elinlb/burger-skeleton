@@ -3,6 +3,12 @@
   <img class="background-kitchen" src="@/assets/brick.jpg">
 <button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
+  <!-- <div v-for="countIng in countAllIngredients"
+      v-if="countIng.count>0"
+      :key="countAllIngredients.indexOf(countIng)">
+    {{countIng.name}}: {{countIng.count}}
+  </div> -->
+{{orders}}
   <div class ="column left">
   <h1>{{ uiLabels.ordersInQueue }}</h1>
   <div class="order-wrapper">
@@ -11,7 +17,7 @@
       v-if="order.status !== 'done'"
       v-on:done="markDone(key)"
       :order-id="key"
-      :order="order"
+      :burgers="order.burgers"
       :ui-labels="uiLabels"
       :lang="lang"
       :key="key">
@@ -109,26 +115,44 @@ export default {
     countPulledPork: function() {
       return this.countNumberOfIngredients(10)
     },
+    countAllIngredients: function() {
+    let ingredientTuples = []
+      for (let i = 0; i < this.ingredients.length; i += 1) {
+        ingredientTuples[i] = {};
+        ingredientTuples[i].name = this.ingredients[i]['ingredient_' + this.lang];
+        ingredientTuples[i].count = this.countNumberOfIngredients(this.ingredients[i].ingredient_id);
+      }
+      return ingredientTuples;
+    }
   },
   methods: {
     markDone: function (orderid) {
       this.$store.state.socket.emit("orderDone", orderid);
       this.countNumberOfIngredients(orderid)
     },
-    countNumberOfIngredients: function(id) {
-      let counter = 0;
-      for (let order in this.orders) {
-        for (let i = 0; i < this.orders[order].ingredients.length; i+= 1) {
-          if (this.orders[order].ingredients[i].ingredient_id === id) {
-            counter += 1;
+
+        countNumberOfIngredients: function(id) {
+          let counter = 0;
+          for (let order in this.orders) {
+            // for (let i = 0; i < this.orders[order].ingredients.length; i+= 1) {
+            //   if (this.orders[order].ingredients[i].ingredient_id === id) {
+            //     counter += 1;
+            //   }
+            let burgers = this.orders[order].burgers;
+
+            for (let j = 0; j < burgers.length; j += 1) {
+              for (let i = 0; i < burgers[j].ingredients.length; i += 1) {
+                if (this.orders[order].status !== "done" &&
+                burgers[j].ingredients[i].ingredient_id === id) {
+                  counter +=1;
+                }
+                // if(this.orders[order].ingredients[i].ingredient_id === id && this.orders[order].status === 'done') {
+                //   counter -= 1;
+                // }
+              }
+            }
+            return counter;
           }
-          if(this.orders[order].ingredients[i].ingredient_id === id && this.orders[order].status === 'done') {
-              counter -= 1;
-          }
-        }
-      }
-      return counter;
-    },
       /*ingredientCategory: function() {
           let list = [];
           for (let order in this.orders){
@@ -140,6 +164,7 @@ export default {
         },*/
 
   }
+}
 }
 </script>
 <style scoped>
