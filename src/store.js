@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     socket: io(),
     uiLabels: {},
-    lang: "en"
+    lang: "en",
+    currentOrder.burgers = []
     //currentOrder burgers
 
   },
@@ -21,11 +22,13 @@ export default new Vuex.Store({
     },
     switchLang: function (store, lang) {
       store.lang = lang;
-    }
+    },
+    addToCurrentBurger: function (store, ingredient) {
+      store.currentOrder.burgers = burgers;
+
     //addToCurrentBurger: function (store, ingredient) {
 
-  }
-  ,
+  },
   actions: {
 
   }

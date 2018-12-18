@@ -291,9 +291,6 @@ font-family: Comfortaa;
    border-width: thick;
  }
 
- .box:active{
-   border-style: double;
- }
 
 .flex-container {
   background-color: #F2F3F4;
