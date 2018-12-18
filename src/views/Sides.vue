@@ -144,7 +144,7 @@ nextSlide: function() {
 
 #sides {
   margin:auto;
-  width: 40em;
+  max-width: 100%;
 }
 
 .main-size {
