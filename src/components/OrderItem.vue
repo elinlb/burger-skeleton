@@ -109,11 +109,7 @@ export default {
     burgers: Array,
     orderId: String,
     lang: String,
-<<<<<<< HEAD
-		 // nameMapping: Object,
-=======
-		//nameMapping: Object,
->>>>>>> 0649a282eb73a523d08d18668f549346320e28ed
+	 nameMapping: Object,
   },
 	data: function () {
 	return {

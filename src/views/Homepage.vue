@@ -72,17 +72,7 @@ export default {
   }
 /*
   .burgerContainer {
-<<<<<<< HEAD
 
-=======
-    /* background-color: #F2F3F4;
-    border-style: double;
-    border-color: black;
-    left: 2em;
-    padding: 0em;
-    margin: 0;
-    list-style: none; */
->>>>>>> 0649a282eb73a523d08d18668f549346320e28ed
     font-family: Comfortaa;
     max-width: 60%;
     max-height: 100%;
