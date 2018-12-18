@@ -6,7 +6,7 @@
     <router-link to="/">
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
     </router-link>
- <h1 class="headline">Create your burger</h1>
+ <h1 class="headline">{{uiLabels.build}}</h1>
 
 <div class="flex-container">
 

@@ -11,16 +11,16 @@
       <div class ="burgerBox">
         <router-link to="ordering">
         <h1>{{uiLabels.build}}</h1>
-      <img src="@/assets/burger.png" width="30%" >
+      <img src="@/assets/burger.png" width="60%" >
       </router-link>
     </div>
 
       <!-- <div class = "sideContainer"> -->
     <div class ="sideBox">
         <router-link to="sides" >
-      <h1>{{uiLabels.pickSides}}</h1>
-        <img src="@/assets/soda.png" width="15%">
-        <img src="@/assets/fries.png" width="15%">
+      <h1>{{uiLabels.pickSides }} </h1>
+        <img src="@/assets/soda.png" width="50%">
+        <img src="@/assets/fries.png" width="50%">
             </router-link>
      </div>
     </div>
@@ -47,7 +47,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
@@ -69,24 +68,18 @@ export default {
     font-family: Comfortaa;
     position:absolute;
     left: 20%;
-    right: 20%;
-    font-size: 4em;
+    font-size:250%;
   }
-
+/*
   .burgerContainer {
-    /* background-color: #F2F3F4;
-    border-style: double;
-    border-color: black;
-    left: 2em;
-    padding: 2em;
-    margin: 0;
-    list-style: none; */
+
     font-family: Comfortaa;
     max-width: 60%;
     max-height: 100%;
+
     position: absolute;
     top: 30%;
-    left: 20%; 
+    left: 20%;
     right: 30%;
     display: -webkit-box;
     display: -moz-box;
@@ -97,12 +90,12 @@ export default {
     justify-content: space-around;
   }
 
+
   .burgerBox {
     color: black;
     font-family: Comfortaa;
-    /* padding: 2em; */
-      /* left: 2em; */
-    max-width: 100%;
+    max-width: 50%;
+    padding: 0 10% 0 10%;
     height: auto;
     margin-top: 100%;
     line-height: 100%;
@@ -121,9 +114,8 @@ export default {
   .sideBox {
     color: black;
     font-family: Comfortaa;
-    /* padding: 2em; */
-      /* left: 2em; */
     max-width: 50%;
+    padding: 0 10% 0 10%;
     height: auto;
     margin-top: 100%;
     line-height: 100%;
@@ -137,7 +129,69 @@ export default {
     border-color: black;
     margin: 0;
     list-style: none;
+  } */
+
+  .burgerContainer {
+    padding: 2%;
+    margin: 0 30% 0 30%;
+    list-style: none;
+    font-family: Comfortaa;
+    width: 40%;
+    top: 30%;
+    left: 10%;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+
   }
+
+
+    .burgerBox {
+      background-color: #F2F3F4;
+      color: black;
+      font-family: Comfortaa;
+      width: 60%;
+      margin-top: 70%;
+      margin-left: 0%;
+
+      line-height: 150%;
+      font-weight: bold;
+      font-size: 100%;
+
+
+      -webkit-flex-flow: row wrap;
+      justify-content: space-around;
+      border-style: double;
+
+      padding: 10% 30% 10% 30%;
+    }
+
+    .sideBox {
+      background-color: #F2F3F4;
+      color: black;
+      font-family: Comfortaa;
+      width: 100%;
+      margin-top: 70%;
+      margin-left: 10%;
+
+      line-height: 150%;
+      font-weight: bold;
+      text-align: center;
+      font-size: 100%;
+
+      -webkit-flex-flow: row wrap;
+      justify-content: space-around;
+      border-style: double;
+      border-color: black;
+
+      padding: 10% 30% 10% 30%;
+    }
 
   .sideContainer {
     background-color: #F2F3F4;
