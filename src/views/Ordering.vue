@@ -6,7 +6,7 @@
     <router-link to="/">
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
     </router-link>
- <h1 class="headline">{{uiLabels.build}}</h1>
+ <h1 class="headline">Create your burger</h1>
 
 <div class="flex-container">
 
@@ -18,12 +18,7 @@
 
 </div>
 
-
-    <h1 class="headline">{{ uiLabels.ingredients }}</h1> <div class="allergy-container">
-    <h5> {{uiLabels.allergy}}: (m) = {{uiLabels.containsMilk}}
-    (g)= {{uiLabels.containsGluten}}
-    (v)=  {{uiLabels.vegan}} </h5>
-  </div>
+    <h1 class="headline">{{ uiLabels.ingredients }}</h1>
 
     <div class="boxWrapper">
         <Ingredient
@@ -105,11 +100,8 @@ export default {
   },
   computed: {
       currentOrder: function () {
-
         return this.$store.state.currentOrder;
-
       }
-
   },
   created: function () {
     this.$store.state.socket.on('orderNumber', function (data) {
@@ -321,27 +313,6 @@ font-family: Comfortaa;
   padding: 2%;
   margin: 0;
   list-style: none;
-  font-family: Comfortaa;
-
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
-}
-
-.allergy-container {
-  background-color: #F2F3F4;
-  border-style: double;
-  border-color: black;
-  padding: 1%;
-  margin: 0;
-  list-style: none;
-  font-family: Comfortaa;
-  opacity: 0.2;
 
   display: -webkit-box;
   display: -moz-box;

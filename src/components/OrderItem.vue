@@ -1,7 +1,7 @@
 <template>
 	<div>
 
-		{{"order.type"}} {{uiLabels.ingredients}}<br><br>
+		<!-- {{"order.type"}}--> {{uiLabels.ingredients}}<br><br>
 		<!-- {{order.orderId}}
 		{{order.burgers}} -->
 		<div v-for="(burger, key) in burgers" :key="key">
@@ -109,7 +109,7 @@ export default {
     burgers: Array,
     orderId: String,
     lang: String,
-	 nameMapping: Object,
+		//nameMapping: Object,
   },
 	data: function () {
 	return {
@@ -122,7 +122,7 @@ export default {
 		},
 		showCategory: function() {
 			let list = [];
-			// for (let j = 0; j < this.orders.burgers.length; j += 1){
+			//for (let j = 0; j < this.orders.burgers.length; j += 1){
 			let ingredientList = this.burgers[0].ingredients;
 			// let ingredientList = this.orders.burgers.ingredients;
 
@@ -133,7 +133,7 @@ export default {
 						list.push(categoryName)
 					}
 					}
-				// }
+				//}
 					return list;
 				},
 			displayBread: function() {
