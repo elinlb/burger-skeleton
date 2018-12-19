@@ -4,25 +4,16 @@
     <button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
     <div class="column left">
-      <div class="rowa">
+      <div id = "myDIV">
           <h2>{{uiLabels.categories}}:</h2>
-          <h3 class="categorybox" v-on:click="thisCategory(1)">{{uiLabels.bread}}</h3>
-          <h3 class="categorybox" v-on:click="thisCategory(2)">{{uiLabels.protein}}</h3>
-          <h3 class="categorybox" v-on:click="thisCategory(3)">{{uiLabels.vegetables}}</h3>
-          <h3 class="categorybox" v-on:click="thisCategory(4)">{{uiLabels.sauce}}</h3>
-          <h3 class="categorybox" v-on:click="thisCategory(5)">{{uiLabels.addons}}</h3>
-          <h3 class="categorybox" v-on:click="thisCategory(6)">{{uiLabels.sides}}</h3>
-          <h3 class="categorybox" v-on:click="thisCategory(7)">{{uiLabels.drinks}}</h3>
+          <h3 type="button" class="categorybox active" v-on:click="thisCategory(1)">{{uiLabels.bread}}</h3>
+          <h3 type="button" class="categorybox" v-on:click="thisCategory(2)">{{uiLabels.protein}}</h3>
+          <h3 type="button" class="categorybox" v-on:click="thisCategory(3)">{{uiLabels.vegetables}}</h3>
+          <h3 type="button" class="categorybox" v-on:click="thisCategory(4)">{{uiLabels.sauce}}</h3>
+          <h3 type="button" class="categorybox" v-on:click="thisCategory(5)">{{uiLabels.addons}}</h3>
+          <h3 type="button" class="categorybox" v-on:click="thisCategory(6)">{{uiLabels.sides}}</h3>
+          <h3 type="button" class="categorybox" v-on:click="thisCategory(7)">{{uiLabels.drinks}}</h3>
       </div>
-
-      <div class="rowb">
-
-        <!--<div v-for= "(item, key) in ingredients" :key="key" v-if = "item.stock < 20">
-          <h2><img src="@/assets/warning.png" width= "30vw">{{uiLabels.lowInStock}}:</h2>
-          {{item["ingredient_"+ lang]}}
-        </div>-->
-      </div>
-
     </div>
 
     <div class="column right">
@@ -33,26 +24,52 @@
         <h2>{{name}} {{uiLabels.instock}}</h2>
       </div>
 
-      <img src="@/assets/warning.png" width= "30vw">{{uiLabels.lowInStock}}:
-      <span v-for= "(item, key) in ingredients" :key="key" v-if = "item.stock < 20">
-        {{item["ingredient_"+ lang]}}
-      </span><br>
+      <div class = "lowInStockWarning">
+      <div class ="bottom">
+            <img src="@/assets/warning.png" width= "25vw">{{uiLabels.lowInStock}}:
+            <!--<span v-for= "(item, key) in ingredients" :key="key" v-if = "item.stock < 20">
+              {{item["ingredient_"+ lang]}}
+            </span><br>-->
+            <span>
+              {{ lowInStockItems() }}
+            </span>
+      </div>
+      </div>
 
 
-
-      <div v-for="(item, key) in ingredients" v-if="item.category == categoryNumber" class="flex-wrapper" :key="key">
-          <div align="center">
-              {{item["ingredient_"+ lang]}}:<br>
-              <img class="picture" :src="findImage(item.image)"><br>
-             {{item.stock}} {{uiLabels.pieces}}<br>
+    <div class="flex-wrapper">
+      <div v-for="(item, key) in ingredients"
+           v-if="item.category == categoryNumber"
+           :class="['flex-table', { lowInStock : item.stock <= 20 } ]"
+           :key="key">
+           <div class="flex-center">
+              <div class="flex-content">
+                <p>{{item["ingredient_"+ lang]}}:</p>
+                <img class="picture" :src="findImage(item.image)">
+                <p>
+                   {{item.stock}} {{uiLabels.pieces}} {{uiLabels.instock}} {{ item.stock <= 20 ? "(" + uiLabels.low + ")" : ""}}
+                </p>
+             </div>
            </div>
+      </div>
     </div>
-    </div>
+  </div>
   </div>
 
 </div>
 </template>
 <script>
+
+/*var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("categorybox");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}*/
+
 import Ingredient from '@/components/Ingredient.vue'
 import OrderItem from '@/components/OrderItem.vue'
 import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
@@ -82,15 +99,26 @@ export default {
   },
   methods:{
     findImage: function(image){
-    if(image !== "") {
-      let img=require('../assets/'+ image);
-      return img;
-    }
-    else return require('../assets/burger.png')
-  },
+      if(image !== "") {
+        let img=require('../assets/'+ image);
+        return img;
+      }
+      else return require('../assets/burger.png')
+    },
     thisCategory: function(Number) {
       this.categoryNumber = Number
-  }
+    },
+    lowInStockItems: function () {
+      return this.ingredients
+        .filter( function (a) {
+          if (a.stock <= 20)
+            return a;
+        })
+        .map( function (a) {
+        return a['ingredient_' + this.lang];
+        }.bind(this))
+        .join(", ");
+    },
 
 }
 }
@@ -136,11 +164,12 @@ h1 {
   background-color: #F2F3F4;
   border-style: double;
   border-color: black;
-  padding: 3%;
+  padding: 5%;
   width: 90%;
+  margin-bottom: 4%;
 }
 
-.categorybox:hover{
+.active, .categorybox:hover{
   background-color: #AED581;
   cursor: pointer;
   text-transform: uppercase;
@@ -165,15 +194,7 @@ height: 100vh;
 }
 
 .rowa {
-    min-height: 50%;
-}
-
-.rowb {
-  min-height: 50%;
-  /*background-color: #F2F3F4;*/
-  /*border: 4px double black;*/
-  padding: 1%;
-  color: red;
+    min-height: 100%;
 }
 
 .row:after {
@@ -202,11 +223,20 @@ button:hover {
   /*display: table-cell; vertical-align: middle;*/
 }
 
+<<<<<<< HEAD
+=======
+.bottom > * {
+  vertical-align: bottom;
+}
 
+>>>>>>> 381510998fa48b2f36fe7f67303b7df3b30accd4
 .flex-wrapper {
+  width: 80vw;
+}
+
+.flex-table {
   color: black;
   display:inline-table;
-  flex-direction:row;
   border: 4px double black;/*Pixlar???*/
   width: 30vh;
   min-height: 30vh;
@@ -217,8 +247,32 @@ button:hover {
   background-color: #F2F3F4;
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vh;
+  width: 30vh;
+}
+
+.flex-content {
+  text-align: center;
+}
+
 .lowInStock {
-  background-color: red;
+  background-color: pink;
+}
+
+.lowInStockWarning {
+  border-style: solid;
+  border-width: medium;
+  border-color: red;
+  background-color: pink;
+  color: black;
+  font-size: 14pt;
+  /*font-weight: bold;*/
+  padding: 1%;
+  margin-bottom: 2%;
 }
 
 

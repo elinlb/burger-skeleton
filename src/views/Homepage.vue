@@ -70,66 +70,6 @@ export default {
     left: 20%;
     font-size:250%;
   }
-/*
-  .burgerContainer {
-
-    font-family: Comfortaa;
-    max-width: 60%;
-    max-height: 100%;
-
-    position: absolute;
-    top: 30%;
-    left: 20%;
-    right: 30%;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;
-  }
-
-
-  .burgerBox {
-    color: black;
-    font-family: Comfortaa;
-    max-width: 50%;
-    padding: 0 10% 0 10%;
-    height: auto;
-    margin-top: 100%;
-    line-height: 100%;
-    font-weight: bold;
-    font-size: 100%;
-    text-align: center;
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;
-    background-color: #F2F3F4;
-    border-style: double;
-    border-color: black;
-    margin: 0;
-    list-style: none;
-  }
-
-  .sideBox {
-    color: black;
-    font-family: Comfortaa;
-    max-width: 50%;
-    padding: 0 10% 0 10%;
-    height: auto;
-    margin-top: 100%;
-    line-height: 100%;
-    font-weight: bold;
-    font-size: 100%;
-    text-align: center;
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;
-    background-color: #F2F3F4;
-    border-style: double;
-    border-color: black;
-    margin: 0;
-    list-style: none;
-  } */
 
   .burgerContainer {
     padding: 2%;
@@ -148,7 +88,6 @@ export default {
 
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
-
   }
 
 

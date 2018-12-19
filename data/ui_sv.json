@@ -13,7 +13,7 @@
   "ordersInQueue" : "Beställningar att förbereda",
   "ordersToFry" : "Att steka",
   "ordersTrending" : "Populära beställningar",
-  "placeOrder" : "Lägg i kundvagn",
+  "placeOrder" : "Lägg ordern",
   "sideorders" : "Tillbehör",
   "ingredients" : "Välj ingredienser",
   "ready" : "Klart",
@@ -52,5 +52,6 @@
   "containsMilk": "Innehåller mjölk",
   "containsGluten": "Innehåller gluten",
   "vegan": "Vegansk",
-  "allergy": "Allergiinformation"
+  "allergy": "Allergiinformation",
+  "low": "lågt"
 }
