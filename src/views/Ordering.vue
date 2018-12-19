@@ -18,11 +18,11 @@
 
 </div>
 
-
-    <h1 class="headline">{{ uiLabels.ingredients }}</h1> <div class="allergy-container">
-    <h5> {{uiLabels.allergy}}: (m) = {{uiLabels.containsMilk}}
+<h3 class="headline">{{ uiLabels.ingredients }}</h3>
+<div class="allergy-container">
+    <h6> {{uiLabels.allergy}}: (m) = {{uiLabels.containsMilk}}
     (g)= {{uiLabels.containsGluten}}
-    (v)=  {{uiLabels.vegan}} </h5>
+    (v)=  {{uiLabels.vegan}} </h6>
   </div>
 
     <div class="boxWrapper">
@@ -278,10 +278,12 @@ font-family: Comfortaa;
   padding: 1%;
   color: black;
   max-width: 5em;
+
 }
 
  .boxWrapper {
    /* grid-template-columns: 350px 350px 350px; */
+   /* border-style: outset; */
    grid-template-columns: repeat(auto-fit,1%);
    grid-gap: 2%;
    display: flex;
@@ -289,6 +291,7 @@ font-family: Comfortaa;
    flex-wrap: wrap;
    max-height: 100%;
    max-width: 100%;
+   margin-bottom: 4%
 
  }
 
@@ -306,6 +309,7 @@ font-family: Comfortaa;
      /* border-style:  outset;
      border-radius: 1em;
      border-width: thick; */
+       text-align: center;
  }
 
  .box:hover {
@@ -334,20 +338,37 @@ font-family: Comfortaa;
 }
 
 .allergy-container {
-  background-color: #F2F3F4;
-  border-style: double;
-  border-color: black;
-  padding: 1%;
-  margin: 0;
+  /* background-color: blue; */
+  /* border-style: groove; */
+  /* border-color: black; */
+  padding: 0%;
+  margin: 0 0 5% 0%;
+  height: 30px;
   list-style: none;
   font-family: Comfortaa;
-  opacity: 0.2;
 
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.allergy-item {
+  /* background: tomato; */
+  color: black;
+  font-family: Comfortaa;
+  padding: 0 10% 0 0;
+  width: 100%;
+  height: 30px;
+
+  line-height: 50px;
+  font-weight: bold;
+  font-size: 0.75em;
+  text-align: center;
 
   -webkit-flex-flow: row wrap;
   justify-content: space-around;

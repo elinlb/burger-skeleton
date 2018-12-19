@@ -109,7 +109,6 @@ export default {
     burgers: Array,
     orderId: String,
     lang: String,
-	 nameMapping: Object,
   },
 	data: function () {
 	return {
