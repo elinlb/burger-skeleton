@@ -13,7 +13,7 @@
   "ordersInQueue" : "Order queue",
   "ordersToFry" : "Frying queue",
   "ordersTrending" : "Trending orders",
-  "placeOrder" : "Add to basket",
+  "placeOrder" : "Place order",
   "sideorders" : "Side orders",
   "ingredients" : "Ingredients",
   "ready" : "Done",
@@ -47,5 +47,11 @@
   "crafty": "Crafty burgers",
   "basket": "Go to basket",
   "instock": "in stock",
+  "yourbasket": "Your basket",
+  "newbuild": "Build another burger",
+  "containsMilk": "Contains milk",
+  "containsGluten": "Contains gluten",
+  "vegan": "Vegan",
+  "allergy": "Allergy information",
   "low": "low"
 }
