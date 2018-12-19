@@ -3,14 +3,12 @@
 <div class="ingredient box" >
 
     <label>
-      <img class="picture" :src="findImage(item.image)">
-
-      {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
+    <img class="picture" :src="findImage(item.image)">
       <br>
       <button v-on:click="decrementCounter">-</button>
       {{ counter }}
       <button v-on:click="incrementCounter">+</button>
-      {{item["ingredient_"+ lang]}} 
+      <th>{{item["ingredient_"+ lang]}}</th>
       {{allergyInfo(item)}}, {{item.selling_price}}:-
     </label>
   </div>

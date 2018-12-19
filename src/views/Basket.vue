@@ -121,11 +121,11 @@ export default {
   }
 
   .burgerContainer {
-    padding: 2em;
+    padding: 2%;
     margin: 0 0 0 30%;
     list-style: none;
     font-family: Comfortaa;
-    width: 5em;
+    width: 20%;
     top: 50%;
     left: 30%;
 
