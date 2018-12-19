@@ -202,7 +202,6 @@ button:hover {
   /*display: table-cell; vertical-align: middle;*/
 }
 
-
 .flex-wrapper {
   color: black;
   display:inline-table;
