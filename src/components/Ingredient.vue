@@ -6,8 +6,8 @@
       <button v-on:click="decrementCounter">-</button>
       {{ counter }}
       <button v-on:click="incrementCounter">+</button>
-      {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
-
+      {{item["ingredient_"+ lang]}} 
+      {{allergyInfo(item)}}, {{item.selling_price}}:-
     </label>
   </div>
 <!-- </div> -->
@@ -26,7 +26,8 @@ export default {
   },
     data: function () {
     return {
-      counter: 0
+      counter: 0,
+      allergies: ""
     };
   },
   methods: {
@@ -56,6 +57,20 @@ export default {
       }
       else return require('../assets/burger.png')
 
+    },
+    allergyInfo: function (item) {
+      let allergies = "";
+      if (item.milk_free === 0){
+        allergies += "(m)";
+
+      }
+      if (item.gluten_free === 0){
+        allergies += "(g)";
+      }
+      if (item.vegan === 1){
+        allergies += "(v)";
+      }
+      return allergies;
     }
 
   }
