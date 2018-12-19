@@ -52,5 +52,6 @@
   "containsMilk": "Innehåller mjölk",
   "containsGluten": "Innehåller gluten",
   "vegan": "Vegansk",
-  "allergy": "Allergiinformation"
+  "allergy": "Allergiinformation",
+  "low": "lågt"
 }

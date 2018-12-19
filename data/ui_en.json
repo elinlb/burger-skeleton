@@ -52,5 +52,6 @@
   "containsMilk": "Contains milk",
   "containsGluten": "Contains gluten",
   "vegan": "Vegan",
-  "allergy": "Allergy information"
+  "allergy": "Allergy information",
+  "low": "low"
 }
