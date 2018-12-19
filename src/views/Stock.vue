@@ -6,13 +6,7 @@
     <div class="column left">
       <div id = "myDIV">
           <h2>{{uiLabels.categories}}:</h2>
-          <h3 type="button" class="categorybox active" v-on:click="thisCategory(1)">{{uiLabels.bread}}</h3>
-          <h3 type="button" class="categorybox" v-on:click="thisCategory(2)">{{uiLabels.protein}}</h3>
-          <h3 type="button" class="categorybox" v-on:click="thisCategory(3)">{{uiLabels.vegetables}}</h3>
-          <h3 type="button" class="categorybox" v-on:click="thisCategory(4)">{{uiLabels.sauce}}</h3>
-          <h3 type="button" class="categorybox" v-on:click="thisCategory(5)">{{uiLabels.addons}}</h3>
-          <h3 type="button" class="categorybox" v-on:click="thisCategory(6)">{{uiLabels.sides}}</h3>
-          <h3 type="button" class="categorybox" v-on:click="thisCategory(7)">{{uiLabels.drinks}}</h3>
+          <h3 v-for="(cat, key) in nameMapping" :class="['categorybox', { active : '' + categoryNumber === key }]" v-on:click="thisCategory(key)" :key="key">{{ cat }} </h3>
       </div>
     </div>
 
@@ -59,16 +53,6 @@
 </div>
 </template>
 <script>
-
-/*var header = document.getElementById("myDIV");
-var btns = header.getElementsByClassName("categorybox");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
-  current[0].className = current[0].className.replace(" active", "");
-  this.className += " active";
-  });
-}*/
 
 import Ingredient from '@/components/Ingredient.vue'
 import OrderItem from '@/components/OrderItem.vue'
