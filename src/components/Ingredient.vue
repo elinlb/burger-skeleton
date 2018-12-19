@@ -1,8 +1,12 @@
 
 <template>
-<div class="ingredient box">
+<div class="ingredient box" >
+
     <label>
       <img class="picture" :src="findImage(item.image)">
+
+      {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
+      <br>
       <button v-on:click="decrementCounter">-</button>
       {{ counter }}
       <button v-on:click="incrementCounter">+</button>
@@ -81,7 +85,7 @@ export default {
 
 .picture {
   display: block;
-  height: auto;
+  /* height: auto; */
   max-height: 40%;
   /* width: 60%; */
   max-width: 40%;

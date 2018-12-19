@@ -144,7 +144,7 @@ nextSlide: function() {
 
 #sides {
   margin:auto;
-  max-width: 100%;
+  max-width: 40em;
 }
 
 .main-size {
@@ -217,7 +217,7 @@ font-family: Comfortaa;
 }
 
 .Cancel {
-  width: 5%;
+  width: 5em;
   height: 2em;
   background-color: red;
   position: absolute;

@@ -6,7 +6,7 @@
     <router-link to="/">
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
     </router-link>
- <h1 class="headline">Create your burger</h1>
+ <h1 class="headline">{{uiLabels.build}}</h1>
 
 <div class="flex-container">
 
@@ -30,9 +30,9 @@
         v-if = "item.category == slideNumber"
           ref="ingredient"
           v-for="item in ingredients"
-          v-on:increment="addToOrder(item)"
-          v-on:decrement="deleteFromOrder(item)"
-          :item="item"
+          v-on:increment="addToBurger(item)"
+          v-on:decrement="removeFromBurger(item)"
+          v-bind:item="item"
           :lang="lang"
           :key="item.ingredient_id">
         </Ingredient>
@@ -42,7 +42,16 @@
 
 <div class="orderWrapper">
   <h3 class="headline">{{ uiLabels.order }}</h3>
+  <div v-for="(burger, key) in currentOrder.burgers" :key="key">
+  {{key}}:
+  <span v-for="(item, key2) in burger.ingredients" :key="key2">
+    {{ item['ingredient_' + lang] }}
+  </span>
+  {{burger.price}}
+</div>
+<hr>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
+    <button v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
     <div> <router-link to="basket"> {{uiLabels.basket}} </router-link></div>
   </div>
@@ -94,17 +103,25 @@ export default {
       slideNumber: 1,
     }
   },
+  computed: {
+      currentOrder: function () {
+
+        return this.$store.state.currentOrder;
+
+      }
+
+  },
   created: function () {
     this.$store.state.socket.on('orderNumber', function (data) {
       this.orderNumber = data;
     }.bind(this));
   },
   methods: {
-    addToOrder: function (item) {
+    addToBurger: function (item) {
       this.chosenIngredients.push(item);
       this.price += +item.selling_price;
     },
-    deleteFromOrder: function (item) {
+    removeFromBurger: function (item) {
       let indexToDelete = -1;
       for (let i = 0; i < this.chosenIngredients.length; i += 1 ) {
         if (this.chosenIngredients[i] === item) {
@@ -117,22 +134,25 @@ export default {
         this.price -= +item.selling_price;
       }
     },
-    placeOrder: function () {
-      var i,
-      //Wrap the order in an object
-        order = {
-          ingredients: this.chosenIngredients,
-          price: this.price
-        };
+    addToOrder: function (){
+      this.$store.commit("addToCurrentBurger", {
+        ingredients: this.chosenIngredients.splice(0),
+        price: this.price
+    });
 
+    for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
+          this.$refs.ingredient[i].resetCounter();
+        }
+        this.chosenIngredients = [];
+        this.price = 0;
+
+    },
+    placeOrder: function () {
       // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
-      this.$store.state.socket.emit('order', {order: order});
-      //set all counters to 0. Notice the use of $refs
-      for (i = 0; i < this.$refs.ingredient.length; i += 1) {
-        this.$refs.ingredient[i].resetCounter();
-      }
-      this.price = 0;
-      this.chosenIngredients = [];
+      this.$store.state.socket.emit('order', this.currentOrder);
+      this.$store.commit('clearOrder');
+      this.category = 1;
+
     },
 nextSlide: function() {
   if (this.slideNumber <5 ){
