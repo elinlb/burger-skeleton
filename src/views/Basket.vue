@@ -137,7 +137,7 @@ export default {
 
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
-    grid-gap: 2%;
+    /* grid-gap: 2%; */
   }
 
   .orderBox {
