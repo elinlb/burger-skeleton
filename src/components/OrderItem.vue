@@ -1,7 +1,7 @@
 <template>
 	<div>
-<!--
-		{{"order.type"}} {{uiLabels.ingredients}}<br><br> -->
+
+		<!-- {{"order.type"}}--> {{uiLabels.ingredients}}<br><br>
 		<!-- {{order.orderId}}
 		{{order.burgers}} -->
 		<div v-for="(burger, key) in burgers" :key="key">
@@ -109,8 +109,7 @@ export default {
     uiLabels: Object,
     burgers: Array,
     orderId: String,
-    lang: String,
-
+    lang: String
   },
 	data: function () {
 	return {
@@ -123,12 +122,17 @@ export default {
 		},
 		showCategory: function() {
 			let list = [];
-			for (let j = 0; j < this.burgers.length; j += 1){
-			let ingredientList = this.burgers[j].ingredients;
+			//
+			// for (let j = 0; j < this.burgers.length; j += 1){
+			// let ingredientList = this.burgers[j].ingredients;
 			// // let ingredientList = burger.ingredients;
 			// Man borde egentligen skicka in en burgare från html-forloopen och sen
 			// bara ta ingredienserna för en burgare i taget, men måste ändra i sendinfo då också
 
+
+			//for (let j = 0; j < this.orders.burgers.length; j += 1){
+			let ingredientList = this.burgers[0].ingredients;
+			// let ingredientList = this.orders.burgers.ingredients;
 
 			for (let i = 0; i < ingredientList.length; i += 1) {
 				let categoryNumber = ingredientList[i].category;
@@ -137,7 +141,7 @@ export default {
 						list.push(categoryName)
 					}
 					}
-				}
+				//}
 					return list;
 				},
 				// sortBurgers: function(burger) {

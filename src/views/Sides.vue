@@ -34,12 +34,25 @@
 
 <div class="orderWrapper">
   <h3 class="headline">{{ uiLabels.order }}</h3>
+  <div v-for="(burger, key) in currentOrder.burgers" :key="key">
+  {{key}}:
+  <span v-for="(item, key2) in burger.ingredients" :key="key2">
+    {{ item['ingredient_' + lang] }}
+  </span>
+  {{burger.price}}
+  </div>
+  <hr>
+    {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
+    <button v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
+    <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
+    <div> <router-link to="basket"> {{uiLabels.basket}} </router-link></div>
+<!--
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
   </div>
-    <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
-  <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
-
+    <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button> -->
+  <!-- <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button> -->
+</div>
 
     <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
     <div>
@@ -91,7 +104,13 @@ export default {
       this.orderNumber = data;
     }.bind(this));
   },
+  computed: {
+      currentOrder: function () {
+        return this.$store.state.currentOrder;
+      }
+  },
   methods: {
+
     addToOrder: function (item) {
       this.chosenIngredients.push(item);
       this.price += +item.selling_price;

@@ -6,7 +6,7 @@
     <router-link to="/">
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
     </router-link>
- <h1 class="headline">{{uiLabels.build}}</h1>
+ <h1 class="headline">Create your burger</h1>
 
 <div class="flex-container">
 
@@ -105,11 +105,8 @@ export default {
   },
   computed: {
       currentOrder: function () {
-
         return this.$store.state.currentOrder;
-
       }
-
   },
   created: function () {
     this.$store.state.socket.on('orderNumber', function (data) {

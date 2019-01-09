@@ -62,36 +62,30 @@ Data.prototype.initializeData = function() {
   this is the right moment to do this.
 */
 
-
-
-
 Data.prototype.getOrderNumber = function () {
   this.currentOrderNumber += 1;
   return this.currentOrderNumber;
 }
 
 Data.prototype.addOrder = function (order) {
-  var orderId = this.getOrderNumber();
-  this.orders[orderId] = order;
-  this.orders[orderId].orderId = orderId;
-  this.orders[orderId].status = "not-started";
-  var transactions = this.data[transactionsDataName];
-    //find out the currently highest transaction id
-    if (Array.isArray(order.burgers)){
-    for (let j = 0; j < order.burgers.length; j += 1){
-
-    let transId =  transactions[transactions.length - 1].transaction_id;
-    let i = order.burgers[j].ingredients,
-    k;
-  for (k = 0; k < i.length; k += 1) {
-    transId += 1;
-    transactions.push({transaction_id: transId,
-                       ingredient_id: i[k].ingredient_id,
-                       change: - 1});
-                     }
-    return orderId;
-  }
+var orderId = this.getOrderNumber();
+this.orders[orderId] = order;
+this.orders[orderId].orderId = orderId;
+this.orders[orderId].status = "not-started";
+var transactions = this.data[transactionsDataName];
+//Now the order contains several burgers so we need to iterate over them
+for (let j = 0; j < order.burgers.length; j += 1) {
+//find out the currently highest transaction id
+let transId = transactions[transactions.length - 1].transaction_id;
+let i = order.burgers[j].ingredients;
+for (let k = 0; k < i.length; k += 1) {
+transId += 1;
+transactions.push({transaction_id: transId,
+ingredient_id: i[k].ingredient_id,
+change: - 2});
 }
+}
+return orderId;
 };
 
 Data.prototype.changeStock = function (item, saldo) {
