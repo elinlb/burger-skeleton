@@ -1,11 +1,12 @@
 <template>
 	<div>
-
-		{{"order.type"}} {{uiLabels.ingredients}}<br><br>
+<!--
+		{{"order.type"}} {{uiLabels.ingredients}}<br><br> -->
 		<!-- {{order.orderId}}
 		{{order.burgers}} -->
 		<div v-for="(burger, key) in burgers" :key="key">
-		<div v-for = "item in showCategory" :key="item">
+		<!-- {{sortBurgers(burger)}} -->
+		<div v-for = "item in showCategory()" :key="item">
 			<div v-if ="item === uiLabels.bread">
 					<div class="categoryHeadline">
 						{{ item }}:
@@ -109,6 +110,7 @@ export default {
     burgers: Array,
     orderId: String,
     lang: String,
+
   },
 	data: function () {
 	return {
@@ -121,9 +123,12 @@ export default {
 		},
 		showCategory: function() {
 			let list = [];
-			// for (let j = 0; j < this.orders.burgers.length; j += 1){
-			let ingredientList = this.burgers[0].ingredients;
-			// let ingredientList = this.orders.burgers.ingredients;
+			for (let j = 0; j < this.burgers.length; j += 1){
+			let ingredientList = this.burgers[j].ingredients;
+			// // let ingredientList = burger.ingredients;
+			// Man borde egentligen skicka in en burgare från html-forloopen och sen
+			// bara ta ingredienserna för en burgare i taget, men måste ändra i sendinfo då också
+
 
 			for (let i = 0; i < ingredientList.length; i += 1) {
 				let categoryNumber = ingredientList[i].category;
@@ -132,9 +137,20 @@ export default {
 						list.push(categoryName)
 					}
 					}
-				// }
+				}
 					return list;
 				},
+				// sortBurgers: function(burger) {
+				// 	let burgerNumber = 0;
+				// 	for (let j = 0; j < this.burgers.length; j += 1){
+				// 		if (this.burgers[j] === this.burgers)
+				// 		{
+				// 			burgerNumber = j;
+				// 		}
+				// 	}
+				//
+				// 	return burgerNumber;
+				// },
 			displayBread: function() {
 				return this.sendInfo(1)
 			},
@@ -160,7 +176,8 @@ export default {
 	methods: {
 		sendInfo: function(id) {
 				let listIncludingLists = [];
-				let ingredientList = this.burgers[0].ingredients;
+				for (let j = 0; j < this.burgers.length; j += 1){
+				let ingredientList = this.burgers[j].ingredients;
 				for (let i = 0; i < ingredientList.length; i += 1) {
 					let list = [];
 					if (ingredientList[i].category === id) {
@@ -173,7 +190,9 @@ export default {
 					}
 					listIncludingLists.push(list)
 		}
+	}
 		return listIncludingLists;
+
 		}
 }
 }
