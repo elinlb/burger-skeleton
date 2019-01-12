@@ -16,6 +16,7 @@
         :ui-labels="uiLabels"
         :lang="lang">
       </OrderItem>
+      HEJ
     </div>
   </div>
 </div>
@@ -71,7 +72,6 @@ export default {
       }
   },
   methods: {
-
   }
 }
 </script>

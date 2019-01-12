@@ -57,7 +57,6 @@
   </div>
 
 
-
     <!-- <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
     <div>
       <OrderItem
