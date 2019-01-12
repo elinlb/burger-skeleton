@@ -9,12 +9,13 @@
  <h1 class="headline">{{uiLabels.createburger}}</h1>
 
 <div class="flex-container">
+  <h3 v-for="(cat, key) in nameMainMenu" :class="['flex-item', { active : '' + slideNumber === key }]" v-on:click="thisCategory(key)" :key="key">{{ cat }} </h3>
 
-  <div class="flex-item" v-on:click="thisCategory(1)">{{ uiLabels.bread }} </div>
+  <!-- <div class="flex-item" v-on:click="thisCategory(1)">{{ uiLabels.bread }} </div>
   <div class="flex-item" v-on:click="thisCategory(2)"> {{ uiLabels.protein }} </div>
   <div class="flex-item" v-on:click="thisCategory(3)"> {{ uiLabels.vegetables }} </div>
   <div class="flex-item" v-on:click="thisCategory(4)"> {{ uiLabels.sauce }} </div>
-  <div class="flex-item" v-on:click="thisCategory(5)"> {{ uiLabels.addons }} </div>
+  <div class="flex-item" v-on:click="thisCategory(5)"> {{ uiLabels.addons }} </div> -->
 
 </div>
 
@@ -105,6 +106,9 @@ export default {
   computed: {
       currentOrder: function () {
         return this.$store.state.currentOrder;
+      },
+      nameMainMenu: function() {
+        return {1: this.uiLabels.bread, 2: this.uiLabels.protein, 3: this.uiLabels.vegetables, 4: this.uiLabels.sauce, 5: this.uiLabels.addons};
       }
   },
   created: function () {
@@ -268,7 +272,8 @@ font-family: Comfortaa;
   height: 2em;
   background-color: red;
   position: absolute;
-  right: 25%;
+  right: 0;
+  top: 0;
   font-family: Comfortaa;
 
 }
@@ -402,7 +407,7 @@ font-family: Comfortaa;
   cursor: pointer;
 }
 
-.flex-item:hover {
+.active, .flex-item:hover {
   border-style: outset;
   background-color: #AED581;
   text-transform: uppercase;

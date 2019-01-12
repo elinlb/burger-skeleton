@@ -10,9 +10,9 @@
 
 
 <div class="flex-container">
-
-  <div class="flex-item" v-on:click="thisCategory(6)">{{uiLabels.sides}}</div>
-  <div class="flex-item" v-on:click="thisCategory(7)">{{uiLabels.drinks}}</div>
+<h3 v-for="(cat, key) in nameSidesMenu" :class="['flex-item', { active : '' + slideNumber === key }]" v-on:click="thisCategory(key)" :key="key">{{ cat }} </h3>
+<!--  <div class="flex-item" v-on:click="thisCategory(6)">{{uiLabels.sides}}</div>
+  <div class="flex-item" v-on:click="thisCategory(7)">{{uiLabels.drinks}}</div> -->
 
 </div>
 
@@ -107,6 +107,9 @@ export default {
   computed: {
       currentOrder: function () {
         return this.$store.state.currentOrder;
+      },
+      nameSidesMenu: function () {
+        return {6: this.uiLabels.sides, 7: this.uiLabels.drinks}
       }
   },
   methods: {
@@ -338,7 +341,7 @@ font-family: Comfortaa;
   cursor: pointer;
 }
 
-.flex-item:hover {
+.active, .flex-item:hover {
   border-style: outset;
   background-color: #AED581;
   text-transform: uppercase;
