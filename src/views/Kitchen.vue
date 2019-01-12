@@ -1,3 +1,4 @@
+
 <template>
 <div id="orders">
   <img class="background-kitchen" src="@/assets/brick.jpg">
