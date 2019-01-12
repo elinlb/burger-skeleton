@@ -2,6 +2,9 @@
 <template>
 <div class="ingredient box" >
 
+    <!-- <label> -->
+
+    <label>
     <img class="picture" :src="findImage(item.image)">
       <br>
       <button v-on:click="decrementCounter">-</button>
@@ -9,8 +12,9 @@
       <label>
       <button v-on:click="incrementCounter">+</button>
       <th>{{item["ingredient_"+ lang]}}</th>
-          </label>
       {{allergyInfo(item)}}, {{item.selling_price}}:-
+    </label>
+  </label>
   </div>
 <!-- </div> -->
 <!-- </div> -->

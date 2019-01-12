@@ -218,14 +218,10 @@ button:hover {
   width: 10vh;
   /*display: table-cell; vertical-align: middle;*/
 }
-
-<<<<<<< HEAD
-=======
 .bottom > * {
   vertical-align: bottom;
 }
 
->>>>>>> 381510998fa48b2f36fe7f67303b7df3b30accd4
 .flex-wrapper {
   width: 80vw;
 }
