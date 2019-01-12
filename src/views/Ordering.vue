@@ -51,9 +51,9 @@
 </div>
 <hr>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-    <button v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
+    <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-    <div> <router-link to="basket"> {{uiLabels.basket}} </router-link></div>
+    <div> <button><router-link to="basket"> {{uiLabels.basket}} </router-link></button></div>
   </div>
 
 
