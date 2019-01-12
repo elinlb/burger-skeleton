@@ -2,7 +2,7 @@
   <div class="main-size">
   <div id="sides">
     <img class="example-panel" src="@/assets/white.jpeg">
-    <button class="headline" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+    <button class="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
     <router-link to="/">
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
     </router-link>
@@ -346,6 +346,19 @@ font-family: Comfortaa;
   background-color: #AED581;
   text-transform: uppercase;
   font-weight: 700;
+}
+
+button{
+  font-family:Comfortaa;
+}
+
+button:hover{
+  cursor: pointer;
+
+}
+
+.languageButton:hover{
+  background-color: #AED581;
 }
 
 </style>
