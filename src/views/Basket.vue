@@ -2,7 +2,7 @@
 <div id="styling">
   <img class="backgroundpic" src="@/assets/brick.jpg" >
     <button class ="language" v-on:click="switchLang()">{{ uiLabels.language }}</button>
-    <div class="Price"> <h5>  Price {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h5>
+    <div class="Price"> <h5> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h5>
     </div>
 
 <div class ="burgerContainer">
@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
+<button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.pay }}</button>
 
     <div class = "burgerContainer">
 
