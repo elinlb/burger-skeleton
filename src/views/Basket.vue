@@ -27,7 +27,7 @@
 
       <div class ="burgerBox">
         <router-link to="ordering">
-      <h1>{{uiLabels.newbuild}}</h1>
+      <h1>{{uiLabels.newBuild}}</h1>
       <img src="@/assets/burger.png" width="60em">
       </router-link>
     </div>
@@ -165,7 +165,7 @@ export default {
     background-color: #F2F3F4;
     color: black;
     font-family: Comfortaa;
-    padding: 0 60% 0 60%;
+    padding: 0 80% 0 80%;
     width: 100%;
     height: auto;
     margin-top: 10%;
