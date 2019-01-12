@@ -29,7 +29,7 @@
         <Ingredient
         v-if = "item.category == slideNumber"
           ref="ingredient"
-          v-for="item in ingredients"
+           v-for="item in ingredients"
           v-on:increment="addToBurger(item)"
           v-on:decrement="removeFromBurger(item)"
           v-bind:item="item"
