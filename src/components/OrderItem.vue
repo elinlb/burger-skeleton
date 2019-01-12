@@ -5,8 +5,7 @@
 		<!-- {{order.orderId}}
 		{{order.burgers}} -->
 		<div v-for="(burger, key) in burgers" :key="key">
-		<!-- {{sortBurgers(burger)}} -->
-		<div v-for = "item in showCategory()" :key="item">
+		<div v-for = "item in showCategory" :key="item">
 			<div v-if ="item === uiLabels.bread">
 					<div class="categoryHeadline">
 						{{ item }}:
@@ -122,14 +121,6 @@ export default {
 		},
 		showCategory: function() {
 			let list = [];
-			//
-			// for (let j = 0; j < this.burgers.length; j += 1){
-			// let ingredientList = this.burgers[j].ingredients;
-			// // let ingredientList = burger.ingredients;
-			// Man borde egentligen skicka in en burgare från html-forloopen och sen
-			// bara ta ingredienserna för en burgare i taget, men måste ändra i sendinfo då också
-
-
 			//for (let j = 0; j < this.orders.burgers.length; j += 1){
 			let ingredientList = this.burgers[0].ingredients;
 			// let ingredientList = this.orders.burgers.ingredients;
@@ -143,18 +134,7 @@ export default {
 					}
 				//}
 					return list;
-				},
-				// sortBurgers: function(burger) {
-				// 	let burgerNumber = 0;
-				// 	for (let j = 0; j < this.burgers.length; j += 1){
-				// 		if (this.burgers[j] === this.burgers)
-				// 		{
-				// 			burgerNumber = j;
-				// 		}
-				// 	}
-				//
-				// 	return burgerNumber;
-				// },
+				}, //move these down to the showCategory
 			displayBread: function() {
 				return this.sendInfo(1)
 			},
@@ -180,8 +160,7 @@ export default {
 	methods: {
 		sendInfo: function(id) {
 				let listIncludingLists = [];
-				for (let j = 0; j < this.burgers.length; j += 1){
-				let ingredientList = this.burgers[j].ingredients;
+				let ingredientList = this.burgers[0].ingredients;
 				for (let i = 0; i < ingredientList.length; i += 1) {
 					let list = [];
 					if (ingredientList[i].category === id) {
@@ -194,9 +173,7 @@ export default {
 					}
 					listIncludingLists.push(list)
 		}
-	}
 		return listIncludingLists;
-
 		}
 }
 }
