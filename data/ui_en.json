@@ -54,5 +54,7 @@
   "vegan": "Vegan",
   "allergy": "Allergy information",
   "low": "low",
-  "addToOrder": "Add to basket"
+  "addToOrder": "Add to basket",
+  "kitchen": "Kitchen",
+  "createburger": "Create your burger"
 }
