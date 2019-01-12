@@ -2,25 +2,19 @@
 <template>
 <div class="ingredient box" >
 
-<<<<<<< HEAD
     <!-- <label> -->
-      <img class="picture" :src="findImage(item.image)">
 
-      {{item["ingredient_"+ lang]}}, {{item.selling_price}}:-
-=======
     <label>
     <img class="picture" :src="findImage(item.image)">
->>>>>>> bc03705e1f79554e7b7ca036dc09a1a79eeaf368
       <br>
       <button v-on:click="decrementCounter">-</button>
       {{ counter }}
       <button v-on:click="incrementCounter">+</button>
-<<<<<<< HEAD
       {{item["ingredient_"+ lang]}}
-=======
+
       <th>{{item["ingredient_"+ lang]}}</th>
->>>>>>> bc03705e1f79554e7b7ca036dc09a1a79eeaf368
       {{allergyInfo(item)}}, {{item.selling_price}}:-
+    </label>
     <!-- </label> -->
   </div>
 <!-- </div> -->
