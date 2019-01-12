@@ -45,6 +45,7 @@
   "build": "Bygg din burgare",
   "pickSides": "Välj tillbehör",
   "continueSides": "Gå vidare till tillbehör",
+  "extraSides": "Välj extra tillbehör",
   "crafty": "Crafty burgers",
   "basket": "Gå till kassan",
   "instock": "i lager",
