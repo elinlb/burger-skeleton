@@ -54,5 +54,11 @@
   "vegan": "Vegan",
   "allergy": "Allergy information",
   "low": "low",
+<<<<<<< HEAD
   "addToOrder": "Add to order"
+=======
+  "addToOrder": "Add to basket",
+  "kitchen": "Kitchen",
+  "createburger": "Create your burger"
+>>>>>>> 4912f7fcf8fe7d5ba009c7727368689e921cd65e
 }

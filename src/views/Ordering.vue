@@ -2,11 +2,11 @@
   <div class="main-size">
   <div id="ordering">
     <img class="example-panel" src="@/assets/white.jpeg">
-    <button class="headline" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+    <button class="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
     <router-link to="/">
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
     </router-link>
- <h1 class="headline">Create your burger</h1>
+ <h1 class="headline">{{uiLabels.createburger}}</h1>
 
 <div class="flex-container">
 
@@ -224,6 +224,19 @@ max-width: 100%;
   cursor: pointer;
 }
 
+.languageButton{
+  font-family:Comfortaa;
+}
+
+.languageButton:hover {
+  background-color: #AED581;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+
 .Next {
 background-color: #008CBA;
 width: 4em;
@@ -392,5 +405,6 @@ font-family: Comfortaa;
   text-transform: uppercase;
   font-weight: 700;
 }
+
 
 </style>
