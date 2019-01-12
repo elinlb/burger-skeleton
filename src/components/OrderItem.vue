@@ -109,11 +109,7 @@ export default {
     uiLabels: Object,
     burgers: Array,
     orderId: String,
-<<<<<<< HEAD
-    lang: String,
-=======
     lang: String
->>>>>>> d245b8504dae672e5cee96d8a23188c7d986e9db
   },
 	data: function () {
 	return {
