@@ -1,7 +1,7 @@
 <template>
 <div id="orders">
   <img class="background-kitchen" src="@/assets/brick.jpg">
-<button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+<button class="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
   <!-- <div v-for="countIng in countAllIngredients"
       v-if="countIng.count>0"
@@ -248,7 +248,7 @@ export default {
     clear: both;
   }
 
-  #languageButton {
+  .languageButton {
     position: absolute;
     top: 0;
     right: 0;
@@ -268,7 +268,9 @@ export default {
 
   button:hover {
     background-color: #AED581;
+    cursor: pointer;
   }
+
 
 
 

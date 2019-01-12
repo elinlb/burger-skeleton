@@ -92,6 +92,9 @@ export default {
   align-items: center;
 }
 
+button{
+  cursor: pointer;
+}
 
 
 </style>
