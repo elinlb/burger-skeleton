@@ -6,11 +6,9 @@
     <!-- <label> -->
     <img class="picture" :src="findImage(item.image)">
       <br>
-
       <button class= "decrement" v-on:click="decrementCounter">-</button>
       {{ counter }}
       <button class= "increment" v-on:click="incrementCounter">+</button>
-
 <!--
       <label> -->
       <p>
@@ -102,7 +100,6 @@ export default {
   margin: auto;
 
 }
-
 /* .increment {
 
   margin-left: 55%;

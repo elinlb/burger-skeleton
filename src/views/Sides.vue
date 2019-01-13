@@ -71,7 +71,7 @@
   <!-- <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button> -->
 </div>
 
-    <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
+    <!-- <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
     <div>
       <OrderItem
         v-for="(order, key) in orders"
@@ -82,7 +82,7 @@
         :lang="lang"
         :key="key">
       </OrderItem>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -184,12 +184,12 @@ export default {
              this.price = 0;
          },
 nextSlide: function() {
-  if (this.slideNumber <5 ){
+  if (this.slideNumber <7 ){
     this.slideNumber += 1
   }
 },
   previousSlide: function() {
-    if(this.slideNumber >1){
+    if(this.slideNumber >6){
       this.slideNumber -=1
     }
   },

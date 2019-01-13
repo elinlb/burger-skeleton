@@ -24,13 +24,13 @@
     <div class = "burgerContainer">
 
       <div class ="burgerBox">
-        <router-link to="ordering">
+        <router-link to="ordering" STYLE="text-decoration: none; color:black">
       <h1>{{uiLabels.newBuild}}</h1>
       <img src="@/assets/burger.png" width="60em">
       </router-link>
     </div>
     <div class ="burgerBox">
-      <router-link to="sides">
+      <router-link to="sides" STYLE="text-decoration: none; color:black">
         <h1>{{uiLabels.extraSides}}</h1>
 
         <img src="@/assets/soda.png" width="30em">
