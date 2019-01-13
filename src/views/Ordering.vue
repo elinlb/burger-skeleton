@@ -329,7 +329,8 @@ font-family: Comfortaa;
    flex-wrap: wrap;
    max-height: 100%;
    max-width: 100%;
-   margin-bottom: 4%
+   margin-bottom: 4%;
+   margin: auto;
  }
 
  .box {
@@ -339,7 +340,7 @@ font-family: Comfortaa;
      font-family: Comfortaa;
      padding: 2%;
      font-size: 100%;
-     margin-left: 8%;
+     /*margin-left: 8%;
      /* background-color: orange; */
      height: auto;
      max-width: 30%;
