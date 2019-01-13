@@ -9,7 +9,7 @@
 
     <div class = "burgerContainer" >
       <div class ="burgerBox">
-        <router-link to="ordering">
+        <router-link to="ordering" STYLE="text-decoration: none; color:black">
         <h1>{{uiLabels.build}}</h1>
       <img src="@/assets/burger.png" width="60%" >
       </router-link>
@@ -17,7 +17,7 @@
 
       <!-- <div class = "sideContainer"> -->
     <div class ="sideBox">
-        <router-link to="sides" >
+        <router-link to="sides" STYLE="text-decoration: none; color:black">
       <h1>{{uiLabels.pickSides }} </h1>
         <img src="@/assets/soda.png" width="50%">
         <img src="@/assets/fries.png" width="50%">

@@ -194,12 +194,12 @@ export default {
       this.chosenIngredients = [];
     },
 nextSlide: function() {
-  if (this.slideNumber <5 ){
+  if (this.slideNumber <7 ){
     this.slideNumber += 1
   }
 },
   previousSlide: function() {
-    if(this.slideNumber >1){
+    if(this.slideNumber >6){
       this.slideNumber -=1
     }
   },
