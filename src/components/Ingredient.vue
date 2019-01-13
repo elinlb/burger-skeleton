@@ -6,9 +6,9 @@
     <!-- <label> -->
     <img class="picture" :src="findImage(item.image)">
       <br>
-      <button class= "decrement" v-on:click="decrementCounter">-</button>
+      <button class= "decrement" v-on:click="decrementCounter" >-</button>
       {{ counter }}
-      <button class= "increment" v-on:click="incrementCounter">+</button>
+      <button class= "increment" v-on:click="incrementCounter" >+</button>
 <!--
       <label> -->
       <p>

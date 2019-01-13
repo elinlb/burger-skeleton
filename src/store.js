@@ -9,6 +9,7 @@ export default new Vuex.Store({
     socket: io(),
     uiLabels: {},
     lang: "en",
+    // counter: int,
     currentOrder: {
       burgers: []
     }
@@ -23,6 +24,9 @@ export default new Vuex.Store({
     switchLang: function (store, lang) {
       store.lang = lang;
     },
+    // storeCounter: function (store, counter) {
+    //   store.counter = counter;
+    // },
     addToCurrentBurger: function (store, burgers) {
       store.currentOrder.burgers.push(burgers);
 

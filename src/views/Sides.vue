@@ -8,7 +8,6 @@
     </router-link>
  <h1 class="headline">{{ uiLabels.pickSides }}</h1>
 
-
 <div class="flex-container">
 <h3 v-for="(cat, key) in nameSidesMenu" :class="['flex-item', { active : '' + slideNumber === key }]" v-on:click="thisCategory(key)" :key="key">{{ cat }} </h3>
 <!--  <div class="flex-item" v-on:click="thisCategory(6)">{{uiLabels.sides}}</div>
@@ -17,8 +16,6 @@
 </div>
 
     <h1 class="headline">{{ uiLabels.ingredients }}</h1>
-
-
 
     <div class="boxWrapper">
         <Ingredient
@@ -38,9 +35,9 @@
 
 
 <div class="orderWrapper">
-  <h3 class="headline">{{ uiLabels.order }}</h3>
+  <h3 class="headline">{{ uiLabels.yourOrder }}</h3>
   <div class="orderBox">
-        <h5 class="headline">{{uiLabels.addedOrder}}</h5>
+        <h5 class="headline">{{uiLabels.addedOrder}}:</h5>
   <div v-for="(burger, key) in currentOrder.burgers" :key="key">
   <!-- {{key}}: -->
   <span v-for="(item, key2) in burger.ingredients" :key="key2">
