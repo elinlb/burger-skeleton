@@ -13,7 +13,7 @@
 					<div class="categoryHeadline">
 						{{ item }}:
 					</div>
-					<div v-for = "(list, key) in displayBread" :key="key">
+					<div v-for = "(list, key) in displayBread(burger)" :key="key">
 							<div v-if = "list.length > 1">
 								<div class = "allergy_treatment">{{list[0]}}</div>
 							</div>
@@ -26,7 +26,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "(list, key) in displayProtein" :key="key">
+				<div v-for = "(list, key) in displayProtein(burger)" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -39,7 +39,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "(list, key) in displayVegetables" :key="key">
+				<div v-for = "(list, key) in displayVegetables(burger)" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -52,7 +52,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "(list, key) in displaySauce" :key="key">
+				<div v-for = "(list, key) in displaySauce(burger)" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -65,7 +65,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "(list, key) in displayAddOns" :key="key">
+				<div v-for = "(list, key) in displayAddOns(burger)" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -78,7 +78,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "(list, key) in displaySides" :key="key">
+				<div v-for = "(list, key) in displaySides(burger)" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -91,7 +91,7 @@
 				<div class="categoryHeadline">
 					{{ item }}:
 				</div>
-				<div v-for = "(list, key) in displayDrinks" :key="key">
+				<div v-for = "(list, key) in displayDrinks(burger)" :key="key">
 						<div v-if = "list.length > 1">
 							<div class = "allergy_treatment">{{list[0]}}</div>
 						</div>
@@ -122,26 +122,26 @@ export default {
 	computed:{},
 
 	methods: {
-		sendInfo: function(id) {
-				let listIncludingLists = [];
-				for (let j = 0; j < this.burgers.length; j += 1){
-				let ingredientList = this.burgers[j].ingredients;
-				for (let i = 0; i < ingredientList.length; i += 1) {
-					let list = [];
-					if (ingredientList[i].category === id) {
-							let array = ingredientList.map(item=>item["ingredient_"+ this.lang]);
-							list.push(array[i])
-					}
-					if (ingredientList[i].category === id && ingredientList[i].allergy_treatment === 1) {
-							let array1 = ingredientList.map(item=>item["allergy_treatment"])
-							list.push(array1[i])
-					}
-					listIncludingLists.push(list)
-		}
-	}
-		return listIncludingLists;
-
-	},
+	// 	sendInfo: function(id) {
+	// 			let listIncludingLists = [];
+	// 			for (let j = 0; j < this.burgers.length; j += 1){
+	// 			let ingredientList = this.burgers[j].ingredients;
+	// 			for (let i = 0; i < ingredientList.length; i += 1) {
+	// 				let list = [];
+	// 				if (ingredientList[i].category === id) {
+	// 						let array = ingredientList.map(item=>item["ingredient_"+ this.lang]);
+	// 						list.push(array[i])
+	// 				}
+	// 				if (ingredientList[i].category === id && ingredientList[i].allergy_treatment === 1) {
+	// 						let array1 = ingredientList.map(item=>item["allergy_treatment"])
+	// 						list.push(array1[i])
+	// 				}
+	// 				listIncludingLists.push(list)
+	// 	}
+	// }
+	// 	return listIncludingLists;
+	//
+	// },
 		nameMapping: function() {
 			return {1: this.uiLabels.bread, 2: this.uiLabels.protein, 3: this.uiLabels.vegetables, 4: this.uiLabels.sauce, 5: this.uiLabels.addons, 6: this.uiLabels.sides, 7: this.uiLabels.drinks};
 		},
@@ -156,36 +156,38 @@ export default {
 				//
 				// 	return burgerNumber;
 				// },
-			displayBread: function(){//burger) {
+			displayBread: function(burger) {
 				//fix here and the other functions
-				return this.sendInfo(1)//,burger)
+				return this.sendInfo(1,burger)//,burger)
 			},
-			displayProtein: function() {
-				return this.sendInfo(2)
+			displayProtein: function(burger) {
+				return this.sendInfo(2,burger)
 			},
-			displayVegetables: function() {
-				return this.sendInfo(3)
+			displayVegetables: function(burger) {
+				return this.sendInfo(3,burger)
 			},
-			displaySauce: function() {
-				return this.sendInfo(4)
+			displaySauce: function(burger) {
+				return this.sendInfo(4,burger)
 			},
-			displayAddOns: function() {
-				return this.sendInfo(5)
+			displayAddOns: function(burger) {
+				return this.sendInfo(5,burger)
 			},
-			displaySides: function() {
-				return this.sendInfo(6)
+			displaySides: function(burger) {
+				return this.sendInfo(6,burger)
 			},
-			displayDrinks: function() {
-				return this.sendInfo(7)
+			displayDrinks: function(burger) {
+				return this.sendInfo(7,burger)
 			},
 
 		// don't loop through all the burgers again, have burger as an argument
-		sendInfo: function(id) {
+		sendInfo: function(id,burger) {
 				let listIncludingLists = [];
 				//no for loop
-				for (let j = 0; j < this.burgers.length; j += 1){
-				let ingredientList = this.burgers[j].ingredients;
+				// for (let j = 0; j < this.burgers.length; j += 1){
+				// let ingredientList = this.burgers[j].ingredients;
 				//should be burger (the argument) instead burgers
+
+				let ingredientList = burger.ingredients;
 				for (let i = 0; i < ingredientList.length; i += 1) {
 					let list = [];
 					if (ingredientList[i].category === id) {
@@ -198,7 +200,6 @@ export default {
 					}
 					listIncludingLists.push(list)
 		}
-	}
 		return listIncludingLists;
 
 	},
@@ -214,6 +215,7 @@ export default {
 
 		//for (let j = 0; j < this.orders.burgers.length; j += 1){
 		let ingredientList = burger.ingredients;
+		console.log(ingredientList);
 		// let ingredientList = this.orders.burgers.ingredients;
 
 		for (let i = 0; i < ingredientList.length; i += 1) {

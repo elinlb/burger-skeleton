@@ -431,9 +431,26 @@ font-family: Comfortaa;
   cursor: pointer;
 }
 
-.active, .flex-item:hover {
+/* .active, .flex-item:hover {
   border-style: outset;
   background-color: #AED581;
+  text-transform: uppercase;
+  font-weight: 700;
+} */
+
+.active {
+  border-style: outset;
+  border-radius: 10px;
+  background-color: #AED581;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.flex-item:hover {
+  border-style: dashed;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: #CACFD2;
   text-transform: uppercase;
   font-weight: 700;
 }
