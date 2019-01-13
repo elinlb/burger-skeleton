@@ -130,17 +130,6 @@ export default {
           ingredients: this.chosenIngredients,
           price: this.price
         }
-      },
-        nextSlide: function() {
-          if (this.slideNumber <5 ){
-            this.slideNumber += 1
-          }
-        },
-        previousSlide: function() {
-          if(this.slideNumber >1){
-            this.slideNumber -=1
-          };
-
       // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
       this.$store.state.socket.emit('order', {order: order});
       //set all counters to 0. Notice the use of $refs
