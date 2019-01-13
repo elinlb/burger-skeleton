@@ -273,7 +273,7 @@ background-color: #008CBA;
 width: 4em;
 height: 2em;
 position: absolute;
-right: 25%;
+right: 0%;
 font-family: Comfortaa;
 }
 
