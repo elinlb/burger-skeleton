@@ -5,6 +5,8 @@
     <router-link to="/">
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
     </router-link>
+
+
 <div class ="burgerContainer">
 <h1 class="headline">{{uiLabels.yourbasket}}</h1>
 <img src="@/assets/basket.png" width="100em" height="70em">
@@ -22,7 +24,6 @@
 </div>
 
     <div class = "burgerContainer">
-
       <div class ="burgerBox">
         <router-link to="ordering" STYLE="text-decoration: none; color:black">
       <h1>{{uiLabels.newBuild}}</h1>
@@ -41,11 +42,12 @@
 <footer class="footer">
 <div class="Price"> <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1>
      </div>
-     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.pay }} </button>
+     <button class="orderButton" v-on:click="placeOrder()"><!-- <router-link: to="pay">-->{{ uiLabels.pay }}<!--</router-link>--></button>
 </footer>
    <!-- </div> -->
 
 </div>
+
 </template>
 <script>
 
