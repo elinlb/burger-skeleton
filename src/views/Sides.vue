@@ -363,7 +363,12 @@ font-family: Comfortaa;
   text-transform: uppercase;
   font-weight: 700;
 }
+<<<<<<< HEAD
 =======
+=======
+
+
+>>>>>>> 72c571ba7bb333e6aa5c820e2bbd3f202af7ce1e
 button{
   font-family:Comfortaa;
 }
@@ -376,4 +381,9 @@ button:hover{
 .languageButton:hover{
   background-color: #AED581;
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 72c571ba7bb333e6aa5c820e2bbd3f202af7ce1e
 </style>
