@@ -6,14 +6,14 @@
   "thankOrder" : "Thank you for your order!",
   "yourOrder" : "Your Order",
   "newOrder" : "New Order",
-  "pay" : "Pay",
+  "pay" : "Pay here",
   "sum": "Sum",
   "pieces": "pcs",
   "ordersFinished" : "Finished orders",
   "ordersInQueue" : "Order queue",
   "ordersToFry" : "Frying queue",
   "ordersTrending" : "Trending orders",
-  "placeOrder" : "Add to basket",
+  "placeOrder" : "Place order",
   "sideorders" : "Side orders",
   "ingredients" : "Ingredients",
   "ready" : "Done",
@@ -44,6 +44,8 @@
   "lowInStock": "Low in stock",
   "build": "Build your burger",
   "pickSides": "Pick sides",
+  "continueSides": "Continue to sides",
+  "extraSides": "Pick extra sides",
   "crafty": "Crafty burgers",
   "basket": "Go to basket",
   "instock": "in stock",
@@ -56,5 +58,6 @@
   "low": "low",
   "addToOrder": "Add to basket",
   "kitchen": "Kitchen",
-  "createburger": "Create your burger"
+  "createburger": "Create your burger",
+  "price": "Price"
 }

@@ -11,8 +11,12 @@
       {{ counter }}
       <label>
       <button v-on:click="incrementCounter">+</button>
+      <p>
       <th>{{item["ingredient_"+ lang]}}</th>
+    </p>
+      <p>
       {{allergyInfo(item)}}, {{item.selling_price}}:-
+    </p>
     </label>
   </label>
   </div>
@@ -89,11 +93,12 @@ export default {
   display: block;
   /* height: auto; */
   max-height: 40%;
-  /* width: 60%; */
+  width: 40%; */
   max-width: 40%;
   /* max-width: 100px; */
   padding-left: 2em;
   align-items: center;
+
 }
 
 button{
