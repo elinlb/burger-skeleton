@@ -349,7 +349,7 @@ font-family: Comfortaa;
      /* border-style:  outset;
      border-radius: 1em;
      border-width: thick; */
-       text-align: center;
+     text-align: center;
  }
 
  .box:hover {

@@ -10,7 +10,7 @@
       </div>
 
       <router-link :to="{ name: 'kitchen' }">
-        <button id="kitchenButton"><img src="@/assets/cooking.jpg" width="50vw">{{uiLabels.kitchen}}</button>
+        <button id="kitchenButton"><img src="@/assets/cooking.jpg" width="25vw">{{uiLabels.kitchen}}</button>
       </router-link>
     </div>
 
@@ -42,7 +42,7 @@
            :key="key">
            <div class="flex-center">
               <div class="flex-content">
-                <p>{{item["ingredient_"+ lang]}}:</p>
+                <p class="bold">{{item["ingredient_"+ lang]}}</p>
                 <img class="picture" :src="findImage(item.image)">
                 <p>
                    {{item.stock}} {{uiLabels.pieces}} {{uiLabels.instock}} {{ item.stock <= 20 ? "(" + uiLabels.low + ")" : ""}}
@@ -133,6 +133,10 @@ export default {
   height: 100%;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 h1 {
   text-transform: uppercase;
   font-size: 1.6em;
@@ -165,6 +169,7 @@ h1 {
 
 .column{
   float: left;
+  position: relative;
 }
 
 .stylecolumnright{
@@ -200,12 +205,17 @@ height: 100vh;
   margin-right: 1.2%;
 }
 
+#myDIV {
+  /*min-height: calc(110vh - 140px);*/ /*Storleken är densamma oavsett om column right ändras och det kanske ser konstigt ut??*/
+}
+
 #kitchenButton {
   position: static;
   left: 0;
-  bottom: 0;
+  bottom: 0%;
   font-size: 3vh;
   font-family:Comfortaa;
+
 }
 
 button:hover {
