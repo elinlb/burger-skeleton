@@ -394,7 +394,6 @@ font-family: Comfortaa;
   font-weight: 700;
 }
 
-<<<<<<< HEAD
 .flex-item:hover {
   border-style: dashed;
   border-radius: 10px;
@@ -405,8 +404,6 @@ font-family: Comfortaa;
 }
 
 
-=======
->>>>>>> d9a41c3b7eb7631db7075160bcbf7db997f1e8d1
 button{
   font-family:Comfortaa;
 }
