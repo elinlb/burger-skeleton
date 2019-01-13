@@ -45,7 +45,6 @@
   "build": "Build your burger",
   "pickSides": "Pick sides",
   "continueSides": "Continue to sides",
-  "extraSides": "Pick extra sides",
   "crafty": "Crafty burgers",
   "basket": "Go to basket",
   "instock": "in stock",
@@ -56,16 +55,8 @@
   "vegan": "Vegan",
   "allergy": "Allergy information",
   "low": "low",
-<<<<<<< HEAD
-  "addToOrder": "Add to order"
-=======
   "addToOrder": "Add to basket",
   "kitchen": "Kitchen",
-<<<<<<< HEAD
-  "createburger": "Create your burger"
->>>>>>> 4912f7fcf8fe7d5ba009c7727368689e921cd65e
-=======
   "createburger": "Create your burger",
   "price": "Price"
->>>>>>> 9cd03599fe3ada6c4b94e319af02e20cc0bad8e6
 }
