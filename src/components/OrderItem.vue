@@ -118,7 +118,30 @@ export default {
 
 	}
 },
-	computed: {
+
+	computed:{},
+
+	methods: {
+		sendInfo: function(id) {
+				let listIncludingLists = [];
+				for (let j = 0; j < this.burgers.length; j += 1){
+				let ingredientList = this.burgers[j].ingredients;
+				for (let i = 0; i < ingredientList.length; i += 1) {
+					let list = [];
+					if (ingredientList[i].category === id) {
+							let array = ingredientList.map(item=>item["ingredient_"+ this.lang]);
+							list.push(array[i])
+					}
+					if (ingredientList[i].category === id && ingredientList[i].allergy_treatment === 1) {
+							let array1 = ingredientList.map(item=>item["allergy_treatment"])
+							list.push(array1[i])
+					}
+					listIncludingLists.push(list)
+		}
+	}
+		return listIncludingLists;
+
+	},
 		nameMapping: function() {
 			return {1: this.uiLabels.bread, 2: this.uiLabels.protein, 3: this.uiLabels.vegetables, 4: this.uiLabels.sauce, 5: this.uiLabels.addons, 6: this.uiLabels.sides, 7: this.uiLabels.drinks};
 		},
@@ -154,9 +177,8 @@ export default {
 			},
 			displayDrinks: function() {
 				return this.sendInfo(7)
-			}
-		},
-	methods: {
+			},
+
 		// don't loop through all the burgers again, have burger as an argument
 		sendInfo: function(id) {
 				let listIncludingLists = [];
@@ -206,6 +228,7 @@ export default {
 			}
 }
 }
+
 </script>
 <style scoped>
 	.allergy_treatment {

@@ -6,7 +6,7 @@
   "thankOrder" : "Tack för din beställning!",
   "yourOrder" : "Din beställning",
   "newOrder" : "Ny beställning",
-  "pay" : "Betala",
+  "pay" : "Betala här",
   "sum" :"Summa",
   "pieces" : "st",
   "ordersFinished" : "Färdiga beställningar",
@@ -44,6 +44,8 @@
   "lowInStock": "Lågt lagersaldo",
   "build": "Bygg din burgare",
   "pickSides": "Välj tillbehör",
+  "continueSides": "Gå vidare till tillbehör",
+  "extraSides": "Välj extra tillbehör",
   "crafty": "Crafty burgers",
   "basket": "Gå till kassan",
   "instock": "i lager",
@@ -54,5 +56,8 @@
   "vegan": "Vegansk",
   "allergy": "Allergiinformation",
   "low": "lågt",
-  "addToOrder": "Lägg i kundvagn"
+  "addToOrder": "Lägg i kundvagn",
+  "kitchen": "Kök",
+  "createburger": "Skapa din burgare",
+  "price": "Pris"
 }

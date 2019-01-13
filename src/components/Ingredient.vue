@@ -2,15 +2,23 @@
 <template>
 <div class="ingredient box" >
 
+    <!-- <label> -->
+
+    <label>
     <img class="picture" :src="findImage(item.image)">
       <br>
       <button v-on:click="decrementCounter">-</button>
       {{ counter }}
       <label>
       <button v-on:click="incrementCounter">+</button>
+      <p>
       <th>{{item["ingredient_"+ lang]}}</th>
-          </label>
+    </p>
+      <p>
       {{allergyInfo(item)}}, {{item.selling_price}}:-
+    </p>
+    </label>
+  </label>
   </div>
 <!-- </div> -->
 <!-- </div> -->
@@ -85,13 +93,17 @@ export default {
   display: block;
   /* height: auto; */
   max-height: 40%;
-  /* width: 60%; */
+  width: 40%; */
   max-width: 40%;
   /* max-width: 100px; */
   padding-left: 2em;
   align-items: center;
+
 }
 
+button{
+  cursor: pointer;
+}
 
 
 </style>

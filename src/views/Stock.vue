@@ -1,13 +1,17 @@
 <template>
 <div id="stockID">
   <img class="background-stock" src="@/assets/white.jpeg">
-    <button id="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+    <button class="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
     <div class="column left">
       <div id = "myDIV">
           <h2>{{uiLabels.categories}}:</h2>
           <h3 v-for="(cat, key) in nameMapping" :class="['categorybox', { active : '' + categoryNumber === key }]" v-on:click="thisCategory(key)" :key="key">{{ cat }} </h3>
       </div>
+
+      <router-link :to="{ name: 'kitchen' }">
+        <button id="kitchenButton"><img src="@/assets/cooking.jpg" width="50vw">{{uiLabels.kitchen}}</button>
+      </router-link>
     </div>
 
     <div class="column right">
@@ -187,13 +191,21 @@ height: 100vh;
   clear: both;
 }
 
-#languageButton {
+.languageButton {
   position: absolute;
   top: 0;
   right: 0;
   font-family:Comfortaa;
   margin-top: 1.2%;
   margin-right: 1.2%;
+}
+
+#kitchenButton {
+  position: static;
+  left: 0;
+  bottom: 0;
+  font-size: 3vh;
+  font-family:Comfortaa;
 }
 
 button:hover {
@@ -206,14 +218,10 @@ button:hover {
   width: 10vh;
   /*display: table-cell; vertical-align: middle;*/
 }
-
-<<<<<<< HEAD
-=======
 .bottom > * {
   vertical-align: bottom;
 }
 
->>>>>>> 381510998fa48b2f36fe7f67303b7df3b30accd4
 .flex-wrapper {
   width: 80vw;
 }
