@@ -45,6 +45,7 @@
   "build": "Build your burger",
   "pickSides": "Pick sides",
   "continueSides": "Continue to sides",
+  "extraSides": "Pick extra sides",
   "crafty": "Crafty burgers",
   "basket": "Go to basket",
   "instock": "in stock",

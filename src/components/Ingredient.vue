@@ -93,11 +93,12 @@ export default {
   display: block;
   /* height: auto; */
   max-height: 40%;
-  /* width: 60%; */
+  width: 40%; */
   max-width: 40%;
   /* max-width: 100px; */
   padding-left: 2em;
   align-items: center;
+
 }
 
 button{

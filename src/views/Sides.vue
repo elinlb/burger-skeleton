@@ -2,7 +2,7 @@
   <div class="main-size">
   <div id="sides">
     <img class="example-panel" src="@/assets/white.jpeg">
-    <button class="headline" v-on:click="switchLang()">{{ uiLabels.language }}</button>
+    <button class="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
     <router-link to="/">
     <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
     </router-link>
@@ -43,9 +43,9 @@
   </div>
   <hr>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-    <button v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
+    <button class="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
     <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
-    <div> <router-link to="basket"> {{uiLabels.basket}} </router-link></div>
+    <button class="basketButton"> <router-link to="basket"> {{uiLabels.basket}} </router-link></button>
 <!--
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
@@ -212,6 +212,20 @@ max-width: 100%;
 
 }
 
+.basketButton {
+  width: 15%;
+  height: 10%;
+  right: 70%;
+  border-style: outset;
+  font-family: Comfortaa;
+
+}
+.basketButton:hover {
+  background-color: #8BC34A;
+  cursor: pointer;
+
+}
+
 .Next {
 background-color: #008CBA;
 width: 4em;
@@ -346,6 +360,19 @@ font-family: Comfortaa;
   background-color: #AED581;
   text-transform: uppercase;
   font-weight: 700;
+}
+
+button{
+  font-family:Comfortaa;
+}
+
+button:hover{
+  cursor: pointer;
+
+}
+
+.languageButton:hover{
+  background-color: #AED581;
 }
 
 </style>

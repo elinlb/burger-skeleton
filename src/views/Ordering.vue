@@ -54,7 +54,8 @@
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-    <div> <button><router-link to="sides"> {{uiLabels.continueSides}} </router-link></button></div>
+    <button class= "orderButton"> <router-link to="sides">  {{uiLabels.continueSides}} </router-link></button>
+
   </div>
 
 
@@ -195,7 +196,30 @@ max-width: 100%;
   font-family:Comfortaa;
 }
 
+.li a {
+      text-decoration: none;
+    }
+
 .orderWrapper {
+  background-color: #F2F3F4;
+  border-style: dashed;
+  /* border-color: black; */
+  padding: 2%;
+  margin: 10% 0 6% 0 ;
+  list-style: none;
+  font-family: Comfortaa;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.sidesWrapper {
   background-color: #F2F3F4;
   border-style: dashed;
   /* border-color: black; */
@@ -220,11 +244,13 @@ max-width: 100%;
   right: 70%;
   border-style: outset;
   font-family: Comfortaa;
-
 }
+
 .orderButton:hover {
   background-color: #8BC34A;
   cursor: pointer;
+  textDecoration: none;
+
 }
 
 .languageButton{

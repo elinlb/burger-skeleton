@@ -2,8 +2,6 @@
 <div id="styling">
   <img class="backgroundpic" src="@/assets/brick.jpg" >
     <button class ="language" v-on:click="switchLang()">{{ uiLabels.language }}</button>
-    <div class="Price"> <h5> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h5>
-    </div>
 
 <div class ="burgerContainer">
 <h1 class="headline">{{uiLabels.yourbasket}}</h1>
@@ -22,8 +20,6 @@
   </div>
 </div>
 
-<button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.pay }}</button>
-
     <div class = "burgerContainer">
 
       <div class ="burgerBox">
@@ -34,12 +30,16 @@
     </div>
     <div class ="burgerBox">
       <router-link to="sides">
-        <h1>{{uiLabels.pickSides}}</h1>
+        <h1>{{uiLabels.extraSides}}</h1>
 
         <img src="@/assets/soda.png" width="30em">
         <img src="@/assets/fries.png" width="30em">
 </router-link>
      </div>
+     <div class="Price"> <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1>
+     </div>
+     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.pay }} </button>
+
    </div>
 
 </div>
@@ -102,15 +102,18 @@ export default {
   .Price{
     font-family: Comfortaa;
     position: absolute;
-    top: 0%;
+    top: 75%;
     left: 60%;
   }
 
+
   .orderButton{
     font-family: Comfortaa;
+    text-transform: uppercase;
     position: absolute;
+    font-size: 120%;
     left: 60%;
-    top: 7%;
+    top: 82%;
     right: 1%;
   }
 
