@@ -54,7 +54,7 @@
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-    <button class= "orderButton"> <router-link to="sides">  {{uiLabels.continueSides}} </router-link></button>
+    <button class= "orderButton"> <router-link to="sides" >  {{uiLabels.continueSides}}  </router-link></button>
 
   </div>
 
@@ -198,8 +198,9 @@ max-width: 100%;
   font-family:Comfortaa;
 }
 
-.li a {
+h5 {
       text-decoration: none;
+      font-family:Comfortaa;
     }
 
 .orderWrapper {
