@@ -363,16 +363,6 @@ font-family: Comfortaa;
   text-transform: uppercase;
   font-weight: 700;
 }
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-=======
-=======
-
-
->>>>>>> 72c571ba7bb333e6aa5c820e2bbd3f202af7ce1e
->>>>>>> 1565d5fe2d88a02c62c0c6b9c3fa20fe667a02e4
 button{
   font-family:Comfortaa;
 }
@@ -385,12 +375,4 @@ button:hover{
 .languageButton:hover{
   background-color: #AED581;
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 1565d5fe2d88a02c62c0c6b9c3fa20fe667a02e4
-
->>>>>>> 72c571ba7bb333e6aa5c820e2bbd3f202af7ce1e
 </style>
