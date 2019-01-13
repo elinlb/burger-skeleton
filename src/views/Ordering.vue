@@ -41,18 +41,27 @@
       <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
     <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
 
-<div class="orderWrapper">
-  <h3 class="headline">{{ uiLabels.order }}</h3>
-  <div v-for="(burger, key) in currentOrder.burgers" :key="key">
-  {{key}}:
-  <span v-for="(item, key2) in burger.ingredients" :key="key2">
-  {{ item['ingredient_' + lang] }}
-  </span>
-  {{burger.price}}
-</div>
-<hr>
-    {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-    <!-- <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
+    <div class="orderWrapper">
+      <h3 class="headline">{{ uiLabels.order }}</h3>
+      <div class="orderBox">
+            <h5 class="headline">{{uiLabels.addedOrder}}</h5>
+      <div v-for="(burger, key) in currentOrder.burgers" :key="key">
+      <!-- {{key}}: -->
+      <span v-for="(item, key2) in burger.ingredients" :key="key2">
+        {{ item['ingredient_' + lang] }},
+      </span>
+      {{burger.price}} kr
+      <hr>
+      </div>
+      </div>
+
+
+
+      <div class="orderBox">
+        <h5 class="headline">{{uiLabels.chosenIngredients}}:</h5>
+      <br>
+        {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
+      </div>    <!-- <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
     <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
 
     <button class ="orderButton" v-on:click="addToOrder()"><router-link to="sides" STYLE="text-decoration: none; color:black" >  {{uiLabels.continueSides}}  </router-link></button>
@@ -220,6 +229,18 @@ h5 {
 
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
+}
+
+.orderBox {
+     color: black;
+     border-style: outset;
+    border-width: 20%;
+    font-family: Comfortaa;
+    padding: 2%;
+    font-size: 100%;
+    margin-left: 8%;
+    height: auto;
+    max-width: 30%;
 }
 
 .sidesWrapper {
