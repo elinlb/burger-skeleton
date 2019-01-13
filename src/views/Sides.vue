@@ -8,7 +8,6 @@
     </router-link>
  <h1 class="headline">{{ uiLabels.pickSides }}</h1>
 
-
 <div class="flex-container">
 <h3 v-for="(cat, key) in nameSidesMenu" :class="['flex-item', { active : '' + slideNumber === key }]" v-on:click="thisCategory(key)" :key="key">{{ cat }} </h3>
 <!--  <div class="flex-item" v-on:click="thisCategory(6)">{{uiLabels.sides}}</div>
@@ -17,8 +16,6 @@
 </div>
 
     <h1 class="headline">{{ uiLabels.ingredients }}</h1>
-
-
 
     <div class="boxWrapper">
         <Ingredient
