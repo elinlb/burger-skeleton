@@ -8,7 +8,6 @@
     </router-link>
  <h1 class="headline">{{ uiLabels.pickSides }}</h1>
 
-
 <div class="flex-container">
 <h3 v-for="(cat, key) in nameSidesMenu" :class="['flex-item', { active : '' + slideNumber === key }]" v-on:click="thisCategory(key)" :key="key">{{ cat }} </h3>
 <!--  <div class="flex-item" v-on:click="thisCategory(6)">{{uiLabels.sides}}</div>
@@ -17,8 +16,6 @@
 </div>
 
     <h1 class="headline">{{ uiLabels.ingredients }}</h1>
-
-
 
     <div class="boxWrapper">
         <Ingredient
@@ -71,7 +68,7 @@
   <!-- <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button> -->
 </div>
 
-    <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
+    <!-- <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
     <div>
       <OrderItem
         v-for="(order, key) in orders"
@@ -82,7 +79,7 @@
         :lang="lang"
         :key="key">
       </OrderItem>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -155,61 +152,41 @@ export default {
     //       this.chosenIngredients = [];
     //       this.price = 0;
     //   },
-      addToBurger: function (item) {
-        this.chosenIngredients.push(item);
-        this.price += +item.selling_price;
-      },
-      removeFromBurger: function (item) {
-        let indexToDelete = -1;
-        for (let i = 0; i < this.chosenIngredients.length; i += 1 ) {
-          if (this.chosenIngredients[i] === item) {
-            indexToDelete = i;
-            break;
-          }
-        }
-        if (indexToDelete >= 0) {
-          this.chosenIngredients.splice(indexToDelete, 1);
-          this.price -= +item.selling_price;
-        }
-      },
-      addToOrder: function (){
-        this.$store.commit("addToCurrentBurger", {
-          ingredients: this.chosenIngredients.splice(0),
-          price: this.price
-      });
-
-      for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
-            this.$refs.ingredient[i].resetCounter();
-          }
-          this.chosenIngredients = [];
-          this.price = 0;
-      },
-        nextSlide: function() {
-          if (this.slideNumber <5 ){
-            this.slideNumber += 1
-          }
-        },
-        previousSlide: function() {
-          if(this.slideNumber >1){
-            this.slideNumber -=1
-          };
-
-      // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
-      this.$store.state.socket.emit('order', {order: order});
-      //set all counters to 0. Notice the use of $refs
-      for (i = 0; i < this.$refs.ingredient.length; i += 1) {
-        this.$refs.ingredient[i].resetCounter();
-      }
-      this.price = 0;
-      this.chosenIngredients = [];
-    },
+    addToBurger: function (item) {
+           this.chosenIngredients.push(item);
+           this.price += +item.selling_price;
+         },
+         removeFromBurger: function (item) {
+           let indexToDelete = -1;
+           for (let i = 0; i < this.chosenIngredients.length; i += 1 ) {
+             if (this.chosenIngredients[i] === item) {
+               indexToDelete = i;
+               break;
+             }
+           }
+           if (indexToDelete >= 0) {
+             this.chosenIngredients.splice(indexToDelete, 1);
+             this.price -= +item.selling_price;
+           }
+         },
+         addToOrder: function (){
+           this.$store.commit("addToCurrentBurger", {
+             ingredients: this.chosenIngredients.splice(0),
+             price: this.price
+         });
+         for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
+               this.$refs.ingredient[i].resetCounter();
+             }
+             this.chosenIngredients = [];
+             this.price = 0;
+         },
 nextSlide: function() {
-  if (this.slideNumber <5 ){
+  if (this.slideNumber <7 ){
     this.slideNumber += 1
   }
 },
   previousSlide: function() {
-    if(this.slideNumber >1){
+    if(this.slideNumber >6){
       this.slideNumber -=1
     }
   },

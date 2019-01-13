@@ -24,24 +24,26 @@
     <div class = "burgerContainer">
 
       <div class ="burgerBox">
-        <router-link to="ordering">
+        <router-link to="ordering" STYLE="text-decoration: none; color:black">
       <h1>{{uiLabels.newBuild}}</h1>
       <img src="@/assets/burger.png" width="60em">
       </router-link>
     </div>
     <div class ="burgerBox">
-      <router-link to="sides">
+      <router-link to="sides" STYLE="text-decoration: none; color:black">
         <h1>{{uiLabels.extraSides}}</h1>
 
         <img src="@/assets/soda.png" width="30em">
         <img src="@/assets/fries.png" width="30em">
 </router-link>
      </div>
-     <div class="Price"> <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1>
+   </div>
+<footer class="footer">
+<div class="Price"> <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1>
      </div>
      <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.pay }} </button>
-
-   </div>
+</footer>
+   <!-- </div> -->
 
 </div>
 </template>
@@ -119,7 +121,7 @@ export default {
 
   .Price{
     font-family: Comfortaa;
-    position: absolute;
+    /* position: absolute; */
     top: 75%;
     left: 60%;
   }
@@ -137,7 +139,7 @@ export default {
   .orderButton{
     font-family: Comfortaa;
     text-transform: uppercase;
-    position: absolute;
+    /* position: absolute; */
     font-size: 120%;
     left: 60%;
     top: 82%;
@@ -247,6 +249,12 @@ export default {
 
   button:hover {
     cursor: pointer;
+  }
+
+  .footer{
+    position: sticky;
+    bottom: 0;
+
   }
 
 </style>

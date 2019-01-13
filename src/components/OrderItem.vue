@@ -215,7 +215,7 @@ export default {
 
 		//for (let j = 0; j < this.orders.burgers.length; j += 1){
 		let ingredientList = burger.ingredients;
-		console.log(ingredientList);
+	//	console.log(ingredientList);
 		// let ingredientList = this.orders.burgers.ingredients;
 
 		for (let i = 0; i < ingredientList.length; i += 1) {
