@@ -71,7 +71,7 @@
   <!-- <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button> -->
 </div>
 
-    <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
+    <!-- <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
     <div>
       <OrderItem
         v-for="(order, key) in orders"
@@ -82,7 +82,7 @@
         :lang="lang"
         :key="key">
       </OrderItem>
-    </div>
+    </div> -->
   </div>
 </div>
 
