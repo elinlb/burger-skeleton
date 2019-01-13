@@ -46,7 +46,7 @@
   <div v-for="(burger, key) in currentOrder.burgers" :key="key">
   {{key}}:
   <span v-for="(item, key2) in burger.ingredients" :key="key2">
-    {{ item['ingredient_' + lang] }}
+  {{ item['ingredient_' + lang] }}
   </span>
   {{burger.price}}
 </div>
