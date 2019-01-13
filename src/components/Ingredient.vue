@@ -96,8 +96,9 @@ export default {
   width: 40%; */
   max-width: 40%;
   /* max-width: 100px; */
-  padding-left: 2em;
+  /*padding-left: 2em;*/
   align-items: center;
+  margin: auto;
 
 }
 

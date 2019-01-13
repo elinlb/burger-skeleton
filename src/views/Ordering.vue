@@ -52,7 +52,7 @@
 </div>
 <hr>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-    <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
+    <button v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
     <button class= "orderButton"> <router-link to="sides" >  {{uiLabels.continueSides}}  </router-link></button>
 
@@ -111,12 +111,12 @@ export default {
       nameMainMenu: function() {
         return {1: this.uiLabels.bread, 2: this.uiLabels.protein, 3: this.uiLabels.vegetables, 4: this.uiLabels.sauce, 5: this.uiLabels.addons};
       }
-  },
-  created: function () {
-    this.$store.state.socket.on('orderNumber', function (data) {
-      this.orderNumber = data;
-    }.bind(this));
-  },
+    },
+      created: function () {
+        this.$store.state.socket.on('orderNumber', function (data) {
+        this.orderNumber = data;
+      }.bind(this));
+    },
   methods: {
     addToBurger: function (item) {
       this.chosenIngredients.push(item);
@@ -146,7 +146,6 @@ export default {
         }
         this.chosenIngredients = [];
         this.price = 0;
-
     },
     placeOrder: function () {
       // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
@@ -155,25 +154,25 @@ export default {
       this.category = 1;
 
     },
-nextSlide: function() {
-  if (this.slideNumber <5 ){
-    this.slideNumber += 1
-  }
-},
-  previousSlide: function() {
-    if(this.slideNumber >1){
-      this.slideNumber -=1
+    nextSlide: function() {
+      if (this.slideNumber <5 ){
+        this.slideNumber += 1
+      }
+    },
+    previousSlide: function() {
+      if(this.slideNumber >1){
+        this.slideNumber -=1
+      }
+    },
+    cancel: function(){
+      if(this.slideNumber >1){
+        this.slideNumber =1
+      }
+    },
+    thisCategory: function(Number) {
+      this.slideNumber = Number
     }
-  },
-  cancel: function(){
-    if(this.slideNumber >1){
-      this.slideNumber =1
-    }
-  },
-  thisCategory: function(Number) {
-    this.slideNumber = Number
   }
-}
 }
 
 </script>
@@ -319,7 +318,6 @@ font-family: Comfortaa;
   padding: 1%;
   color: black;
   max-width: 5em;
-
 }
 
  .boxWrapper {
@@ -332,8 +330,8 @@ font-family: Comfortaa;
    flex-wrap: wrap;
    max-height: 100%;
    max-width: 100%;
-   margin-bottom: 4%
-
+   margin-bottom: 4%;
+   margin: auto;
  }
 
  .box {
@@ -343,7 +341,7 @@ font-family: Comfortaa;
      font-family: Comfortaa;
      padding: 2%;
      font-size: 100%;
-     margin-left: 8%;
+     /*margin-left: 8%;
      /* background-color: orange; */
      height: auto;
      max-width: 30%;
