@@ -267,9 +267,8 @@ button:hover{
   cursor: pointer;
 }
 
-
 .Next {
-background-color: #008CBA;
+background-color: #79BAEC;
 width: 4em;
 height: 2em;
 position: absolute;
@@ -283,7 +282,7 @@ font-family: Comfortaa;
 }
 
 .Back {
-background-color: #008CBA;
+background-color: #79BAEC;
 width: 4em;
 height: 2em;
 font-family: Comfortaa;
