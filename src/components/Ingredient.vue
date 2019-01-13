@@ -4,7 +4,7 @@
 
     <!-- <label> -->
 
-    <label>
+  <!--  <label> -->
     <img class="picture" :src="findImage(item.image)">
       <br>
       <button v-on:click="decrementCounter">-</button>
@@ -18,7 +18,7 @@
       {{allergyInfo(item)}}, {{item.selling_price}}:-
     </p>
     </label>
-  </label>
+  <!--</label>-->
   </div>
 <!-- </div> -->
 <!-- </div> -->
