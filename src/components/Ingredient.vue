@@ -9,7 +9,7 @@
       <br>
       <button v-on:click="decrementCounter">-</button>
       {{ counter }}
-      <label>
+      <!-- <label> -->
       <button v-on:click="incrementCounter">+</button>
       <p>
       <th>{{item["ingredient_"+ lang]}}</th>
@@ -17,7 +17,7 @@
       <p>
       {{allergyInfo(item)}}, {{item.selling_price}}:-
     </p>
-    </label>
+    <!-- </label> -->
   </label>
   </div>
 <!-- </div> -->
