@@ -2,7 +2,9 @@
 <div id="styling">
   <img class="backgroundpic" src="@/assets/brick.jpg" >
     <button class ="language" v-on:click="switchLang()">{{ uiLabels.language }}</button>
-
+    <router-link to="/">
+    <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
+    </router-link>
 <div class ="burgerContainer">
 <h1 class="headline">{{uiLabels.yourbasket}}</h1>
 <img src="@/assets/basket.png" width="100em" height="70em">
@@ -73,8 +75,14 @@ export default {
       }
   },
   methods: {
+    cancel: function(){
+      if(this.slideNumber >1){
+        this.slideNumber =1
+      }
   }
 }
+}
+
 </script>
 
 
@@ -110,6 +118,15 @@ export default {
     left: 60%;
   }
 
+  .Cancel {
+    width: 5em;
+    height: 2em;
+    background-color: red;
+    position: absolute;
+    right: 28%;
+    top: 0;
+    font-family: Comfortaa;
+  }
 
   .orderButton{
     font-family: Comfortaa;

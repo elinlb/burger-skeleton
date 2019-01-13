@@ -52,9 +52,9 @@
 </div>
 <hr>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-    <button v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
+    <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-    <button class= "orderButton"> <router-link to="sides">  {{uiLabels.continueSides}} </router-link></button>
+    <button class= "orderButton"> <router-link to="sides" STYLE="text-decoration: none; color:black" >  {{uiLabels.continueSides}}  </router-link></button>
 
   </div>
 
@@ -197,8 +197,9 @@ max-width: 100%;
   font-family:Comfortaa;
 }
 
-.li a {
+h5 {
       text-decoration: none;
+      font-family:Comfortaa;
     }
 
 .orderWrapper {
@@ -272,7 +273,7 @@ background-color: #008CBA;
 width: 4em;
 height: 2em;
 position: absolute;
-right: 25%;
+right: 0%;
 font-family: Comfortaa;
 }
 

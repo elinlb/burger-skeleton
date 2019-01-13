@@ -32,6 +32,10 @@
         </Ingredient>
       </div>
 
+      <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
+      <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
+
+
 <div class="orderWrapper">
   <h3 class="headline">{{ uiLabels.order }}</h3>
   <div v-for="(burger, key) in currentOrder.burgers" :key="key">
@@ -41,11 +45,12 @@
   </span>
   {{burger.price}}
   </div>
+
   <hr>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
     <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
-    <button class="basketButton"> <router-link to="basket"> {{uiLabels.basket}} </router-link></button>
+    <button class="basketButton"> <router-link to="basket" STYLE="text-decoration: none; color:black" > {{uiLabels.basket}} </router-link></button>
 <!--
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
@@ -124,7 +129,17 @@ export default {
         order = {
           ingredients: this.chosenIngredients,
           price: this.price
-        };
+        }
+      },
+        nextSlide: function() {
+          if (this.slideNumber <5 ){
+            this.slideNumber += 1
+          }
+        },
+        previousSlide: function() {
+          if(this.slideNumber >1){
+            this.slideNumber -=1
+          };
 
       // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
       this.$store.state.socket.emit('order', {order: order});
@@ -220,6 +235,7 @@ max-width: 100%;
   border-style: outset;
   font-family: Comfortaa;
 
+
 }
 .basketButton:hover {
   background-color: #8BC34A;
@@ -227,19 +243,6 @@ max-width: 100%;
 
 }
 
-.Next {
-background-color: #008CBA;
-width: 4em;
-height: 2em;
-position:absolute;
-right: 450px;
-font-family: Comfortaa;
-}
-
-.Next:hover {
-  background-color: #8BC34A;
-  cursor: pointer;
-}
 
 .Back {
 background-color: #008CBA;
@@ -262,6 +265,32 @@ font-family: Comfortaa;
   top: 0;
   font-family: Comfortaa;
 
+}
+
+.Next {
+background-color: #008CBA;
+width: 4em;
+height: 2em;
+position: absolute;
+right: 0%;
+font-family: Comfortaa;
+}
+
+.Next:hover {
+  background-color: #8BC34A;
+  cursor: pointer;
+}
+
+.Back {
+background-color: #008CBA;
+width: 4em;
+height: 2em;
+font-family: Comfortaa;
+}
+
+.Back:hover {
+  background-color: #8BC34A;
+  cursor: pointer;
 }
 
 
