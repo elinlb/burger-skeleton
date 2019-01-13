@@ -25,27 +25,44 @@
         v-if = "item.category == slideNumber"
           ref="ingredient"
           v-for="item in ingredients"
-          v-on:increment="addToOrder(item)"
+          v-on:increment="addToBurger(item)"
+          v-on:decrement="removeFromBurger(item)"
           :item="item"
           :lang="lang"
           :key="item.ingredient_id">
         </Ingredient>
       </div>
 
+      <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
+      <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
+
+
 <div class="orderWrapper">
   <h3 class="headline">{{ uiLabels.order }}</h3>
+  <div class="orderBox">
+        <h5 class="headline">{{uiLabels.addedOrder}}</h5>
   <div v-for="(burger, key) in currentOrder.burgers" :key="key">
-  {{key}}:
+  <!-- {{key}}: -->
   <span v-for="(item, key2) in burger.ingredients" :key="key2">
-    {{ item['ingredient_' + lang] }}
+    {{ item['ingredient_' + lang] }},
   </span>
-  {{burger.price}}
-  </div>
+  {{burger.price}} kr
   <hr>
+  </div>
+  </div>
+
+
+
+  <div class="orderBox">
+    <h5 class="headline">{{uiLabels.chosenIngredients}}:</h5>
+  <br>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-    <button class="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
+  </div>
+    <!-- <button class="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
     <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
-    <button class="basketButton"> <router-link to="basket"> {{uiLabels.basket}} </router-link></button>
+    <button class="basketButton" v-on:click="addToOrder()"> <router-link to="basket" STYLE="text-decoration: none; color:black" > {{uiLabels.basket}} </router-link></button>
+    <!-- <router-link tag ="button" class="basketButton" to="basket" STYLE="text-decoration: none; color:black" v-on:click="addToOrder()"> {{uiLabels.basket}} </router-link> -->
+
 <!--
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
@@ -54,7 +71,7 @@
   <!-- <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button> -->
 </div>
 
-    <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
+    <!-- <h1 class="headline">{{ uiLabels.ordersInQueue }}</h1>
     <div>
       <OrderItem
         v-for="(order, key) in orders"
@@ -65,7 +82,7 @@
         :lang="lang"
         :key="key">
       </OrderItem>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -114,34 +131,65 @@ export default {
   },
   methods: {
 
-    addToOrder: function (item) {
-      this.chosenIngredients.push(item);
-      this.price += +item.selling_price;
-    },
-    placeOrder: function () {
-      var i,
-      //Wrap the order in an object
-        order = {
-          ingredients: this.chosenIngredients,
-          price: this.price
-        };
-
-      // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
-      this.$store.state.socket.emit('order', {order: order});
-      //set all counters to 0. Notice the use of $refs
-      for (i = 0; i < this.$refs.ingredient.length; i += 1) {
-        this.$refs.ingredient[i].resetCounter();
-      }
-      this.price = 0;
-      this.chosenIngredients = [];
-    },
+    // addToOrder: function (item) {
+    //   this.chosenIngredients.push(item);
+    //   this.price += +item.selling_price;
+    // },
+    // placeOrder: function () {
+    //   var i,
+    //   //Wrap the order in an object
+    //     order = {
+    //       ingredients: this.chosenIngredients,
+    //       price: this.price
+    //     }
+    //   },
+    //   addToOrder: function (){
+    //     this.$store.commit("addToCurrentBurger", {
+    //       ingredients: this.chosenIngredients.splice(0),
+    //       price: this.price
+    //   });
+    //
+    //   for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
+    //         this.$refs.ingredient[i].resetCounter();
+    //       }
+    //       this.chosenIngredients = [];
+    //       this.price = 0;
+    //   },
+    addToBurger: function (item) {
+           this.chosenIngredients.push(item);
+           this.price += +item.selling_price;
+         },
+         removeFromBurger: function (item) {
+           let indexToDelete = -1;
+           for (let i = 0; i < this.chosenIngredients.length; i += 1 ) {
+             if (this.chosenIngredients[i] === item) {
+               indexToDelete = i;
+               break;
+             }
+           }
+           if (indexToDelete >= 0) {
+             this.chosenIngredients.splice(indexToDelete, 1);
+             this.price -= +item.selling_price;
+           }
+         },
+         addToOrder: function (){
+           this.$store.commit("addToCurrentBurger", {
+             ingredients: this.chosenIngredients.splice(0),
+             price: this.price
+         });
+         for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
+               this.$refs.ingredient[i].resetCounter();
+             }
+             this.chosenIngredients = [];
+             this.price = 0;
+         },
 nextSlide: function() {
-  if (this.slideNumber <5 ){
+  if (this.slideNumber <7 ){
     this.slideNumber += 1
   }
 },
   previousSlide: function() {
-    if(this.slideNumber >1){
+    if(this.slideNumber >6){
       this.slideNumber -=1
     }
   },
@@ -199,6 +247,24 @@ max-width: 100%;
   justify-content: space-around;
 }
 
+.orderBox {
+     /* color: #fff; */
+     color: black;
+     border-style: outset;
+    border-width: 20%;
+    font-family: Comfortaa;
+    padding: 2%;
+    font-size: 100%;
+    margin-left: 8%;
+    /* background-color: orange; */
+    height: auto;
+    max-width: 30%;
+    /* border-style:  outset;
+    border-radius: 1em;
+    border-width: thick; */
+
+
+}
 .orderButton {
   width: 15%;
   height: 10%;
@@ -220,6 +286,7 @@ max-width: 100%;
   border-style: outset;
   font-family: Comfortaa;
 
+
 }
 .basketButton:hover {
   background-color: #8BC34A;
@@ -227,19 +294,6 @@ max-width: 100%;
 
 }
 
-.Next {
-background-color: #008CBA;
-width: 4em;
-height: 2em;
-position:absolute;
-right: 450px;
-font-family: Comfortaa;
-}
-
-.Next:hover {
-  background-color: #8BC34A;
-  cursor: pointer;
-}
 
 .Back {
 background-color: #008CBA;
@@ -262,6 +316,32 @@ font-family: Comfortaa;
   top: 0;
   font-family: Comfortaa;
 
+}
+
+.Next {
+background-color: #79BAEC;
+width: 4em;
+height: 2em;
+position: absolute;
+right: 0%;
+font-family: Comfortaa;
+}
+
+.Next:hover {
+  background-color: #8BC34A;
+  cursor: pointer;
+}
+
+.Back {
+background-color: #79BAEC;
+width: 4em;
+height: 2em;
+font-family: Comfortaa;
+}
+
+.Back:hover {
+  background-color: #8BC34A;
+  cursor: pointer;
 }
 
 
@@ -357,12 +437,23 @@ font-family: Comfortaa;
   cursor: pointer;
 }
 
-.active, .flex-item:hover {
+.active {
   border-style: outset;
+  border-radius: 10px;
   background-color: #AED581;
   text-transform: uppercase;
   font-weight: 700;
 }
+
+.flex-item:hover {
+  border-style: dashed;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: #CACFD2;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
 
 button{
   font-family:Comfortaa;
@@ -376,5 +467,4 @@ button:hover{
 .languageButton:hover{
   background-color: #AED581;
 }
-
 </style>

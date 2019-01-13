@@ -2,19 +2,21 @@
 <div id="styling">
   <img class="backgroundpic" src="@/assets/brick.jpg" >
     <button class ="language" v-on:click="switchLang()">{{ uiLabels.language }}</button>
-
+    <router-link to="/">
+    <button class="Cancel" v-on:click="cancel()">{{uiLabels.cancel}}</button>
+    </router-link>
 <div class ="burgerContainer">
 <h1 class="headline">{{uiLabels.yourbasket}}</h1>
 <img src="@/assets/basket.png" width="100em" height="70em">
   <div class="orderBox">
     <h1>{{uiLabels.yourOrder}}</h1>
+{{currentOrder}}
     <div>
       <OrderItem
         :burgers="currentOrder.burgers"
         :ui-labels="uiLabels"
         :lang="lang">
       </OrderItem>
-      HEJ
     </div>
   </div>
 </div>
@@ -22,24 +24,26 @@
     <div class = "burgerContainer">
 
       <div class ="burgerBox">
-        <router-link to="ordering">
+        <router-link to="ordering" STYLE="text-decoration: none; color:black">
       <h1>{{uiLabels.newBuild}}</h1>
       <img src="@/assets/burger.png" width="60em">
       </router-link>
     </div>
     <div class ="burgerBox">
-      <router-link to="sides">
+      <router-link to="sides" STYLE="text-decoration: none; color:black">
         <h1>{{uiLabels.extraSides}}</h1>
 
         <img src="@/assets/soda.png" width="30em">
         <img src="@/assets/fries.png" width="30em">
 </router-link>
      </div>
-     <div class="Price"> <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1>
+   </div>
+<footer class="footer">
+<div class="Price"> <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1>
      </div>
      <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.pay }} </button>
-
-   </div>
+</footer>
+   <!-- </div> -->
 
 </div>
 </template>
@@ -72,8 +76,21 @@ export default {
       }
   },
   methods: {
+    cancel: function(){
+      if(this.slideNumber >1){
+        this.slideNumber =1
+      }
+  },
+  placeOrder: function () {
+    // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
+    this.$store.state.socket.emit('order', this.currentOrder);
+    this.$store.commit('clearOrder');
+    this.category = 1;
+
   }
 }
+}
+
 </script>
 
 
@@ -104,16 +121,25 @@ export default {
 
   .Price{
     font-family: Comfortaa;
-    position: absolute;
+    /* position: absolute; */
     top: 75%;
     left: 60%;
   }
 
+  .Cancel {
+    width: 5em;
+    height: 2em;
+    background-color: red;
+    position: absolute;
+    right: 28%;
+    top: 0;
+    font-family: Comfortaa;
+  }
 
   .orderButton{
     font-family: Comfortaa;
     text-transform: uppercase;
-    position: absolute;
+    /* position: absolute; */
     font-size: 120%;
     left: 60%;
     top: 82%;
@@ -223,6 +249,12 @@ export default {
 
   button:hover {
     cursor: pointer;
+  }
+
+  .footer{
+    position: sticky;
+    bottom: 0;
+
   }
 
 </style>

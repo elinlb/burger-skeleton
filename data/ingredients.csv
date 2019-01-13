@@ -26,11 +26,11 @@ ingredient_id,ingredient_sv,ingredient_en,category,milk_free,gluten_free,vegan,s
 25,svampstuvning,mushroom stew,3,0,1,0,15,mushroom.png,0
 26,pepper jack-ost,pepper jack cheese,5,0,1,0,10,pepperjack.png,0
 27,inlagd gurka,pickled cucumber,3,1,1,1,5,pickle.png,0
-28,inlagd rödlök,pickled red onion,3,1,1,1,5,,0
+28,inlagd rödlök,pickled red onion,3,1,1,1,5,redonion.png,0
 29,rå rödlök,raw red onion,3,1,1,1,5,redonion.png,0
 30,rå gul lök,raw yellow onion,3,1,1,1,5,onion.png,0
 31,salami,salami,5,1,1,0,10,salami.png,0
-32,surkål,sauerkraut,3,1,1,1,5,,0
+32,surkål,sauerkraut,3,1,1,1,5,cabbage.png,0
 33,tomat,tomato,3,1,1,1,5,tomato.png,0
 34,vegansk ost,vegan cheese,5,1,1,1,10,vegancheese.png,1
 35,aioli,aioli,4,1,1,0,5,mayo.png,0

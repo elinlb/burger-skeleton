@@ -1,27 +1,27 @@
 
 <template>
+
 <div class="ingredient box" >
-
+  <label>
     <!-- <label> -->
-
-    <label>
     <img class="picture" :src="findImage(item.image)">
       <br>
-      <button v-on:click="decrementCounter">-</button>
+      <button class= "decrement" v-on:click="decrementCounter">-</button>
       {{ counter }}
-      <button v-on:click="incrementCounter">+</button>
+      <button class= "increment" v-on:click="incrementCounter">+</button>
+<!--
+      <label> -->
       <p>
       <th>{{item["ingredient_"+ lang]}}</th>
     </p>
       <p>
       {{allergyInfo(item)}}, {{item.selling_price}}:-
     </p>
+    <!-- </label> -->
   </label>
   </div>
 <!-- </div> -->
 <!-- </div> -->
-
-
 
 </template>
 <script>
@@ -87,6 +87,7 @@ export default {
 </script>
 <style scoped>
 
+
 .picture {
   display: block;
   /* height: auto; */
@@ -94,10 +95,41 @@ export default {
   width: 40%; */
   max-width: 40%;
   /* max-width: 100px; */
-  padding-left: 2em;
+  /*padding-left: 2em;*/
   align-items: center;
+  margin: auto;
 
 }
+/* .increment {
+
+  margin-left: 55%;
+  margin-top: 5%;
+  border-style: outset;
+  font-family: Comfortaa;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    justify-content: space-around;
+} */
+/* .decrement {
+
+  margin-left: 35%;
+  margin-top: 0%;
+  border-style: outset;
+  font-family: Comfortaa;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    justify-content: space-around;
+} */
 
 button{
   cursor: pointer;
