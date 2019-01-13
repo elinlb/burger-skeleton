@@ -45,7 +45,7 @@
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
     <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
-    <button class="basketButton"> <router-link to="basket"> {{uiLabels.basket}} </router-link></button>
+    <button class="basketButton"> <router-link to="basket" STYLE="text-decoration: none; color:black" > {{uiLabels.basket}} </router-link></button>
 <!--
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
@@ -219,6 +219,7 @@ max-width: 100%;
   right: 70%;
   border-style: outset;
   font-family: Comfortaa;
+
 
 }
 .basketButton:hover {
