@@ -59,5 +59,7 @@
   "addToOrder": "Lägg i kundvagn",
   "kitchen": "Kök",
   "createburger": "Skapa din burgare",
-  "price": "Pris"
+  "price": "Pris",
+  "addedOrder": "Tillagt i order",
+  "chosenIngredients": "Chosen ingredients"
 }
