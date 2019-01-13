@@ -10,14 +10,13 @@
 <img src="@/assets/basket.png" width="100em" height="70em">
   <div class="orderBox">
     <h1>{{uiLabels.yourOrder}}</h1>
-
+{{currentOrder}}
     <div>
       <OrderItem
         :burgers="currentOrder.burgers"
         :ui-labels="uiLabels"
         :lang="lang">
       </OrderItem>
-      HEJ
     </div>
   </div>
 </div>
@@ -79,6 +78,13 @@ export default {
       if(this.slideNumber >1){
         this.slideNumber =1
       }
+  },
+  placeOrder: function () {
+    // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
+    this.$store.state.socket.emit('order', this.currentOrder);
+    this.$store.commit('clearOrder');
+    this.category = 1;
+
   }
 }
 }
