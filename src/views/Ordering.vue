@@ -184,6 +184,7 @@ export default {
 #ordering {
   margin:auto;
   max-width: 40em;
+  position: relative;
 }
 
 .main-size {
@@ -435,6 +436,5 @@ font-family: Comfortaa;
   text-transform: uppercase;
   font-weight: 700;
 }
-
 
 </style>

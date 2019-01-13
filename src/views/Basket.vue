@@ -99,6 +99,10 @@ export default {
     left: 16%;
   }
 
+  .language:hover {
+    background-color: #AED581;
+  }
+
   .Price{
     font-family: Comfortaa;
     position: absolute;
@@ -216,6 +220,10 @@ export default {
     z-index: -2;
     opacity: 0.2;
     width: 80em;
+  }
+
+  button:hover {
+    cursor: pointer;
   }
 
 </style>
