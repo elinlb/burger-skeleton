@@ -167,6 +167,7 @@ nextSlide: function() {
 #sides {
   margin:auto;
   max-width: 40em;
+  position: relative;
 }
 
 .main-size {
@@ -243,7 +244,8 @@ font-family: Comfortaa;
   height: 2em;
   background-color: red;
   position: absolute;
-  right: 30%;
+  right: 0;
+  top: 0;
   font-family: Comfortaa;
 
 }
@@ -347,5 +349,6 @@ font-family: Comfortaa;
   text-transform: uppercase;
   font-weight: 700;
 }
+
 
 </style>

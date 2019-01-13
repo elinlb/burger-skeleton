@@ -2,7 +2,6 @@
 <template>
 <div id="orders">
   <img class="background-kitchen" src="@/assets/brick.jpg">
-<button class="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
 
   <!-- <div v-for="countIng in countAllIngredients"
       v-if="countIng.count>0"
@@ -29,19 +28,22 @@
   </router-link>
 </div>
 <div class="column right">
-
   <div class="rowa">
+    <button class="languageButton" v-on:click="switchLang()">{{ uiLabels.language }}</button>
     <h1>{{ uiLabels.ordersToFry }}</h1>
-    {{uiLabels.beenPatty}}: {{countBeanPatty}} {{uiLabels.pieces}}<br>
+    <p>(v) = {{uiLabels.vegan}}</p>
+    <p>{{uiLabels.beenPatty}}: {{countBeanPatty}} {{uiLabels.pieces}} <span class="veganInfo">(v)</span><br>
     {{uiLabels.beef100g}}: {{countBeef100}} {{uiLabels.pieces}}<br>
     {{uiLabels.beef200g}}: {{countBeef200}} {{uiLabels.pieces}}<br>
     {{uiLabels.chickenPatty}}: {{countChickenPatty}} {{uiLabels.pieces}}<br>
-    {{uiLabels.deepFriedHalloumi}}: {{countDeepFriedHalloumi}} {{uiLabels.pieces}}<br>
     {{uiLabels.fishFilet}}: {{countFishFilet}} {{uiLabels.pieces}}<br>
-    {{uiLabels.grilledEggplant}}: {{countGrilledEggplant}} {{uiLabels.pieces}}<br>
-    {{uiLabels.lobster}}: {{countLobster}} {{uiLabels.pieces}}<br>
-    {{uiLabels.pulledJackfruit}}: {{countPulledJackfruit}} {{uiLabels.pieces}}<br>
-    {{uiLabels.pulledPork}}: {{countPulledPork}} {{uiLabels.pieces}}<br>
+    {{uiLabels.grilledEggplant}}: {{countGrilledEggplant}} {{uiLabels.pieces}}<span class="veganInfo">(v)</span><br></p>
+
+    <p>{{uiLabels.deepFriedHalloumi}}: {{countDeepFriedHalloumi}} {{uiLabels.pieces}}<span class="veganInfo">(v)</span><br></p>
+
+    <p>{{uiLabels.lobster}}: {{countLobster}} {{uiLabels.pieces}}<br>
+    {{uiLabels.pulledJackfruit}}: {{countPulledJackfruit}} {{uiLabels.pieces}}<span class="veganInfo">(v)</span><br>
+    {{uiLabels.pulledPork}}: {{countPulledPork}} {{uiLabels.pieces}}<br></p>
 </div>
 <div class="rowb">
   <div>
@@ -64,6 +66,7 @@
 </div>
 </div>
 </template>
+
 <script>
 import OrderItem from '@/components/OrderItem.vue'
 import OrderItemToPrepare from '@/components/OrderItemToPrepare.vue'
@@ -177,6 +180,7 @@ export default {
     height: auto;
     font-family:Comfortaa;
     margin: 1.2%;
+    height: 100%;
   }
 
   .background-kitchen {
@@ -212,17 +216,18 @@ export default {
 
   .order-wrapper {
     min-height: calc(100vh - 140px);
+
   }
 
   .column {
     float:left;
+    position: relative;
 
   }
   .left {
   width: 65%;
   height: 100vh;
   margin-top: 1%;
-
   }
 
   .right {
@@ -235,6 +240,7 @@ export default {
       /*background-color: green;*/
       min-height: 50%;
       padding: 3%;
+      position: relative;
   }
 
   .rowb {
@@ -255,7 +261,7 @@ export default {
     right: 0;
     font-family:Comfortaa;
     margin-top: 1.2%;
-    margin-right: 1.2%;
+    margin-right: 3%;
 
   }
 
@@ -272,7 +278,9 @@ export default {
     cursor: pointer;
   }
 
-
-
-
+  .veganInfo {
+    position: absolute;
+    right: 0;
+    padding-right: 3%;
+  }
 </style>
