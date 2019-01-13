@@ -59,5 +59,7 @@
   "addToOrder": "Add to basket",
   "kitchen": "Kitchen",
   "createburger": "Create your burger",
-  "price": "Price"
+  "price": "Price",
+  "addedOrder": "Added to order",
+  "chosenIngredients": "Chosen ingredients"
 }

@@ -39,19 +39,29 @@
 
 <div class="orderWrapper">
   <h3 class="headline">{{ uiLabels.order }}</h3>
+  <div class="orderBox">
+        <h5 class="headline">{{uiLabels.addedOrder}}</h5>
   <div v-for="(burger, key) in currentOrder.burgers" :key="key">
-  {{key}}:
+  <!-- {{key}}: -->
   <span v-for="(item, key2) in burger.ingredients" :key="key2">
-    {{ item['ingredient_' + lang] }}
+    {{ item['ingredient_' + lang] }},
   </span>
-  {{burger.price}}
+  {{burger.price}} kr
+  <hr>
+  </div>
   </div>
 
-  <hr>
+
+
+  <div class="orderBox">
+    <h5 class="headline">{{uiLabels.chosenIngredients}}:</h5>
+  <br>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
+  </div>
     <!-- <button class="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
     <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
     <button class="basketButton" v-on:click="addToOrder()"> <router-link to="basket" STYLE="text-decoration: none; color:black" > {{uiLabels.basket}} </router-link></button>
+    <!-- <router-link tag ="button" class="basketButton" to="basket" STYLE="text-decoration: none; color:black" v-on:click="addToOrder()"> {{uiLabels.basket}} </router-link> -->
 
 <!--
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
@@ -257,6 +267,24 @@ max-width: 100%;
   justify-content: space-around;
 }
 
+.orderBox {
+     /* color: #fff; */
+     color: black;
+     border-style: outset;
+    border-width: 20%;
+    font-family: Comfortaa;
+    padding: 2%;
+    font-size: 100%;
+    margin-left: 8%;
+    /* background-color: orange; */
+    height: auto;
+    max-width: 30%;
+    /* border-style:  outset;
+    border-radius: 1em;
+    border-width: thick; */
+
+
+}
 .orderButton {
   width: 15%;
   height: 10%;
