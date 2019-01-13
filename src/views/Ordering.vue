@@ -52,9 +52,10 @@
 </div>
 <hr>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-    <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
-    <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-    <button class= "orderButton"> <router-link to="sides" STYLE="text-decoration: none; color:black" >  {{uiLabels.continueSides}}  </router-link></button>
+    <!-- <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
+    <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
+
+    <button class ="orderButton" v-on:click="addToOrder()"><router-link to="sides" STYLE="text-decoration: none; color:black" >  {{uiLabels.continueSides}}  </router-link></button>
 
   </div>
 
@@ -147,13 +148,13 @@ export default {
         this.chosenIngredients = [];
         this.price = 0;
     },
-    placeOrder: function () {
-      // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
-      this.$store.state.socket.emit('order', this.currentOrder);
-      this.$store.commit('clearOrder');
-      this.category = 1;
-
-    },
+    // placeOrder: function () {
+    //   // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
+    //   this.$store.state.socket.emit('order', this.currentOrder);
+    //   this.$store.commit('clearOrder');
+    //   this.category = 1;
+    //
+    // },
     nextSlide: function() {
       if (this.slideNumber <5 ){
         this.slideNumber += 1

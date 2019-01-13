@@ -25,7 +25,8 @@
         v-if = "item.category == slideNumber"
           ref="ingredient"
           v-for="item in ingredients"
-          v-on:increment="addToOrder(item)"
+          v-on:increment="addToBurger(item)"
+          v-on:decrement="removeFromBurger(item)"
           :item="item"
           :lang="lang"
           :key="item.ingredient_id">
@@ -48,9 +49,10 @@
 
   <hr>
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-    <button class="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
+    <!-- <button class="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
     <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
-    <button class="basketButton"> <router-link to="basket" STYLE="text-decoration: none; color:black" > {{uiLabels.basket}} </router-link></button>
+    <button class="basketButton" v-on:click="addToOrder()"> <router-link to="basket" STYLE="text-decoration: none; color:black" > {{uiLabels.basket}} </router-link></button>
+
 <!--
     {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
     <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
@@ -119,17 +121,58 @@ export default {
   },
   methods: {
 
-    addToOrder: function (item) {
-      this.chosenIngredients.push(item);
-      this.price += +item.selling_price;
-    },
-    placeOrder: function () {
-      var i,
-      //Wrap the order in an object
-        order = {
-          ingredients: this.chosenIngredients,
-          price: this.price
+    // addToOrder: function (item) {
+    //   this.chosenIngredients.push(item);
+    //   this.price += +item.selling_price;
+    // },
+    // placeOrder: function () {
+    //   var i,
+    //   //Wrap the order in an object
+    //     order = {
+    //       ingredients: this.chosenIngredients,
+    //       price: this.price
+    //     }
+    //   },
+    //   addToOrder: function (){
+    //     this.$store.commit("addToCurrentBurger", {
+    //       ingredients: this.chosenIngredients.splice(0),
+    //       price: this.price
+    //   });
+    //
+    //   for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
+    //         this.$refs.ingredient[i].resetCounter();
+    //       }
+    //       this.chosenIngredients = [];
+    //       this.price = 0;
+    //   },
+      addToBurger: function (item) {
+        this.chosenIngredients.push(item);
+        this.price += +item.selling_price;
+      },
+      removeFromBurger: function (item) {
+        let indexToDelete = -1;
+        for (let i = 0; i < this.chosenIngredients.length; i += 1 ) {
+          if (this.chosenIngredients[i] === item) {
+            indexToDelete = i;
+            break;
+          }
         }
+        if (indexToDelete >= 0) {
+          this.chosenIngredients.splice(indexToDelete, 1);
+          this.price -= +item.selling_price;
+        }
+      },
+      addToOrder: function (){
+        this.$store.commit("addToCurrentBurger", {
+          ingredients: this.chosenIngredients.splice(0),
+          price: this.price
+      });
+
+      for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
+            this.$refs.ingredient[i].resetCounter();
+          }
+          this.chosenIngredients = [];
+          this.price = 0;
       },
         nextSlide: function() {
           if (this.slideNumber <5 ){
@@ -394,7 +437,6 @@ font-family: Comfortaa;
   font-weight: 700;
 }
 
-<<<<<<< HEAD
 .flex-item:hover {
   border-style: dashed;
   border-radius: 10px;
@@ -405,8 +447,6 @@ font-family: Comfortaa;
 }
 
 
-=======
->>>>>>> d9a41c3b7eb7631db7075160bcbf7db997f1e8d1
 button{
   font-family:Comfortaa;
 }
