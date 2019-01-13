@@ -155,27 +155,34 @@ export default {
     //       this.chosenIngredients = [];
     //       this.price = 0;
     //   },
-      addToBurger: function (item) {
-        this.chosenIngredients.push(item);
-        this.price += +item.selling_price;
-      },
-      removeFromBurger: function (item) {
-        let indexToDelete = -1;
-        for (let i = 0; i < this.chosenIngredients.length; i += 1 ) {
-          if (this.chosenIngredients[i] === item) {
-            indexToDelete = i;
-            break;
-          }
-        }
-      // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
-      this.$store.state.socket.emit('order', {order: order});
-      //set all counters to 0. Notice the use of $refs
-      for (i = 0; i < this.$refs.ingredient.length; i += 1) {
-        this.$refs.ingredient[i].resetCounter();
-      }
-      this.price = 0;
-      this.chosenIngredients = [];
-    },
+    addToBurger: function (item) {
+           this.chosenIngredients.push(item);
+           this.price += +item.selling_price;
+         },
+         removeFromBurger: function (item) {
+           let indexToDelete = -1;
+           for (let i = 0; i < this.chosenIngredients.length; i += 1 ) {
+             if (this.chosenIngredients[i] === item) {
+               indexToDelete = i;
+               break;
+             }
+           }
+           if (indexToDelete >= 0) {
+             this.chosenIngredients.splice(indexToDelete, 1);
+             this.price -= +item.selling_price;
+           }
+         },
+         addToOrder: function (){
+           this.$store.commit("addToCurrentBurger", {
+             ingredients: this.chosenIngredients.splice(0),
+             price: this.price
+         });
+         for (let i = 0; i < this.$refs.ingredient.length; i += 1) {
+               this.$refs.ingredient[i].resetCounter();
+             }
+             this.chosenIngredients = [];
+             this.price = 0;
+         },
 nextSlide: function() {
   if (this.slideNumber <5 ){
     this.slideNumber += 1
