@@ -51,8 +51,10 @@
       <span v-for="(item, key2) in burger.ingredients" :key="key2">
         {{ item['ingredient_' + lang] }},
       </span>
+      <div v-if="burger.price > 0">
       {{burger.price}} kr
       <hr>
+    </div>
       </div>
       </div>
 
@@ -62,7 +64,9 @@
         <h5 class="coolHeadline">{{uiLabels.chosenIngredients}}:</h5>
       <br>
         {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-      </div>    <!-- <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
+      </div>
+
+         <!-- <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
     <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
 
     <button class ="orderButton" v-on:click="addToOrder()"><router-link to="sides" STYLE="text-decoration: none; color:black" >  {{uiLabels.continueSides}}  </router-link></button>

@@ -43,8 +43,10 @@
   <span v-for="(item, key2) in burger.ingredients" :key="key2">
     {{ item['ingredient_' + lang] }},
   </span>
+  <div v-if="burger.price > 0">
   {{burger.price}} kr
   <hr>
+</div>
   </div>
   </div>
 
