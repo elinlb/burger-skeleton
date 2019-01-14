@@ -27,15 +27,15 @@
       <div class ="burgerBox">
         <router-link to="ordering" STYLE="text-decoration: none; color:black">
       <h1>{{uiLabels.newBuild}}</h1>
-      <img src="@/assets/burger.png" width="60em">
+      <img src="@/assets/burger.png" width="100em">
       </router-link>
     </div>
     <div class ="burgerBox">
       <router-link to="sides" STYLE="text-decoration: none; color:black">
         <h1>{{uiLabels.extraSides}}</h1>
 
-        <img src="@/assets/soda.png" width="30em">
-        <img src="@/assets/fries.png" width="30em">
+        <img src="@/assets/soda.png" width="50em">
+        <img src="@/assets/fries.png" width="50em">
 </router-link>
      </div>
    </div>
@@ -253,7 +253,7 @@ export default {
     font-family: Comfortaa;
     /* padding: 0 80% 0 80%; */
     width: 100%;
-    height: auto;
+    height: 12em;
     /* margin-top: 10%; */
     /* left: 80%; */
 
@@ -291,7 +291,7 @@ export default {
     background-color: #F2F3F4;
     color: black;
     font-family: Comfortaa;
-    padding: 0 0 0 0;
+    padding: 0 0 2% 0;
     width: 100%;
     /* height: auto; */
     /* margin-top: 10%; */
