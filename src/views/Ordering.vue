@@ -136,7 +136,14 @@ export default {
     countIngredientsChosen: function (item) {
       //count the number of times the item(full ingredient) is in the chosen
       //ingredients array
-      return 0;
+      let countedIngredients = 0;
+      for (let i=0; i<this.chosenIngredients.length; i += 1) {
+        if (this.chosenIngredients[i] === item) {
+        countedIngredients += 1;
+        }
+      }
+
+      return countedIngredients;
     },
     addToBurger: function (item) {
       this.chosenIngredients.push(item);
