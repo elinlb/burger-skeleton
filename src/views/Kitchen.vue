@@ -119,16 +119,16 @@ export default {
     },
     countPulledPork: function() {
       return this.countNumberOfIngredients(10)
-    },
-    countAllIngredients: function() {
-    let ingredientTuples = []
-      for (let i = 0; i < this.ingredients.length; i += 1) {
-        ingredientTuples[i] = {};
-        ingredientTuples[i].name = this.ingredients[i]['ingredient_' + this.lang];
-        ingredientTuples[i].count = this.countNumberOfIngredients(this.ingredients[i].ingredient_id);
-      }
-      return ingredientTuples;
-    }
+    }//,
+    // countAllIngredients: function() {
+    // let ingredientTuples = []
+    //   for (let i = 0; i < this.ingredients.length; i += 1) {
+    //     ingredientTuples[i] = {};
+    //     ingredientTuples[i].name = this.ingredients[i]['ingredient_' + this.lang];
+    //     ingredientTuples[i].count = this.countNumberOfIngredients(this.ingredients[i].ingredient_id);
+    //   }
+    //   return ingredientTuples;
+    // }
   },
   methods: {
     markDone: function (orderid) {

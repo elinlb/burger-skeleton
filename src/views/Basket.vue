@@ -7,9 +7,9 @@
     </router-link>
 
 
-<div class ="burgerContainer">
+<!--<div class ="burgerContainer">-->
 <h1 class="headline">{{uiLabels.yourbasket}}</h1>
-<img src="@/assets/basket.png" width="100em" height="70em">
+<img id="basketPicture" src="@/assets/basket.png" width="100em" height="70em">
   <div class="orderBox">
     <h1>{{uiLabels.yourOrder}}</h1>
     <div>
@@ -20,7 +20,7 @@
       </OrderItem>
     </div>
   </div>
-</div>
+<!-- </div> -->
 
     <div class = "burgerContainer">
       <div class ="burgerBox">
@@ -40,7 +40,8 @@
    </div>
 <footer class="footer">
   <div class = "payBox">
-      <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1>
+      <h1> {{uiLabels.price}}
+        {{this.price}} </h1>
     <router-link to="pay"> <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.pay }}</button> </router-link>
      </div>
 </footer>
@@ -74,8 +75,15 @@ export default {
   computed: {
       currentOrder: function () {
         return this.$store.state.currentOrder;
-      }
+      },
+      countPrice: function () {
+        for (let i = 0; i < this.currentOrder.length; i += 1 ){
+        this.price += +this.currentOrder.burger.price;
+    }
+        return this.price;
+
   },
+},
   methods: {
     cancel: function(){
       if(this.slideNumber >1){
@@ -87,9 +95,10 @@ export default {
     this.$store.state.socket.emit('order', this.currentOrder);
     this.$store.commit('clearOrder');
     this.category = 1;
+  },
+
 
   }
-}
 }
 
 </script>
@@ -103,17 +112,21 @@ export default {
     text-transform: uppercase;
     font-size: 1.4em;
   }
+  #basketPicture{
+    position: absolute;
 
+  }
   #styling {
     margin:auto;
     max-width: 50%;
+    position: relative;
 }
 
   .language{
     font-family: Comfortaa;
     position: absolute;
-    top: 0%;
-    left: 16%;
+    top: 0;
+    left: 0;
   }
 
   .language:hover {
@@ -132,7 +145,7 @@ export default {
     height: 2em;
     background-color: #FB402A;
     position: absolute;
-    right: 28%;
+    right: 0;
     top: 0;
     font-family: Comfortaa;
   }
@@ -150,7 +163,8 @@ export default {
   .headline {
     font-family:Comfortaa;
     position:absolute;
-    left: 15%;
+    text-align: center;
+    left: 43.8%;
     top: 4%;
   }
 
@@ -178,19 +192,20 @@ export default {
     background-color: #F2F3F4;
     color: black;
     font-family: Comfortaa;
-    padding: 0 80% 0 80%;
-    width: 100%;
+    /* padding: 0 40% 0 40%; */
+    width: 60%;
     height: auto;
-    margin-top: 80%;
-    /* left: 30%; */
+    /* margin-top: 0;*/
+    margin-left: 20%;
+    align: center;
 
     line-height: 150%;
     font-weight: bold;
     font-size: 1em;
     text-align: center;
 
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;
+    /* -webkit-flex-flow: row wrap;
+    justify-content: space-around; */
     border-style: double;
     border-color: black;
   }
