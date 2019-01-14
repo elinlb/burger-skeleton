@@ -277,6 +277,7 @@ max-width: 100%;
 }
 
 .basketButton {
+  margin: 10% 0 0 4%;
   width: 15%;
   height: 10%;
   right: 70%;
