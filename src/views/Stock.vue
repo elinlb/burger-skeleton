@@ -161,11 +161,21 @@ h1 {
   margin-bottom: 4%;
 }
 
-.active, .categorybox:hover{
+.active {
   background-color: #AED581;
   cursor: pointer;
   text-transform: uppercase;
 }
+
+.categorybox:hover{
+  border-style: dashed;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: #CACFD2;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
 
 .column{
   float: left;

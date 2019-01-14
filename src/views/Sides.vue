@@ -26,7 +26,10 @@
           v-on:decrement="removeFromBurger(item)"
           :item="item"
           :lang="lang"
+<<<<<<< HEAD
           :counter_initial="countIngredientsChosen(item)"
+=======
+>>>>>>> 6ebbe3f69737f611df1d9d21421003a4e561e92d
           :key="item.ingredient_id">
         </Ingredient>
       </div>
@@ -47,8 +50,10 @@
   <span v-for="(item, key2) in burger.ingredients" :key="key2">
     {{ item['ingredient_' + lang] }},
   </span>
+  <!-- <div v-if="burger.price > 0"> -->
   {{burger.price}} kr
   <hr>
+<!-- </div> -->
   </div>
   </div>
 
@@ -134,8 +139,15 @@ export default {
     countIngredientsChosen: function (item) {
       //count the number of times the item(full ingredient) is in the chosen
       //ingredients array
-      return 0;
-},
+      let countedIngredients = 0;
+      for (let i=0; i<this.chosenIngredients.length; i += 1) {
+        if (this.chosenIngredients[i] === item) {
+        countedIngredients += 1;
+        }
+      }
+
+      return countedIngredients;
+    },
     // addToOrder: function (item) {
     //   this.chosenIngredients.push(item);
     //   this.price += +item.selling_price;
@@ -285,6 +297,7 @@ max-width: 100%;
 }
 
 .basketButton {
+  margin: 10% 0 0 4%;
   width: 15%;
   height: 10%;
   right: 70%;
