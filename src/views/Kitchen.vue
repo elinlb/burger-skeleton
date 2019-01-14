@@ -20,7 +20,6 @@
       :burgers="order.burgers"
       :ui-labels="uiLabels"
       :lang="lang"
-      :counter_initial="countIngredientsChosen(item)"
       :key="key">
     </OrderItemToPrepare>
   </div>

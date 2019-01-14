@@ -128,7 +128,7 @@ export default {
   .Cancel {
     width: 5em;
     height: 2em;
-    background-color: red;
+    background-color: #FB402A;
     position: absolute;
     right: 28%;
     top: 0;
