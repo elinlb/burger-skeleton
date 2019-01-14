@@ -2,21 +2,12 @@
 	<div>
 
 		<!-- {{"order.type"}}--> {{uiLabels.ingredients}}<br><br>
-<<<<<<< HEAD
-		<!-- {{order.orderId}} -->
-		{{order.burgers}}
-=======
 		<!-- {{order.orderId}}
 		{{order.burgers}} -->
 
->>>>>>> 388fd82584195587b774535b461f87c9c42ac4da
 		<div v-for="(burger, key) in burgers" :key="key">
 		<!-- {{sortBurgers(burger)}} -->
 		<div v-for = "item in showCategory(burger)" :key="item">
-<<<<<<< HEAD
-			<!-- {{item}} -->
-=======
->>>>>>> 388fd82584195587b774535b461f87c9c42ac4da
 			<div v-if ="item === uiLabels.bread">
 					<div class="categoryHeadline">
 						{{ item }}:
@@ -110,8 +101,8 @@
 			</div>
 		</div>
 		<div v-if ="burger.price != 0">
-		<hr>
-	</div>
+	<hr>
+</div>
 		</div>
 	</div>
 </template>

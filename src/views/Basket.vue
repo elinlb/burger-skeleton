@@ -40,11 +40,10 @@
    </div>
 <footer class="footer">
   <div class = "payBox">
-<!--<div class="Price">--> <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1
-     <button class="orderButton" v-on:click="placeOrder()"><!-- <router-link: to="pay">-->{{ uiLabels.pay }}<!--</router-link>--></button>
+      <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1>
+    <router-link to="pay"> <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.pay }}</button> </router-link>
      </div>
 </footer>
-   <!-- </div> -->
 
 </div>
 
