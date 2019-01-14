@@ -12,8 +12,6 @@
 <img src="@/assets/basket.png" width="100em" height="70em">
   <div class="orderBox">
     <h1>{{uiLabels.yourOrder}}</h1>
-{{currentOrder.burgers}}
-
     <div>
       <OrderItem
         :burgers="currentOrder.burgers"

@@ -2,13 +2,21 @@
 	<div>
 
 		<!-- {{"order.type"}}--> {{uiLabels.ingredients}}<br><br>
+<<<<<<< HEAD
 		<!-- {{order.orderId}} -->
 		{{order.burgers}}
+=======
+		<!-- {{order.orderId}}
+		{{order.burgers}} -->
+
+>>>>>>> 388fd82584195587b774535b461f87c9c42ac4da
 		<div v-for="(burger, key) in burgers" :key="key">
 		<!-- {{sortBurgers(burger)}} -->
-
 		<div v-for = "item in showCategory(burger)" :key="item">
+<<<<<<< HEAD
 			<!-- {{item}} -->
+=======
+>>>>>>> 388fd82584195587b774535b461f87c9c42ac4da
 			<div v-if ="item === uiLabels.bread">
 					<div class="categoryHeadline">
 						{{ item }}:
@@ -220,14 +228,14 @@ export default {
 
 		for (let i = 0; i < ingredientList.length; i += 1) {
 			let categoryNumber = ingredientList[i].category;
-			let categoryName = this.nameMapping[categoryNumber]
+			let categoryName = this.nameMapping()[categoryNumber];
 			if (!list.includes(categoryName)) {
 					list.push(categoryName)
 				}
 				}
-			//}
-				return list;
-			}
+			// }
+			return list;
+		}
 }
 }
 
