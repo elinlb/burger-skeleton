@@ -39,14 +39,8 @@
           :key="item.ingredient_id">
         </Ingredient>
       </div>
-
-<template v-if =  "slideNumber<5">
       <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
-      </template>
-        <template v-if =  "slideNumber> 1">
     <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
-  </template>
-
 
     <div class="orderWrapper">
       <h3 class="headline">{{ uiLabels.yourOrder }}</h3>
@@ -75,7 +69,7 @@
          <!-- <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
     <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
 
-    <button class ="orderButton" v-on:click="addToOrder()"><router-link to="sides" STYLE="text-decoration: none; color:black" >{{uiLabels.continueSides}}</router-link>  </button>
+    <button class ="orderButton" v-on:click="addToOrder()"><router-link to="sides" STYLE="text-decoration: none; color:black" >  {{uiLabels.continueSides}}  </router-link></button>
 
   </div>
 
@@ -180,13 +174,13 @@ export default {
         this.chosenIngredients = [];
         this.price = 0;
     },
-    placeOrder: function () {
-      // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
-      this.$store.state.socket.emit('order', this.currentOrder);
-      this.$store.commit('clearOrder');
-      this.category = 1;
-
-    },
+    // placeOrder: function () {
+    //   // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
+    //   this.$store.state.socket.emit('order', this.currentOrder);
+    //   this.$store.commit('clearOrder');
+    //   this.category = 1;
+    //
+    // },
     nextSlide: function() {
       if (this.slideNumber <5 ){
         this.slideNumber += 1
@@ -230,7 +224,6 @@ max-width: 100%;
   font-family:Comfortaa;
 }
 
-
 .coolHeadline {
   top: 0;
   font-weight: bold;
@@ -239,6 +232,7 @@ max-width: 100%;
 
 h5 {
       text-decoration: none;
+      font-family:Comfortaa;
     }
 
 .orderWrapper {
@@ -259,6 +253,18 @@ h5 {
 
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
+}
+
+.orderBox {
+     color: black;
+     border-style: outset;
+    border-width: 20%;
+    font-family: Comfortaa;
+    padding: 2%;
+    font-size: 100%;
+    margin-left: 8%;
+    height: auto;
+    max-width: 30%;
 }
 
 .sidesWrapper {
@@ -308,13 +314,12 @@ button:hover{
   cursor: pointer;
 }
 
-
 .Next {
-background-color: #008CBA;
+background-color: #79BAEC;
 width: 4em;
 height: 2em;
 position: absolute;
-right: 25%;
+right: 0%;
 font-family: Comfortaa;
 }
 
@@ -324,7 +329,7 @@ font-family: Comfortaa;
 }
 
 .Back {
-background-color: #008CBA;
+background-color: #79BAEC;
 width: 4em;
 height: 2em;
 font-family: Comfortaa;
@@ -338,7 +343,7 @@ font-family: Comfortaa;
 .Cancel {
   width: 5em;
   height: 2em;
-  background-color: #FB402A;
+  background-color: red;
   position: absolute;
   right: 0;
   top: 0;
@@ -473,9 +478,26 @@ font-family: Comfortaa;
   cursor: pointer;
 }
 
-.active, .flex-item:hover {
+/* .active, .flex-item:hover {
   border-style: outset;
   background-color: #AED581;
+  text-transform: uppercase;
+  font-weight: 700;
+} */
+
+.active {
+  border-style: outset;
+  border-radius: 10px;
+  background-color: #AED581;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.flex-item:hover {
+  border-style: dashed;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: #CACFD2;
   text-transform: uppercase;
   font-weight: 700;
 }
