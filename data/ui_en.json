@@ -61,5 +61,6 @@
   "createburger": "Create your burger",
   "price": "Price",
   "addedOrder": "Added to order",
-  "chosenIngredients": "Chosen ingredients"
+  "chosenIngredients": "Chosen ingredients",
+  "thankYouText": "Thank you for your purchase!"
 }
