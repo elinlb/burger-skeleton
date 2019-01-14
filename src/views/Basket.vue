@@ -40,7 +40,9 @@
    </div>
 <footer class="footer">
   <div class = "payBox">
-      <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1>
+      <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}:
+        {{totalPrice(currentOrder.burgers)}} kr
+      </h1>
     <router-link to="pay"> <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.pay }}</button> </router-link>
      </div>
 </footer>
@@ -82,6 +84,14 @@ export default {
         this.slideNumber =1
       }
   },
+  totalPrice: function(burger){
+    let totPrice = this.price;
+    for (let i=0; i<this.currentOrder.burgers.length; i +=1) {
+      totPrice += this.currentOrder.burgers[i].price;
+    }
+    return totPrice;
+  },
+
   placeOrder: function () {
     // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
     this.$store.state.socket.emit('order', this.currentOrder);

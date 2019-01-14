@@ -31,12 +31,12 @@
         </Ingredient>
       </div>
 
-      <template v-if =  "slideNumber<7">
+      <div v-if =  "slideNumber<7">
             <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
-            </template>
-              <template v-if =  "slideNumber> 6">
+          </div>
+              <div v-if =  "slideNumber> 6">
           <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
-        </template>
+        </div>
 
 <div class="orderWrapper">
   <h3 class="headline">{{ uiLabels.yourOrder }}</h3>
@@ -294,20 +294,23 @@ max-width: 100%;
 }
 
 .basketButton {
+  background-color: #79BAEC;
   margin: 10% 0 0 4%;
-  width: 15%;
-  height: 10%;
+  padding: 2%;
+  width: 30%;
+  height: 30%;
   right: 70%;
   border-style: outset;
   font-family: Comfortaa;
-
-
 }
 .basketButton:hover {
-  background-color: #8BC34A;
+  background-color: #AED581;
+  border-style: inset;
   cursor: pointer;
+  textDecoration: none;
 
 }
+
 
 
 .Back {
@@ -394,10 +397,11 @@ font-family: Comfortaa;
      font-family: Comfortaa;
      padding: 2%;
      font-size: 100%;
-    /* margin-left: 8%;*/
+     /*margin-left: 8%;
      /* background-color: orange; */
      height: auto;
-     max-width: 30%;
+     width: 25%;
+     max-width: 25%;
      /* border-style:  outset;
      border-radius: 1em;
      border-width: thick; */
