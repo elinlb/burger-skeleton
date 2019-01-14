@@ -402,8 +402,6 @@ font-family: Comfortaa;
      border-radius: 1em;
      border-width: thick; */
      text-align: center;
-
-
  }
 
  .box:hover {
