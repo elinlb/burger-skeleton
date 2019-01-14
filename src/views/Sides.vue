@@ -16,6 +16,11 @@
 </div>
 
     <h1 class="headline">{{ uiLabels.ingredients }}</h1>
+    <div class="allergy-container">
+        <h6> {{uiLabels.allergy}}: (m) = {{uiLabels.containsMilk}}
+        (g)= {{uiLabels.containsGluten}}
+        (v)=  {{uiLabels.vegan}} </h6>
+      </div>
 
     <div class="boxWrapper">
         <Ingredient
@@ -39,7 +44,7 @@
         </div>
 
 <div class="orderWrapper">
-  <h3 class="headline">{{ uiLabels.yourOrder }}</h3>
+  <h3 class="headline orderText">{{ uiLabels.yourOrder }}</h3>
   <div class="orderBox">
         <h5 class="headline">{{uiLabels.addedOrder}}:</h5>
   <div v-for="(burger, key) in currentOrder.burgers" :key="key">
@@ -242,6 +247,49 @@ max-width: 100%;
   font-family:Comfortaa;
 }
 
+.allergy-container {
+  /* background-color: blue; */
+  /* border-style: groove; */
+  /* border-color: black; */
+  padding: 0%;
+  margin: 0 0 5% 0%;
+  height: 30px;
+  list-style: none;
+  font-family: Comfortaa;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.allergy-item {
+  /* background: tomato; */
+  color: black;
+  font-family: Comfortaa;
+  padding: 0 10% 0 0;
+  width: 100%;
+  height: 30px;
+
+  line-height: 50px;
+  font-weight: bold;
+  font-size: 0.75em;
+  text-align: center;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.orderText {
+  margin-left: 10%;
+
+}
+
+
 .orderWrapper {
   background-color: #F2F3F4;
   border-style: dashed;
@@ -269,7 +317,7 @@ max-width: 100%;
     font-family: Comfortaa;
     padding: 2%;
     font-size: 100%;
-    margin-left: 8%;
+    margin-left: 4%;
     /* background-color: orange; */
     height: auto;
     max-width: 30%;
@@ -295,14 +343,16 @@ max-width: 100%;
 
 .basketButton {
   background-color: #79BAEC;
-  margin: 10% 0 0 4%;
+  margin: 10% 10% 0 4%;
   padding: 2%;
   width: 30%;
   height: 30%;
   right: 70%;
   border-style: outset;
   font-family: Comfortaa;
+  font-size: 80%;
 }
+
 .basketButton:hover {
   background-color: #AED581;
   border-style: inset;
@@ -334,6 +384,13 @@ font-family: Comfortaa;
   top: 0;
   font-family: Comfortaa;
 
+}
+
+.Cancel:hover {
+  background-color: #ECF0F1;
+  border-style: inset;
+  border-radius: 5%;
+  cursor: pointer;
 }
 
 .Next {

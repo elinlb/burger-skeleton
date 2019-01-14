@@ -11,7 +11,7 @@
       <div class ="burgerBox">
         <router-link to="ordering" STYLE="text-decoration: none; color:black">
         <h1>{{uiLabels.build}}</h1>
-      <img src="@/assets/burger.png" width="60%" >
+      <img src="@/assets/burger.png" width="80%" >
       </router-link>
     </div>
 
@@ -53,6 +53,7 @@ export default {
 #styling {
   margin:auto;
   max-width: 40em;
+  position: relative;
 }
   h1 {
     text-transform: uppercase;
@@ -60,20 +61,20 @@ export default {
   }
   .language {
     position: absolute;
-    top: 1%;
-    left: 20%;
+    top: 0%;
+    left: 0%;
     font-family: Comfortaa;
   }
   .head {
     font-family: Comfortaa;
-    position:absolute;
+    position:relative;
     left: 20%;
     font-size:250%;
   }
 
   .burgerContainer {
     padding: 2%;
-    margin: 0 30% 0 30%;
+    margin:0% 30% 0 30%;
     list-style: none;
     font-family: Comfortaa;
     width: 40%;
@@ -96,7 +97,7 @@ export default {
       color: black;
       font-family: Comfortaa;
       width: 60%;
-      margin-top: 70%;
+      margin-top: 50%;
       margin-left: 0%;
 
       line-height: 150%;
@@ -107,6 +108,7 @@ export default {
       -webkit-flex-flow: row wrap;
       justify-content: space-around;
       border-style: double;
+      text-align: center;
 
       padding: 10% 30% 10% 30%;
     }
@@ -116,7 +118,7 @@ export default {
       color: black;
       font-family: Comfortaa;
       width: 100%;
-      margin-top: 70%;
+      margin-top: 50%;
       margin-left: 10%;
 
       line-height: 150%;

@@ -160,6 +160,13 @@ export default {
     font-family: Comfortaa;
   }
 
+  .Cancel:hover {
+    background-color: #ECF0F1;
+    border-style: inset;
+    border-radius: 5%;
+    cursor: pointer;
+  }
+
   .orderButton{
     font-family: Comfortaa;
     text-transform: uppercase;
