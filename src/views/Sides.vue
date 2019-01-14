@@ -26,17 +26,13 @@
           v-on:decrement="removeFromBurger(item)"
           :item="item"
           :lang="lang"
-          :counter_initial="countIngredientsChosen(item)"
           :key="item.ingredient_id">
         </Ingredient>
       </div>
 
-      <template v-if =  "slideNumber<7">
-            <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
-            </template>
-              <template v-if =  "slideNumber> 6">
-          <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
-        </template>
+      <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
+      <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
+
 
 <div class="orderWrapper">
   <h3 class="headline">{{ uiLabels.yourOrder }}</h3>
@@ -47,10 +43,8 @@
   <span v-for="(item, key2) in burger.ingredients" :key="key2">
     {{ item['ingredient_' + lang] }},
   </span>
-  <div v-if="burger.price > 0">
   {{burger.price}} kr
   <hr>
-</div>
   </div>
   </div>
 
@@ -133,18 +127,7 @@ export default {
       }
   },
   methods: {
-    countIngredientsChosen: function (item) {
-      //count the number of times the item(full ingredient) is in the chosen
-      //ingredients array
-      let countedIngredients = 0;
-      for (let i=0; i<this.chosenIngredients.length; i += 1) {
-        if (this.chosenIngredients[i] === item) {
-        countedIngredients += 1;
-        }
-      }
 
-      return countedIngredients;
-    },
     // addToOrder: function (item) {
     //   this.chosenIngredients.push(item);
     //   this.price += +item.selling_price;
@@ -294,7 +277,6 @@ max-width: 100%;
 }
 
 .basketButton {
-  margin: 10% 0 0 4%;
   width: 15%;
   height: 10%;
   right: 70%;
@@ -325,7 +307,7 @@ font-family: Comfortaa;
 .Cancel {
   width: 5em;
   height: 2em;
-  background-color: #FB402A;
+  background-color: red;
   position: absolute;
   right: 0;
   top: 0;
@@ -394,13 +376,16 @@ font-family: Comfortaa;
      font-family: Comfortaa;
      padding: 2%;
      font-size: 100%;
-     margin-left: 8%;
+     /*margin-left: 8%;*/
      /* background-color: orange; */
      height: auto;
      max-width: 30%;
      /* border-style:  outset;
      border-radius: 1em;
      border-width: thick; */
+     text-align: center;
+
+
 
 
  }
