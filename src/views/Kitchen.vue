@@ -23,6 +23,7 @@
       :key="key">
     </OrderItemToPrepare>
   </div>
+
   <router-link :to="{ name: 'stock' }">
   <button id="stockButton"><img src="@/assets/stock.png" width="50vw">{{uiLabels.stock}}</button>
   </router-link>

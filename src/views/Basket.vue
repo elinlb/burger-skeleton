@@ -12,7 +12,8 @@
 <img src="@/assets/basket.png" width="100em" height="70em">
   <div class="orderBox">
     <h1>{{uiLabels.yourOrder}}</h1>
-{{currentOrder}}
+{{currentOrder.burgers}}
+
     <div>
       <OrderItem
         :burgers="currentOrder.burgers"
@@ -40,9 +41,10 @@
      </div>
    </div>
 <footer class="footer">
-<div class="Price"> <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1>
-     </div>
+  <div class = "payBox">
+<!--<div class="Price">--> <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}: {{ price }} kr </h1
      <button class="orderButton" v-on:click="placeOrder()"><!-- <router-link: to="pay">-->{{ uiLabels.pay }}<!--</router-link>--></button>
+     </div>
 </footer>
    <!-- </div> -->
 
@@ -107,7 +109,7 @@ export default {
 
   #styling {
     margin:auto;
-    max-width: 40em;
+    max-width: 50%;
 }
 
   .language{
@@ -162,7 +164,7 @@ export default {
     font-family: Comfortaa;
     width: 20%;
     top: 50%;
-    left: 30%;
+    left: 100%;
 
     display: -webkit-box;
     display: -moz-box;
@@ -171,7 +173,7 @@ export default {
     display: flex;
 
     -webkit-flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     /* grid-gap: 2%; */
   }
 
@@ -183,7 +185,7 @@ export default {
     width: 100%;
     height: auto;
     margin-top: 80%;
-    left: 30%;
+    /* left: 30%; */
 
     line-height: 150%;
     font-weight: bold;
@@ -217,36 +219,13 @@ export default {
     border-color: black;
   }
 
-  .sideBox {
-    background-color: #F2F3F4;
-    color: black;
-    font-family: Comfortaa;
-    padding: 2em;
-    width: 100%;
-    height: auto;
-    margin-top: 2em;
-
-    line-height: 10em;
-    font-weight: bold;
-    font-size: 1em;
-    text-align: center;
-
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;
-    border-style: double;
-    border-color: black;
-    padding: 2%;
-    font-size: 100%;
-    margin-left: 20%;
-  }
-
   .backgroundpic {
     position: fixed;
     left:0;
     top:0;
     z-index: -2;
     opacity: 0.2;
-    width: 80em;
+    width: 100%;
   }
 
   button:hover {
@@ -256,6 +235,29 @@ export default {
   .footer{
     position: sticky;
     bottom: 0;
+
+  }
+
+  .payBox{
+    background-color: #F2F3F4;
+    color: black;
+    font-family: Comfortaa;
+    padding: 0 0 0 0;
+    width: 100%;
+    /* height: auto; */
+    /* margin-top: 10%; */
+     /* left: 10%; */
+    /* right: -20%; */
+
+    line-height: 150%;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+    border-style: double;
+    border-color: black;
 
   }
 

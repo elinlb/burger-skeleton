@@ -2,13 +2,13 @@
 	<div>
 
 		<!-- {{"order.type"}}--> {{uiLabels.ingredients}}<br><br>
-		<!-- {{order.orderId}}
-		{{order.burgers}} -->
+		<!-- {{order.orderId}} -->
+		{{order.burgers}}
 		<div v-for="(burger, key) in burgers" :key="key">
 		<!-- {{sortBurgers(burger)}} -->
 
 		<div v-for = "item in showCategory(burger)" :key="item">
-			{{item}}
+			<!-- {{item}} -->
 			<div v-if ="item === uiLabels.bread">
 					<div class="categoryHeadline">
 						{{ item }}:

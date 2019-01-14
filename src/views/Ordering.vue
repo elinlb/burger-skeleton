@@ -41,22 +41,6 @@
       <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
     <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
 
-<<<<<<< HEAD
-<div class="orderWrapper">
-  <h3 class="headline">{{ uiLabels.order }}</h3>
-  <div v-for="(burger, key) in currentOrder.burgers" :key="key">
-  {{key}}:
-  <span v-for="(item, key2) in burger.ingredients" :key="key2">
-    {{ item['ingredient_' + lang] }}
-  </span>
-  {{burger.price}}
-</div>
-<hr>
-    {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
-    <button v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button>
-    <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-    <button class= "orderButton"> <router-link to="sides">  {{uiLabels.continueSides}} </router-link></button>
-=======
     <div class="orderWrapper">
       <h3 class="headline">{{ uiLabels.yourOrder }}</h3>
       <div class="orderBox">
@@ -80,8 +64,7 @@
       </div>    <!-- <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
     <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
 
-    <button class ="orderButton" v-on:click="addToOrder()"><router-link to="sides" STYLE="text-decoration: none; color:black" >  {{uiLabels.continueSides}}  </router-link></button>
->>>>>>> 9aebb4c6db9910b97980d8915feb28d710cef08d
+    <button class ="orderButton" v-on:click="addToOrder()"><router-link to="sides" STYLE="text-decoration: none; color:black" >{{uiLabels.continueSides}}</router-link>  </button>
 
   </div>
 
@@ -224,9 +207,7 @@ max-width: 100%;
   font-family:Comfortaa;
 }
 
-<<<<<<< HEAD
-.li a {
-=======
+
 .coolHeadline {
   top: 0;
   font-weight: bold;
@@ -234,7 +215,6 @@ max-width: 100%;
 }
 
 h5 {
->>>>>>> 9aebb4c6db9910b97980d8915feb28d710cef08d
       text-decoration: none;
     }
 
