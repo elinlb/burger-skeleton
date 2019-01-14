@@ -88,9 +88,9 @@ export default {
 .picture {
   display: block;
   /* height: auto; */
-  max-height: 30%;
-  width: 35%;
-  max-width: 35%;
+  max-height: 12vh;
+  width: auto;
+  max-width: 10vw;
   /* max-width: 100px; */
   /*padding-left: 2em;*/
   align-items: center;

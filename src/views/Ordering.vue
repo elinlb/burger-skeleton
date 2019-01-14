@@ -39,8 +39,13 @@
           :key="item.ingredient_id">
         </Ingredient>
       </div>
-      <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
-    <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
+
+      <div v-if =  "slideNumber<5">
+            <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
+          </div>
+              <div v-if =  "slideNumber> 1">
+          <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
+        </div>
 
     <div class="orderWrapper">
       <h3 class="headline">{{ uiLabels.yourOrder }}</h3>
@@ -58,8 +63,6 @@
       </div>
       </div>
 
-
-
       <div class="orderBox">
         <h5 class="coolHeadline">{{uiLabels.chosenIngredients}}:</h5>
       <br>
@@ -69,7 +72,7 @@
          <!-- <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
     <!-- <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button> -->
 
-    <button class ="orderButton" v-on:click="addToOrder()"><router-link to="sides" STYLE="text-decoration: none; color:black" >  {{uiLabels.continueSides}}  </router-link></button>
+    <button class ="orderButton" v-on:click="addToOrder()"><router-link to="sides" STYLE="text-decoration: none; color:black" >  {{uiLabels.continueSides}} ⟶ </router-link></button>
 
   </div>
 
@@ -287,16 +290,19 @@ h5 {
 }
 
 .orderButton {
+  background-color: #79BAEC;
   margin: 10% 0 0 4%;
-  width: 15%;
-  height: 10%;
+  padding: 2%;
+  width: 30%;
+  height: 30%;
   right: 70%;
   border-style: outset;
   font-family: Comfortaa;
 }
 
 .orderButton:hover {
-  background-color: #8BC34A;
+  background-color: #AED581;
+  border-style: inset;
   cursor: pointer;
   textDecoration: none;
 
@@ -324,7 +330,7 @@ font-family: Comfortaa;
 }
 
 .Next:hover {
-  background-color: #8BC34A;
+background-color: #AED581;
   cursor: pointer;
 }
 
@@ -336,14 +342,14 @@ font-family: Comfortaa;
 }
 
 .Back:hover {
-  background-color: #8BC34A;
+background-color: #AED581;
   cursor: pointer;
 }
 
 .Cancel {
   width: 5em;
   height: 2em;
-  background-color: red;
+  background-color: #FB402A;
   position: absolute;
   right: 0;
   top: 0;
@@ -367,7 +373,7 @@ font-family: Comfortaa;
 }
 
  .boxWrapper {
-   /* grid-template-columns: 350px 350px 350px; */
+   /* grid-template-columns: 100% 100% 100%; */
    /* border-style: outset; */
    grid-template-columns: repeat(auto-fit,1%);
    grid-gap: 2%;
@@ -390,7 +396,8 @@ font-family: Comfortaa;
      /*margin-left: 8%;
      /* background-color: orange; */
      height: auto;
-     max-width: 30%;
+     width: 25%;
+     max-width: 25%;
      /* border-style:  outset;
      border-radius: 1em;
      border-width: thick; */
@@ -502,4 +509,12 @@ font-family: Comfortaa;
   font-weight: 700;
 }
 
+
+@media only screen and (max-width: 600px) {
+  .box {
+    width: 40%;
+    max-width: 40%;
+  }
+
+}
 </style>

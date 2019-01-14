@@ -1,4 +1,5 @@
 <template>
+<div class= "main-size">
 <div id="styling">
   <img class="backgroundpic" src="@/assets/brick.jpg" >
     <button class ="language" v-on:click="switchLang()">{{ uiLabels.language }}</button>
@@ -7,11 +8,11 @@
     </router-link>
 
 
-<!--<div class ="burgerContainer">-->
-<h1 class="headline">{{uiLabels.yourbasket}}</h1>
+<div class ="OrderContainer">
+<!-- <h1 class="headline">{{uiLabels.yourbasket}}</h1> -->
 <img id="basketPicture" src="@/assets/basket.png" width="100em" height="70em">
   <div class="orderBox">
-    <h1>{{uiLabels.yourOrder}}</h1>
+    <h1 class="headline">{{uiLabels.yourOrder}}</h1>
     <div>
       <OrderItem
         :burgers="currentOrder.burgers"
@@ -20,7 +21,7 @@
       </OrderItem>
     </div>
   </div>
-<!-- </div> -->
+</div>
 
     <div class = "burgerContainer">
       <div class ="burgerBox">
@@ -40,12 +41,13 @@
    </div>
 <footer class="footer">
   <div class = "payBox">
-      <h1> {{uiLabels.price}}
-        {{this.price}} </h1>
+      <h1> {{uiLabels.price}} {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}:
+        {{totalPrice(currentOrder.burgers)}} kr
+      </h1>
     <router-link to="pay"> <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.pay }}</button> </router-link>
      </div>
 </footer>
-
+</div>
 </div>
 
 </template>
@@ -76,13 +78,6 @@ export default {
       currentOrder: function () {
         return this.$store.state.currentOrder;
       },
-      countPrice: function () {
-        for (let i = 0; i < this.currentOrder.length; i += 1 ){
-        this.price += +this.currentOrder.burger.price;
-    }
-        return this.price;
-
-  },
 },
   methods: {
     cancel: function(){
@@ -90,6 +85,14 @@ export default {
         this.slideNumber =1
       }
   },
+  totalPrice: function(burger){
+    let totPrice = this.price;
+    for (let i=0; i<this.currentOrder.burgers.length; i +=1) {
+      totPrice += this.currentOrder.burgers[i].price;
+    }
+    return totPrice;
+  },
+
   placeOrder: function () {
     // make use of socket.io's magic to send the stuff to the kitchen via the server (app.js)
     this.$store.state.socket.emit('order', this.currentOrder);
@@ -113,14 +116,21 @@ export default {
     font-size: 1.4em;
   }
   #basketPicture{
-    position: absolute;
+    margin-top: 5%;
+    /* position: absolute; */
 
   }
   #styling {
     margin:auto;
-    max-width: 50%;
+    margin-top: 0;
+    max-width: 40em;
     position: relative;
 }
+
+  .main-size{
+    height: 0;
+    min-width: 100%;
+  }
 
   .language{
     font-family: Comfortaa;
@@ -162,19 +172,23 @@ export default {
 
   .headline {
     font-family:Comfortaa;
-    position:absolute;
-    text-align: center;
+    font-size: 2em;
+    /* position:absolute; */
+    /* text-align: center;
     left: 43.8%;
-    top: 4%;
+    /* top: 4%; */
+    /* margin-bottom: 100%; */
   }
 
-  .burgerContainer {
-    padding: 2%;
+
+
+  .orderContainer {
+    padding-top: 20%;
     margin: 0 0 0 30%;
     list-style: none;
     font-family: Comfortaa;
-    width: 20%;
-    top: 50%;
+    width: 100%;
+    /* margin-top: 2%; */
     left: 100%;
 
     display: -webkit-box;
@@ -195,7 +209,9 @@ export default {
     /* padding: 0 40% 0 40%; */
     width: 60%;
     height: auto;
-    /* margin-top: 0;*/
+    /* padding-top: 5em; */
+    /* margin-top: 5%; */
+    /* top: 10%; */
     margin-left: 20%;
     align: center;
 
@@ -209,16 +225,37 @@ export default {
     border-style: double;
     border-color: black;
   }
+  .burgerContainer {
+    /* padding: 2%; */
+    /* margin: 0 0 0 30%; */
+    padding-top: 4%;
+    padding-bottom: 4%;
+    list-style: none;
+    font-family: Comfortaa;
+    width: 100%;
+    /* top: 50%; */
+    /* left: 100%; */
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    justify-content: space-evenly;
+    /* grid-gap: 2%; */
+  }
 
   .burgerBox {
     background-color: #F2F3F4;
     color: black;
     font-family: Comfortaa;
-    padding: 0 80% 0 80%;
+    /* padding: 0 80% 0 80%; */
     width: 100%;
     height: auto;
-    margin-top: 10%;
-    left: 80%;
+    /* margin-top: 10%; */
+    /* left: 80%; */
 
     line-height: 150%;
     font-weight: bold;
