@@ -239,6 +239,7 @@ h5 {
   display: -webkit-flex;
   display: flex;
 
+
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
 }
