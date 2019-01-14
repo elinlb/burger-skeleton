@@ -5,6 +5,7 @@ import Homepage from './views/Homepage.vue'
 import Sides from './views/Sides.vue'
 import Basket from './views/Basket.vue'
 import Stock from './views/Stock.vue'
+import Pay from './views/Pay.vue'
 
 Vue.use(Router)
 
@@ -62,6 +63,14 @@ let router = new Router({
       },
       name: 'stock',
       component: Stock
+    },
+    {
+      path: '/pay',
+      meta: {
+        title: 'Please pay',
+      },
+      name: 'pay',
+      component: Pay
     }
   ]
 })

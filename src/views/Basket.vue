@@ -1,4 +1,5 @@
 <template>
+<div class= "main-size">
 <div id="styling">
   <img class="backgroundpic" src="@/assets/brick.jpg" >
     <button class ="language" v-on:click="switchLang()">{{ uiLabels.language }}</button>
@@ -7,11 +8,11 @@
     </router-link>
 
 
-<div class ="burgerContainer">
-<h1 class="headline">{{uiLabels.yourbasket}}</h1>
-<img src="@/assets/basket.png" width="100em" height="70em">
+<div class ="OrderContainer">
+<!-- <h1 class="headline">{{uiLabels.yourbasket}}</h1> -->
+<img id="basketPicture" src="@/assets/basket.png" width="100em" height="70em">
   <div class="orderBox">
-    <h1>{{uiLabels.yourOrder}}</h1>
+    <h1 class="headline">{{uiLabels.yourOrder}}</h1>
     <div>
       <OrderItem
         :burgers="currentOrder.burgers"
@@ -46,7 +47,7 @@
     <router-link to="pay"> <button class="orderButton" v-on:click="placeOrder()">{{ uiLabels.pay }}</button> </router-link>
      </div>
 </footer>
-
+</div>
 </div>
 
 </template>
@@ -76,8 +77,8 @@ export default {
   computed: {
       currentOrder: function () {
         return this.$store.state.currentOrder;
-      }
-  },
+      },
+},
   methods: {
     cancel: function(){
       if(this.slideNumber >1){
@@ -97,9 +98,10 @@ export default {
     this.$store.state.socket.emit('order', this.currentOrder);
     this.$store.commit('clearOrder');
     this.category = 1;
+  },
+
 
   }
-}
 }
 
 </script>
@@ -113,17 +115,28 @@ export default {
     text-transform: uppercase;
     font-size: 1.4em;
   }
+  #basketPicture{
+    margin-top: 5%;
+    /* position: absolute; */
 
+  }
   #styling {
     margin:auto;
-    max-width: 50%;
+    margin-top: 0;
+    max-width: 40em;
+    position: relative;
 }
+
+  .main-size{
+    height: 0;
+    min-width: 100%;
+  }
 
   .language{
     font-family: Comfortaa;
     position: absolute;
-    top: 0%;
-    left: 16%;
+    top: 0;
+    left: 0;
   }
 
   .language:hover {
@@ -142,7 +155,7 @@ export default {
     height: 2em;
     background-color: #FB402A;
     position: absolute;
-    right: 28%;
+    right: 0;
     top: 0;
     font-family: Comfortaa;
   }
@@ -166,18 +179,23 @@ export default {
 
   .headline {
     font-family:Comfortaa;
-    position:absolute;
-    left: 15%;
-    top: 4%;
+    font-size: 2em;
+    /* position:absolute; */
+    /* text-align: center;
+    left: 43.8%;
+    /* top: 4%; */
+    /* margin-bottom: 100%; */
   }
 
-  .burgerContainer {
-    padding: 2%;
+
+
+  .orderContainer {
+    padding-top: 20%;
     margin: 0 0 0 30%;
     list-style: none;
     font-family: Comfortaa;
-    width: 20%;
-    top: 50%;
+    width: 100%;
+    /* margin-top: 2%; */
     left: 100%;
 
     display: -webkit-box;
@@ -195,32 +213,56 @@ export default {
     background-color: #F2F3F4;
     color: black;
     font-family: Comfortaa;
-    padding: 0 80% 0 80%;
-    width: 100%;
+    /* padding: 0 40% 0 40%; */
+    width: 60%;
     height: auto;
-    margin-top: 80%;
-    /* left: 30%; */
+    /* padding-top: 5em; */
+    /* margin-top: 5%; */
+    /* top: 10%; */
+    margin-left: 20%;
+    align: center;
 
     line-height: 150%;
     font-weight: bold;
     font-size: 1em;
     text-align: center;
 
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;
+    /* -webkit-flex-flow: row wrap;
+    justify-content: space-around; */
     border-style: double;
     border-color: black;
+  }
+  .burgerContainer {
+    /* padding: 2%; */
+    /* margin: 0 0 0 30%; */
+    padding-top: 4%;
+    padding-bottom: 4%;
+    list-style: none;
+    font-family: Comfortaa;
+    width: 100%;
+    /* top: 50%; */
+    /* left: 100%; */
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    justify-content: space-evenly;
+    /* grid-gap: 2%; */
   }
 
   .burgerBox {
     background-color: #F2F3F4;
     color: black;
     font-family: Comfortaa;
-    padding: 0 80% 0 80%;
+    /* padding: 0 80% 0 80%; */
     width: 100%;
     height: auto;
-    margin-top: 10%;
-    left: 80%;
+    /* margin-top: 10%; */
+    /* left: 80%; */
 
     line-height: 150%;
     font-weight: bold;
