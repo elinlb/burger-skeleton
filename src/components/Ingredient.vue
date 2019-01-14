@@ -8,9 +8,9 @@
     </p>
     <center><img class="picture" :src="findImage(item.image)" @click="incrementCounter"></center>
       <br>
-        <center><button class= "decrement" v-on:click="decrementCounter" >-</button></center>
+        <button class= "decrement" v-on:click="decrementCounter" >-</button>
       {{ counter }}
-      <center><button class= "increment" v-on:click="incrementCounter" >+</button></center>
+      <button class= "increment" v-on:click="incrementCounter" >+</button>
       <p @click="incrementCounter">
       {{item.selling_price}}:-
     </p>
