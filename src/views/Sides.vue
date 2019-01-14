@@ -26,8 +26,6 @@
           v-on:decrement="removeFromBurger(item)"
           :item="item"
           :lang="lang"
-
-          :counter_initial="countIngredientsChosen(item)"
           :key="item.ingredient_id">
         </Ingredient>
       </div>
