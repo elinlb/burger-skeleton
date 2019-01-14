@@ -2,23 +2,18 @@
 <template>
 
 <div class="ingredient box" >
-  <label>
-    <!-- <label> -->
-    <img class="picture" :src="findImage(item.image)">
+    <img class="picture" :src="findImage(item.image)" @click="incrementCounter">
       <br>
-      <button class= "decrement" v-on:click="decrementCounter" >-</button>
+        <button class= "decrement" v-on:click="decrementCounter" >-</button>
       {{ counter }}
-      <label>
       <button class= "increment" v-on:click="incrementCounter" >+</button>
-    </label>
       <p>
-      <th>{{item["ingredient_"+ lang]}}</th>
+      <th @click="incrementCounter">{{item["ingredient_"+ lang]}}</th>
     </p>
-      <p>
+      <p @click="incrementCounter">
       {{allergyInfo(item)}}, {{item.selling_price}}:-
     </p>
     <!-- </label> -->
-  </label>
   </div>
 <!-- </div> -->
 <!-- </div> -->
@@ -31,12 +26,16 @@ export default {
     item: Object,
     lang: String,
     uiLabels: Object,
+    counter_initial: Number,
   },
     data: function () {
     return {
       counter: 0,
       allergies: ""
     };
+  },
+  mounted: function(){
+    this.counter = this.counter_initial
   },
   methods: {
     incrementCounter: function () {

@@ -35,6 +35,7 @@
           v-on:decrement="removeFromBurger(item)"
           v-bind:item="item"
           :lang="lang"
+          :counter_initial="countIngredientsChosen(item)"
           :key="item.ingredient_id">
         </Ingredient>
       </div>
@@ -128,6 +129,11 @@ export default {
       }.bind(this));
     },
   methods: {
+    countIngredientsChosen: function (item) {
+      //count the number of times the item(full ingredient) is in the chosen
+      //ingredients array
+      return 0;
+    },
     addToBurger: function (item) {
       this.chosenIngredients.push(item);
       this.price += +item.selling_price;
