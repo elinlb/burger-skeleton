@@ -101,8 +101,8 @@
 			</div>
 		</div>
 		<div v-if ="burger.price != 0">
-		<hr>
-	</div>
+	<hr>
+</div>
 		</div>
 	</div>
 </template>
