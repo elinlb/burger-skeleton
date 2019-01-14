@@ -8,9 +8,9 @@
       <br>
       <button class= "decrement" v-on:click="decrementCounter" >-</button>
       {{ counter }}
+      <label>
       <button class= "increment" v-on:click="incrementCounter" >+</button>
-<!--
-      <label> -->
+    </label>
       <p>
       <th>{{item["ingredient_"+ lang]}}</th>
     </p>
