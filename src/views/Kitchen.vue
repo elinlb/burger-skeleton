@@ -20,10 +20,7 @@
       :burgers="order.burgers"
       :ui-labels="uiLabels"
       :lang="lang"
-<<<<<<< HEAD
-=======
 
->>>>>>> 6ebbe3f69737f611df1d9d21421003a4e561e92d
       :key="key">
     </OrderItemToPrepare>
   </div>

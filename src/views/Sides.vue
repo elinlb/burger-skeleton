@@ -26,10 +26,7 @@
           v-on:decrement="removeFromBurger(item)"
           :item="item"
           :lang="lang"
-<<<<<<< HEAD
           :counter_initial="countIngredientsChosen(item)"
-=======
->>>>>>> 6ebbe3f69737f611df1d9d21421003a4e561e92d
           :key="item.ingredient_id">
         </Ingredient>
       </div>
@@ -50,10 +47,10 @@
   <span v-for="(item, key2) in burger.ingredients" :key="key2">
     {{ item['ingredient_' + lang] }},
   </span>
-  <!-- <div v-if="burger.price > 0"> -->
+  <div v-if="burger.price > 0">
   {{burger.price}} kr
   <hr>
-<!-- </div> -->
+</div>
   </div>
   </div>
 
