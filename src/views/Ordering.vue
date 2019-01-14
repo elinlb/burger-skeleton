@@ -48,11 +48,10 @@
         </div>
 
     <div class="orderWrapper">
-      <h3 class="headline">{{ uiLabels.yourOrder }}</h3>
+      <h3 class="headline orderText">{{ uiLabels.yourOrder }}</h3>
       <div class="orderBox">
             <h5 class="coolHeadline">{{uiLabels.addedOrder}}:</h5>
       <div v-for="(burger, key) in currentOrder.burgers" :key="key">
-      <!-- {{key}}: -->
       <span v-for="(item, key2) in burger.ingredients" :key="key2">
         {{ item['ingredient_' + lang] }},
       </span>
@@ -238,12 +237,17 @@ h5 {
       font-family:Comfortaa;
     }
 
+.orderText {
+  margin-left: 10%;
+
+}
+
 .orderWrapper {
   background-color: #F2F3F4;
   border-style: dashed;
   /* border-color: black; */
   padding: 2%;
-  margin: 10% 0 6% 0 ;
+  margin: 10% 0 6% 0%;
   list-style: none;
   font-family: Comfortaa;
 
@@ -265,7 +269,7 @@ h5 {
     font-family: Comfortaa;
     padding: 2%;
     font-size: 100%;
-    margin-left: 8%;
+    margin-left: 4%;
     height: auto;
     max-width: 30%;
 }
@@ -291,9 +295,10 @@ h5 {
 
 .orderButton {
   background-color: #79BAEC;
-  margin: 10% 0 0 4%;
-  padding: 2%;
+  margin: 10% 10% 0 4%;
+  padding: 0%;
   width: 30%;
+  max-width: 30%;
   height: 30%;
   right: 70%;
   border-style: outset;
@@ -354,6 +359,13 @@ background-color: #AED581;
   right: 0;
   top: 0;
   font-family: Comfortaa;
+}
+
+.Cancel:hover {
+  background-color: #ECF0F1;
+  border-style: inset;
+  border-radius: 5%;
+  cursor: pointer;
 }
 
 
