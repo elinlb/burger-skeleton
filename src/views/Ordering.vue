@@ -39,8 +39,13 @@
           :key="item.ingredient_id">
         </Ingredient>
       </div>
-      <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
-    <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
+
+      <template v-if =  "slideNumber<5">
+            <button class = "Next" v-on:click="nextSlide()">{{ uiLabels.next }} </button>
+            </template>
+              <template v-if =  "slideNumber> 1">
+          <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
+        </template>
 
     <div class="orderWrapper">
       <h3 class="headline">{{ uiLabels.yourOrder }}</h3>
@@ -57,8 +62,6 @@
     </div>
       </div>
       </div>
-
-
 
       <div class="orderBox">
         <h5 class="coolHeadline">{{uiLabels.chosenIngredients}}:</h5>
@@ -343,7 +346,7 @@ font-family: Comfortaa;
 .Cancel {
   width: 5em;
   height: 2em;
-  background-color: red;
+  background-color: #FB402A;
   position: absolute;
   right: 0;
   top: 0;
