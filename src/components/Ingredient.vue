@@ -6,11 +6,11 @@
     <p>
     <span><th @click="incrementCounter">{{item["ingredient_"+ lang]}}</th>{{allergyInfo(item)}}</span>
     </p>
-    <img class="picture" :src="findImage(item.image)" @click="incrementCounter">
+    <center><img class="picture" :src="findImage(item.image)" @click="incrementCounter"></center>
       <br>
-        <button class= "decrement" v-on:click="decrementCounter" >-</button>
+        <center><button class= "decrement" v-on:click="decrementCounter" >-</button></center>
       {{ counter }}
-      <button class= "increment" v-on:click="incrementCounter" >+</button>
+      <center><button class= "increment" v-on:click="incrementCounter" >+</button></center>
       <p @click="incrementCounter">
       {{item.selling_price}}:-
     </p>
