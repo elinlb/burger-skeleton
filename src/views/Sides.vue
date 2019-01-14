@@ -35,9 +35,9 @@
 
 
 <div class="orderWrapper">
-  <h3 class="headline">{{ uiLabels.order }}</h3>
+  <h3 class="headline">{{ uiLabels.yourOrder }}</h3>
   <div class="orderBox">
-        <h5 class="headline">{{uiLabels.addedOrder}}</h5>
+        <h5 class="headline">{{uiLabels.addedOrder}}:</h5>
   <div v-for="(burger, key) in currentOrder.burgers" :key="key">
   <!-- {{key}}: -->
   <span v-for="(item, key2) in burger.ingredients" :key="key2">

@@ -42,9 +42,9 @@
     <button class = "Back" v-on:click="previousSlide()">{{ uiLabels.back }} </button>
 
     <div class="orderWrapper">
-      <h3 class="headline">{{ uiLabels.order }}</h3>
+      <h3 class="headline">{{ uiLabels.yourOrder }}</h3>
       <div class="orderBox">
-            <h5 class="headline">{{uiLabels.addedOrder}}</h5>
+            <h5 class="coolHeadline">{{uiLabels.addedOrder}}:</h5>
       <div v-for="(burger, key) in currentOrder.burgers" :key="key">
       <!-- {{key}}: -->
       <span v-for="(item, key2) in burger.ingredients" :key="key2">
@@ -58,7 +58,7 @@
 
 
       <div class="orderBox">
-        <h5 class="headline">{{uiLabels.chosenIngredients}}:</h5>
+        <h5 class="coolHeadline">{{uiLabels.chosenIngredients}}:</h5>
       <br>
         {{ chosenIngredients.map(item => item["ingredient_"+lang]).join(', ') }}, {{ price }} kr
       </div>    <!-- <button class ="orderButton" v-on:click="addToOrder()">{{ uiLabels.addToOrder }}</button> -->
@@ -204,6 +204,12 @@ max-width: 100%;
 }
 
 .headline {
+  font-family:Comfortaa;
+}
+
+.coolHeadline {
+  top: 0;
+  font-weight: bold;
   font-family:Comfortaa;
 }
 
